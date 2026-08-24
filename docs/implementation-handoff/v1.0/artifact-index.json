@@ -1,0 +1,196 @@
+{
+  "package": "mythic-rpg-preimplementation-codex-handoff",
+  "version": "1.0.0",
+  "date": "2026-08-23",
+  "status": "ready-for-explicit-implementation-authorization",
+  "precedence_file": "SOURCE_PRECEDENCE.md",
+  "entrypoint": "00_START_HERE/CODEX_EXECUTION_PROMPT.md",
+  "artifacts": [
+    {
+      "path": "README_FIRST.md",
+      "role": "Package start",
+      "bytes": 880,
+      "sha256": "56995bf3bbd1b29c57ee29aa81d1122a15ff7b12dadbb611eee13578e4ce7159"
+    },
+    {
+      "path": "SOURCE_PRECEDENCE.md",
+      "role": "Authority order",
+      "bytes": 1001,
+      "sha256": "2e6cda502244630258da42bb35b897848483bebf444c7b5021e6264df146923d"
+    },
+    {
+      "path": "00_START_HERE/CODEX_EXECUTION_PROMPT.md",
+      "role": "Paste-ready new-session prompt",
+      "bytes": 4193,
+      "sha256": "09e07f492cb81b66bae4df8ef958d7da1230c3372e82e9435d345a2a239c5eba"
+    },
+    {
+      "path": "05_READINESS_AND_RUNBOOK/readiness-audit.json",
+      "role": "Preimplementation readiness evidence",
+      "bytes": 5607,
+      "sha256": "4cf6a5ab1c87cbbb02bc7a9db0bf1e4294366af98eedf0832d73f63d79ec86cd"
+    },
+    {
+      "path": "05_READINESS_AND_RUNBOOK/implementation-authorization.json",
+      "role": "Final explicit authorization gate",
+      "bytes": 1315,
+      "sha256": "55fb07cc8adda51583fe131fca727bd6c85d010d808d3f2300961f3e4c1c2760"
+    },
+    {
+      "path": "05_READINESS_AND_RUNBOOK/stop-conditions.json",
+      "role": "Autonomy and pause boundaries",
+      "bytes": 1227,
+      "sha256": "bceb3c363b5044efa7e6baa070398df767b43c694ee7feb1b5c021ea5640f618"
+    },
+    {
+      "path": "05_READINESS_AND_RUNBOOK/execution-runbook.json",
+      "role": "Ordered EP-00–15 runbook",
+      "bytes": 8662,
+      "sha256": "428ecf83bca3614edad9e11fcbd380fcc4f18079ded1cf80dab5ba74adbdd8b5"
+    },
+    {
+      "path": "validation-report.json",
+      "role": "Validated readiness summary",
+      "bytes": 618,
+      "sha256": "c327734fdf408d3ba48e43ef9178cc61eda318234635ca1554d40d661689e223"
+    },
+    {
+      "path": "tests/validate_handoff.py",
+      "role": "Deterministic package validator",
+      "bytes": 4625,
+      "sha256": "f4ec0657ac45f7400c09bca91f4948333a5edce597a9ed9769372a2d6308cb72"
+    },
+    {
+      "path": "01_GOVERNANCE/Mythic_Superhero_RPG_World_Constitution_v1.md",
+      "role": "Supreme world/canon authority",
+      "bytes": 476738,
+      "sha256": "782ad24865a53d0e48e4be531f9d7dece91818ccccd979edd2517fdf235033b9"
+    },
+    {
+      "path": "01_GOVERNANCE/UX_UI_Foundation_v0.1A.md",
+      "role": "Approved product and UX foundation",
+      "bytes": 33982,
+      "sha256": "cafd201a80710b148e80a3bf7fdfd6fcc3403019beda31e2c267fc9629ca05e9"
+    },
+    {
+      "path": "01_GOVERNANCE/Mythic_RPG_Product_Information_Architecture_v0.1A.md",
+      "role": "Approved product information architecture",
+      "bytes": 26895,
+      "sha256": "7d6597824676cede69e5a99586f5f45d1867f9ffc297143d0cd68c5576b4e5ca"
+    },
+    {
+      "path": "01_GOVERNANCE/HISTORICAL_UX_UI_Planning_Handoff.md",
+      "role": "Historical sequence input; superseded where later approved artifacts are more specific",
+      "bytes": 16184,
+      "sha256": "b330e376b3957cd772991b06a575a7a4bd3c224858de869fe73a113803ef393b"
+    },
+    {
+      "path": "02_CONTRACTS/Mythic_RPG_Engine_UI_Contract_Foundation_v0.1A.md",
+      "role": "Engine/UI contract authority foundation",
+      "bytes": 26518,
+      "sha256": "a782c985a25c02b285cb97607cda54ded5e9b57def574b8713fe4b5a65481df1"
+    },
+    {
+      "path": "02_CONTRACTS/C1_Acceptance.md",
+      "role": "Approved common/core-loop acceptance",
+      "bytes": 13244,
+      "sha256": "4800bd95feac72f30eb206487b67f0eb004fe8e196f2054c0401bc8c57f39840"
+    },
+    {
+      "path": "02_CONTRACTS/C1_Contract_Package.zip",
+      "role": "Approved C1 schemas, APIs, events and fixtures",
+      "bytes": 46603,
+      "sha256": "aab632c7dd7374614f2335295df914ba7adc59111b17e6b4c8bc563c55f653d8"
+    },
+    {
+      "path": "02_CONTRACTS/C2_Acceptance.md",
+      "role": "Approved system-breadth acceptance",
+      "bytes": 15536,
+      "sha256": "3547b26aa0f1abbd029b404a5f6518b5f87401b0a46e5555fb23d155b40ae1dd"
+    },
+    {
+      "path": "02_CONTRACTS/C2_Contract_Package.zip",
+      "role": "Approved C2 schemas, APIs, events and fixtures",
+      "bytes": 274817,
+      "sha256": "aa67146f4ee1074effeb72ad9e0a57b6cd6c193e607dc130270b41db36c31977"
+    },
+    {
+      "path": "02_CONTRACTS/C3_Acceptance.md",
+      "role": "Approved async/accessibility/media acceptance",
+      "bytes": 15687,
+      "sha256": "482ee77b6fef2973fc5f75abf1764b8ebc9a014e5de4b332f6db855df57a2c87"
+    },
+    {
+      "path": "02_CONTRACTS/C3_Contract_Package.zip",
+      "role": "Approved C3 schemas, APIs, events and fixtures",
+      "bytes": 184024,
+      "sha256": "1bead7f19fb24ced3d47227a16e58378620785add8668c303cf4c74a6d4af615"
+    },
+    {
+      "path": "02_CONTRACTS/C4_Acceptance_and_Gate.md",
+      "role": "Approved planning traceability/backlog; its original pre-UI open rows are superseded by current controlled workbook",
+      "bytes": 23419,
+      "sha256": "25d50188bbce0e04cb0c9934c9e8c7c20499bb0989bc8c6bd7e5b7f893f45990"
+    },
+    {
+      "path": "02_CONTRACTS/C4_Planning_Package.zip",
+      "role": "Approved backlog, traces and CI gates",
+      "bytes": 35544,
+      "sha256": "e8d483fecb2add10a6e8f7ab08e71db886718a8c2a364f4dd5e3b4528f2cd2b9"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI01_Acceptance.md",
+      "role": "Approved component-library acceptance",
+      "bytes": 6320,
+      "sha256": "ed02c68c2fc1eee61f99c5caf065769c006a4e7aca9fc7b14248f9f99a698b10"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI01_Component_Library.zip",
+      "role": "Approved 40-component code-native library/reference",
+      "bytes": 34845,
+      "sha256": "167dba6382074de0f5c56572044cdc1a0c2baa667db2dec651ea132b1887ada5"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI02_Acceptance.md",
+      "role": "Approved high-fidelity screen-atlas acceptance",
+      "bytes": 7456,
+      "sha256": "bdde89ca4f72867f3a37a5b2801cf717e5587423e64c53666c726dcb9632c92a"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI02_Screen_Atlas.zip",
+      "role": "Approved 14-screen/state browser reference and traces",
+      "bytes": 3062339,
+      "sha256": "34e9c3bdcf89d95f819a8a58c728c2dcf1e811dc9d4e63c3ebac11185e44245b"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI03_Acceptance.md",
+      "role": "Approved asset-system acceptance",
+      "bytes": 7189,
+      "sha256": "818245113aab6db977ab6672a269c2f9f7ebaefb87d5591100453c4039fc1430"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI03_Asset_Manifest.zip",
+      "role": "Approved 60-slot asset manifest, references, icons, placements and fallbacks",
+      "bytes": 12300014,
+      "sha256": "a5410f053cd45cb8cccc33e5e19d2972b2d3d4ea3a8922f21c7a11b5c40a537c"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI04_Acceptance.md",
+      "role": "Approved frontend architecture acceptance",
+      "bytes": 7738,
+      "sha256": "056034cbe59430d9abeb7c5491f65f10116612dde8b98d7ca9f0068b525828e0"
+    },
+    {
+      "path": "03_FINALIZED_UX_UI/UI04_Frontend_Architecture.zip",
+      "role": "Approved routes, machines, ports, ownership, tests and execution plan",
+      "bytes": 43427,
+      "sha256": "4eec20d126dfafd3ca8c0145f206733a068d4e2a2907d61e3aa6c7aede91ee79"
+    },
+    {
+      "path": "04_CONTROL_AND_TRACEABILITY/Mythic_RPG_UX_UI_Contract_Traceability_Matrix_v0.1.xlsx",
+      "role": "Current controlled approval/gate/traceability workbook",
+      "bytes": 297443,
+      "sha256": "74ab083d4df427ec7f11740696c0cae30208d60db47915d94328b8fac15a8e23"
+    }
+  ]
+}
