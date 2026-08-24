@@ -36,7 +36,10 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000/campaign/glass-harbor/stage`. The implementation
+Open `http://localhost:3000`. A first-time player can choose the campaign tone
+and comfort settings, build a legal 18-point hero, commit the campaign, learn
+the core loop, and enter the Drowned Archive Stage. Returning players can
+resume their locally created campaign from the campaign library. The implementation
 includes all fourteen approved route families, pinned C1–C3 contract sources,
 deterministic service fakes, generated schema registration, and automated
 contract, architecture, accessibility, route, and production-build checks.

@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { SCREENS, STATE_OPTIONS, type ScreenSpec, type Tone } from "@/src/lib/screen-data";
 import { PlayableIntent } from "@/src/components/playable-intent";
 import type { StageProjection } from "@/src/server/projectors/drowned-archive-projector";
+import { CampaignLibrary, CampaignSetup, CharacterBuilder } from "@/src/components/campaign-start";
 
 type State = (typeof STATE_OPTIONS)[number];
 const destinations = ["Stage", "Character", "Company", "Holdings", "World", "Chronicle"];
@@ -54,6 +55,12 @@ function Stage({ screen, projection }: { screen: ScreenSpec; projection?: Loaded
   </div>;
 }
 
+function StartSurface({ kind }: { kind: ScreenSpec["kind"] }) {
+  if (kind === "library") return <CampaignLibrary />;
+  if (kind === "onboarding") return <CampaignSetup />;
+  return <CharacterBuilder />;
+}
+
 function Record({ screen }: { screen: ScreenSpec }) {
   return <div className="record-surface"><div className="record-hero"><div><span className="eyebrow">{screen.status}</span><h2>{screen.headline}</h2><p>{screen.summary}</p></div><div className="hero-actions"><button className="primary-action">{screen.primaryAction}</button><button className="secondary-action">{screen.secondaryAction}</button></div></div><Facts screen={screen}/><div className="record-columns"><section className="ledger-panel"><div className="panel-heading"><span>PRIMARY RECORD</span><Tag tone="known">Recorded</Tag></div>{screen.context.map((item, i) => <button className={`record-row ${i === 0 ? "selected" : ""}`} key={item}><span className="record-index">0{i+1}</span><span><strong>{item}</strong><small>{i ? "Available in this viewpoint" : "Selected · inspectable"}</small></span><span>›</span></button>)}</section><aside className="detail-panel"><div className="panel-heading"><span>PLAYER-SAFE DETAIL</span><Tag tone="agency">Viewpoint</Tag></div><h3>{screen.playerQuestion}</h3><p>{screen.knowledgeBoundary}</p><div className="mini-timeline"><span className="done">Confirmed</span><span className="active">Current</span><span>Next</span></div></aside></div></div>;
 }
@@ -66,16 +73,17 @@ function System({ screen }: { screen: ScreenSpec }) {
 }
 
 export function MythicApp({ path, initialStage }: { path: string; initialStage?: LoadedStage }) {
-  const screen = useMemo(() => SCREENS.find(s => s.route === path) ?? (path === "/" ? SCREENS[3] : SCREENS[0]), [path]);
+  const screen = useMemo(() => SCREENS.find(s => s.route === path) ?? SCREENS[0], [path]);
   const [state, setState] = useState<State>("Ready");
   const [subview, setSubview] = useState(screen.subviews[0]);
   const isStage = ["stage", "resolution", "danger"].includes(screen.kind);
-  const isRecord = ["library", "onboarding", "builder", "recovery", "settings"].includes(screen.kind);
+  const isStart = ["library", "onboarding", "builder"].includes(screen.kind);
+  const isRecord = ["recovery", "settings"].includes(screen.kind);
   return <div className="mythic-app">
     <header className="world-strip"><Link href="/campaigns" className="mythic-mark"><span>MYTHIC</span><small>GLASS HARBOR</small></Link><div className="world-fact"><span>LEDGER TIME</span><strong>{initialStage?.ledgerTime ?? "Day 18 · Watch 2"}</strong></div><div className="world-fact"><span>VIEWPOINT</span><strong>Mara Vale</strong></div><div className="world-fact pressure"><span>WORLD PRESSURE</span><strong>{initialStage ? `${initialStage.scene.pressure.label} · ${initialStage.scene.pressure.value}/${initialStage.scene.pressure.maximum}` : "Tidemark rising"}</strong></div><Link className="world-menu" href="/settings" aria-label="Open settings">•••</Link></header>
     <div className="game-body"><nav className="campaign-rail" aria-label="Campaign destinations">{destinations.map(d => <Link key={d} href={destinationRoute[d]} className={d === screen.destination ? "active" : ""}><span>{glyphs[d]}</span><small>{d}</small></Link>)}</nav>
       <main className="game-main" id="main-content"><header className="surface-header"><div><span className="eyebrow">{screen.destination} · {screen.id}</span><h1>{screen.name}</h1></div><div className="projection-controls"><Tag tone="known">Viewpoint-safe</Tag><label><span className="sr-only">Preview state</span><select value={state} onChange={e => setState(e.target.value as State)}>{STATE_OPTIONS.filter(s => screen.variants.includes(s)).map(s => <option key={s}>{s}</option>)}</select></label></div></header>
-      <nav className="subview-tabs" aria-label={`${screen.name} sections`}>{screen.subviews.map(s => <button key={s} className={s === subview ? "active" : ""} onClick={() => setSubview(s)}>{s}</button>)}</nav><StateNotice state={state}/>{isStage ? <Stage screen={screen} projection={initialStage}/> : isRecord ? <Record screen={screen}/> : <System screen={screen}/>}</main></div>
+      {!isStart && <nav className="subview-tabs" aria-label={`${screen.name} sections`}>{screen.subviews.map(s => <button key={s} className={s === subview ? "active" : ""} onClick={() => setSubview(s)}>{s}</button>)}</nav>}<StateNotice state={state}/>{isStart ? <StartSurface kind={screen.kind}/> : isStage ? <Stage screen={screen} projection={initialStage}/> : isRecord ? <Record screen={screen}/> : <System screen={screen}/>}</main></div>
     <footer className="chronicle-ribbon"><span>CHRONICLE</span><strong>Latest · Archive threshold recorded</strong><small>Canon receipt 7K2</small><Link href="/campaign/glass-harbor/chronicle">Open record</Link></footer>
     <div className="announcer sr-only" aria-live="polite">{stateCopy[state]}</div>
   </div>;
