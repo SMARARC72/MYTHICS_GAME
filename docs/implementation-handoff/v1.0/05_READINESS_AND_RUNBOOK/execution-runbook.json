@@ -1,0 +1,234 @@
+{
+  "run_id": "MYTHIC-FRONTEND-EXECUTION-1.0",
+  "state": "NOT_STARTED",
+  "operating_mode": "After explicit authorization, run continuously through the next safe gate; do not solicit approval packet-by-packet unless a stop condition is reached.",
+  "repository_discipline": [
+    "Read repository AGENTS.md/instructions completely",
+    "Inspect current branch, remotes, worktree and existing stack",
+    "Preserve unrelated changes",
+    "Create or use a protected feature branch; never mutate main directly unless user explicitly instructs",
+    "Prefer small coherent commits aligned to execution packets",
+    "Record chosen versions and architecture conformance in EP-00"
+  ],
+  "verification_discipline": [
+    "Generate consumers from approved contracts; no handwritten duplicate models",
+    "Run the narrowest relevant test during editing, then packet exit suite",
+    "Use deterministic fakes before live integration",
+    "Browser-verify every implemented route and critical state",
+    "Do not mark human gates passed without recorded human evidence",
+    "Maintain an execution ledger with packet, commit, tests, failures and remaining gates"
+  ],
+  "packets": [
+    {
+      "sequence": 0,
+      "packet_id": "EP-00",
+      "name": "Authorize and pin execution profile",
+      "dependencies": [],
+      "entry_criteria": "Approved UI-04 plus explicit clean-session implementation authorization",
+      "exit_criteria": "Record runtime/package/browser support matrix, lockfile, repository conventions and CI baseline",
+      "ci_gates": "CI-01",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 1,
+      "packet_id": "EP-01",
+      "name": "Generate contract consumers",
+      "dependencies": [
+        "EP-00"
+      ],
+      "entry_criteria": "Pinned C1–C3 sources",
+      "exit_criteria": "Generate strict types, validators and registries; pass all 127 fixtures and clean-diff gate",
+      "ci_gates": "CI-01,CI-02,CI-03",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 2,
+      "packet_id": "EP-02",
+      "name": "Build ports and deterministic fakes",
+      "dependencies": [
+        "EP-01"
+      ],
+      "entry_criteria": "L1 generated consumers",
+      "exit_criteria": "Implement L2 port interfaces, fake projection/command/event/recovery/media services and failure injection",
+      "ci_gates": "CI-03,CI-04,CI-05",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 3,
+      "packet_id": "EP-03",
+      "name": "Build shell and accessibility infrastructure",
+      "dependencies": [
+        "EP-02"
+      ],
+      "entry_criteria": "UI-01 shell contracts",
+      "exit_criteria": "Deliver World Strip, rail, route header, focus/announcement/localization/preference infrastructure",
+      "ci_gates": "CI-08,CI-10,CI-13",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 4,
+      "packet_id": "EP-04",
+      "name": "Campaign entry and Issue Zero",
+      "dependencies": [
+        "EP-03"
+      ],
+      "entry_criteria": "SCR-01–03 · SM-01/09/10",
+      "exit_criteria": "Reach first meaningful choice without lore gate; character/BP draft audit works against fixtures",
+      "ci_gates": "CI-08,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 5,
+      "packet_id": "EP-05",
+      "name": "Living Stage read composition",
+      "dependencies": [
+        "EP-03"
+      ],
+      "entry_criteria": "SCR-04 · PRE-02",
+      "exit_criteria": "Render viewpoint-safe Stage, lenses, pressures and optional art with semantic fallback",
+      "ci_gates": "CI-04,CI-13,CI-15",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 6,
+      "packet_id": "EP-06",
+      "name": "Intent-to-resolution action loop",
+      "dependencies": [
+        "EP-05"
+      ],
+      "entry_criteria": "SCR-05–06 · SM-02/03",
+      "exit_criteria": "Interpret, revise, forecast, confirm, commit, lookup and render all receipt branches without optimistic canon",
+      "ci_gates": "CI-05,CI-06,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 7,
+      "packet_id": "EP-07",
+      "name": "Durable reconnect and recovery",
+      "dependencies": [
+        "EP-02",
+        "EP-06"
+      ],
+      "entry_criteria": "SCR-13 · SM-03/04",
+      "exit_criteria": "Preserve draft/idempotency/cursor/checkpoint references across simulated loss and cold restart",
+      "ci_gates": "CI-06,CI-07",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 8,
+      "packet_id": "EP-08",
+      "name": "Character and progression",
+      "dependencies": [
+        "EP-04",
+        "EP-07"
+      ],
+      "entry_criteria": "SCR-07 · SM-06",
+      "exit_criteria": "Implement BP ledger, condition, continuation and advancement legal/conflict paths",
+      "ci_gates": "CI-03,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 9,
+      "packet_id": "EP-09",
+      "name": "Company, relationships and Relic agency",
+      "dependencies": [
+        "EP-05",
+        "EP-07"
+      ],
+      "entry_criteria": "SCR-08",
+      "exit_criteria": "Implement refusal/counteroffer and knowledge-safe relationship/relic projections",
+      "ci_gates": "CI-04,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 10,
+      "packet_id": "EP-10",
+      "name": "Holdings, custody and projects",
+      "dependencies": [
+        "EP-05",
+        "EP-07"
+      ],
+      "entry_criteria": "SCR-09 · SM-07",
+      "exit_criteria": "Implement checkpoint, destructive confirmation and custody authority paths",
+      "ci_gates": "CI-05,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 11,
+      "packet_id": "EP-11",
+      "name": "World atlas and travel",
+      "dependencies": [
+        "EP-05",
+        "EP-07"
+      ],
+      "entry_criteria": "SCR-10 · SM-08",
+      "exit_criteria": "Implement semantic map/table parity, journey intervals, lost and conflict paths",
+      "ci_gates": "CI-04,CI-08,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 12,
+      "packet_id": "EP-12",
+      "name": "Cases, evidence, fronts and law",
+      "dependencies": [
+        "EP-11"
+      ],
+      "entry_criteria": "SCR-11",
+      "exit_criteria": "Implement knowledge-class evidence and case claims without leakage",
+      "ci_gates": "CI-04,CI-14",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 13,
+      "packet_id": "EP-13",
+      "name": "Chronicle and media",
+      "dependencies": [
+        "EP-07",
+        "EP-12"
+      ],
+      "entry_criteria": "SCR-12 · SM-05 · PRE-06",
+      "exit_criteria": "Implement capture through immutable edition, provider recovery and all publication gates",
+      "ci_gates": "CI-09,CI-11,CI-12",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 14,
+      "packet_id": "EP-14",
+      "name": "Asset production integration",
+      "dependencies": [
+        "EP-05",
+        "EP-08",
+        "EP-09",
+        "EP-10",
+        "EP-11",
+        "EP-13"
+      ],
+      "entry_criteria": "Approved UI-03 manifest",
+      "exit_criteria": "Bind immutable descriptors, reference-safe direction and fallbacks; complete rights/canon/alt/crop review by wave",
+      "ci_gates": "CI-09,CI-13,CI-15",
+      "production_status": "not started; requires explicit authorization"
+    },
+    {
+      "sequence": 15,
+      "packet_id": "EP-15",
+      "name": "Full validation and readiness evidence",
+      "dependencies": [
+        "EP-04",
+        "EP-06",
+        "EP-07",
+        "EP-08",
+        "EP-09",
+        "EP-10",
+        "EP-11",
+        "EP-12",
+        "EP-13",
+        "EP-14"
+      ],
+      "entry_criteria": "All screen families",
+      "exit_criteria": "Run 15 gates, 17 scenarios, 40 components, target browsers, AT matrix, privacy, performance and long session; no failed gate",
+      "ci_gates": "CI-01–15",
+      "production_status": "not started; requires explicit authorization"
+    }
+  ],
+  "completion_target": "QA-ready protected preview candidate with automated evidence complete; production release remains a separate decision."
+}

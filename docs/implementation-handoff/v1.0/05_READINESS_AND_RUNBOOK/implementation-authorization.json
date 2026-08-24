@@ -1,0 +1,27 @@
+{
+  "gate_id": "MYTHIC-IMPLEMENTATION-AUTH-1.0",
+  "current_decision": "AWAITING_EXPLICIT_USER_AUTHORIZATION",
+  "recommended_decision": "AUTHORIZE_PREVIEW_IMPLEMENTATION",
+  "recommended_authorization_phrase": "Authorize the clean-session Codex implementation run.",
+  "authorized_scope_when_opened": [
+    "Create/use a protected implementation branch in the target repository",
+    "Execute EP-00 through EP-15 continuously",
+    "Build the desktop-first responsive frontend and deterministic service fakes/adapters",
+    "Use existing configured sandbox/test integrations",
+    "Run automated contract, unit, component, route, scenario, accessibility, privacy and performance checks",
+    "Create a verified local or protected preview candidate when repository permissions allow"
+  ],
+  "still_requires_separate_approval": [
+    "Production deployment or promotion",
+    "Public release",
+    "Live production data migration or destructive database action",
+    "Paid provider purchase or new credential authority",
+    "Comic publication",
+    "Marking planned/blocked art as rights-cleared or canonical",
+    "Bypassing failed CI, human accessibility, rights, knowledge-ceiling or QA gates"
+  ],
+  "not_authorized_until_opened": [
+    "Production frontend construction",
+    "New-session execution run"
+  ]
+}

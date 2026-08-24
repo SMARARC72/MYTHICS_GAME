@@ -1,0 +1,27 @@
+{
+  "continue_without_reapproval": [
+    "Ordinary reversible code edits inside the authorized branch",
+    "Dependency pinning that meets the approved architecture and existing repository constraints",
+    "Test/fake creation",
+    "Safe bug fixes needed to pass an approved gate",
+    "Documentation and verification evidence"
+  ],
+  "pause_and_report": [
+    "Repository target cannot be resolved",
+    "An approved artifact contradicts another at the same authority level",
+    "A product behavior decision is genuinely absent",
+    "Required credentials or external permissions are unavailable",
+    "A destructive or production external action is required",
+    "A failed safety/knowledge/accessibility/rights gate cannot be fixed within approved scope",
+    "Existing user changes overlap materially with the planned edit"
+  ],
+  "never_do": [
+    "Invent canon, hidden facts or character appearance invariants",
+    "Use Figma",
+    "Treat browser state as canonical authority",
+    "Retry an unknown commit before status lookup",
+    "Expose protected media audit or hidden truth to the client",
+    "Force-push, hard-reset or discard unrelated user work",
+    "Claim manual/human gates passed without evidence"
+  ]
+}
