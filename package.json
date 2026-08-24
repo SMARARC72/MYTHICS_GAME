@@ -27,6 +27,7 @@
     "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "15.1.2",
     "@axe-core/playwright": "4.11.1",
     "@playwright/test": "1.62.1",
     "@testing-library/jest-dom": "6.9.1",
