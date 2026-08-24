@@ -1,0 +1,507 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c2/schemas/events/system-breadth.schema.json",
+  "title": "Mythic RPG C2 System-Breadth Events",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ProgressionCommitted"
+    },
+    {
+      "$ref": "#/$defs/DefeatContinuationChanged"
+    },
+    {
+      "$ref": "#/$defs/AutonomousActorStatusChanged"
+    },
+    {
+      "$ref": "#/$defs/RelicStatusChanged"
+    },
+    {
+      "$ref": "#/$defs/CustodyTransferred"
+    },
+    {
+      "$ref": "#/$defs/ProjectCheckpointReached"
+    },
+    {
+      "$ref": "#/$defs/JourneyIntervalResolved"
+    },
+    {
+      "$ref": "#/$defs/WorldRecordUpdated"
+    },
+    {
+      "$ref": "#/$defs/ChronicleConsequenceRouted"
+    }
+  ],
+  "$defs": {
+    "ProgressionCommitted": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "progression_committed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "character_id",
+                "checkpoint_id",
+                "bp_spent",
+                "bp_remaining",
+                "allocation_refs"
+              ],
+              "properties": {
+                "character_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "checkpoint_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "bp_spent": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "bp_remaining": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "allocation_refs": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DefeatContinuationChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "defeat_continuation_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject_id",
+                "previous_state",
+                "new_state",
+                "continuation_id",
+                "agency_state"
+              ],
+              "properties": {
+                "subject_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "previous_state": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "new_state": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "continuation_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "agency_state": {
+                  "type": "string",
+                  "enum": [
+                    "full",
+                    "constrained_playable",
+                    "viewpoint_transition",
+                    "none_by_choice"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "AutonomousActorStatusChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "autonomous_actor_status_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "actor_id",
+                "change_kind",
+                "accessible_reason",
+                "projection_refs"
+              ],
+              "properties": {
+                "actor_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "change_kind": {
+                  "type": "string",
+                  "enum": [
+                    "accepted",
+                    "refused",
+                    "counteroffered",
+                    "departed",
+                    "returned",
+                    "delegation_changed",
+                    "captured",
+                    "dead"
+                  ]
+                },
+                "accessible_reason": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                },
+                "projection_refs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RelicStatusChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "relic_status_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "relic_id",
+                "change_kind",
+                "projection_refs"
+              ],
+              "properties": {
+                "relic_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "change_kind": {
+                  "type": "string",
+                  "enum": [
+                    "custody",
+                    "ownership",
+                    "claim",
+                    "recognition",
+                    "relationship",
+                    "attunement",
+                    "access",
+                    "damage",
+                    "reformation",
+                    "succession"
+                  ]
+                },
+                "projection_refs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CustodyTransferred": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "custody_transferred"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "item_id",
+                "from_holder_id",
+                "to_holder_id",
+                "authority_ref",
+                "ownership_changed"
+              ],
+              "properties": {
+                "item_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "from_holder_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "to_holder_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "authority_ref": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "ownership_changed": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ProjectCheckpointReached": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "project_checkpoint_reached"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "project_id",
+                "interval_id",
+                "progress_delta",
+                "material_changes",
+                "next_checkpoint_ref"
+              ],
+              "properties": {
+                "project_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "interval_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "progress_delta": {
+                  "type": "integer"
+                },
+                "material_changes": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "next_checkpoint_ref": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "JourneyIntervalResolved": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "journey_interval_resolved"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "journey_id",
+                "leg_id",
+                "elapsed",
+                "location_state",
+                "resource_changes",
+                "pause_reason"
+              ],
+              "properties": {
+                "journey_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "leg_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "elapsed": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "location_state": {
+                  "type": "string",
+                  "enum": [
+                    "exact",
+                    "uncertain",
+                    "lost",
+                    "displaced"
+                  ]
+                },
+                "resource_changes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "pause_reason": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "WorldRecordUpdated": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "world_record_updated"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "record_kind",
+                "record_id",
+                "change_kind",
+                "projection_refs"
+              ],
+              "properties": {
+                "record_kind": {
+                  "type": "string",
+                  "enum": [
+                    "map",
+                    "route",
+                    "site",
+                    "evidence",
+                    "case",
+                    "faction",
+                    "front",
+                    "legal",
+                    "reputation"
+                  ]
+                },
+                "record_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "change_kind": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "projection_refs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ChronicleConsequenceRouted": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "chronicle_consequence_routed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "bundle_id",
+                "source_event_ids",
+                "surface_projection_refs"
+              ],
+              "properties": {
+                "bundle_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "source_event_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "surface_projection_refs": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

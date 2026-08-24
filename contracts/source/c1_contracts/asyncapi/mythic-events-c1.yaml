@@ -1,0 +1,52 @@
+asyncapi: 3.1.0
+info:
+  title: Mythic RPG Viewpoint Event Contract — Checkpoint C1
+  version: 0.1.0
+  description: Viewpoint-safe event stream for committed state, projections, decision windows, command status, recovery and accessibility.
+defaultContentType: application/json
+servers:
+  contract-placeholder:
+    host: events.example.invalid
+    protocol: wss
+    description: Placeholder only; transport and production platform are not selected
+channels:
+  viewpointEvents:
+    address: campaigns/{campaignId}/viewpoints/{viewpointId}/events
+    parameters:
+      campaignId: { $ref: '#/components/parameters/campaignId' }
+      viewpointId: { $ref: '#/components/parameters/viewpointId' }
+    messages:
+      canonicalStateCommitted: { $ref: '#/components/messages/canonicalStateCommitted' }
+      accessibleProjectionUpdated: { $ref: '#/components/messages/accessibleProjectionUpdated' }
+      decisionWindowChanged: { $ref: '#/components/messages/decisionWindowChanged' }
+      commandStatusChanged: { $ref: '#/components/messages/commandStatusChanged' }
+      recoveryRequired: { $ref: '#/components/messages/recoveryRequired' }
+      accessibilityAnnouncement: { $ref: '#/components/messages/accessibilityAnnouncement' }
+operations:
+  receiveViewpointEvents:
+    action: receive
+    channel: { $ref: '#/channels/viewpointEvents' }
+    summary: Receive ordered, knowledge-safe events for one campaign viewpoint
+components:
+  parameters:
+    campaignId: { description: Opaque campaign identifier }
+    viewpointId: { description: Opaque viewpoint identifier }
+  messages:
+    canonicalStateCommitted:
+      name: canonicalStateCommitted
+      payload: { $ref: '../schemas/events/core-loop.schema.json#/$defs/CanonicalStateCommitted' }
+    accessibleProjectionUpdated:
+      name: accessibleProjectionUpdated
+      payload: { $ref: '../schemas/events/core-loop.schema.json#/$defs/AccessibleProjectionUpdated' }
+    decisionWindowChanged:
+      name: decisionWindowChanged
+      payload: { $ref: '../schemas/events/core-loop.schema.json#/$defs/DecisionWindowChanged' }
+    commandStatusChanged:
+      name: commandStatusChanged
+      payload: { $ref: '../schemas/events/core-loop.schema.json#/$defs/CommandStatusChanged' }
+    recoveryRequired:
+      name: recoveryRequired
+      payload: { $ref: '../schemas/events/core-loop.schema.json#/$defs/RecoveryRequired' }
+    accessibilityAnnouncement:
+      name: accessibilityAnnouncement
+      payload: { $ref: '../schemas/events/core-loop.schema.json#/$defs/AccessibilityAnnouncement' }

@@ -1,0 +1,694 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c2/schemas/commands/system-breadth.schema.json",
+  "title": "Mythic RPG C2 System-Breadth Commands",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/DraftAdvancement"
+    },
+    {
+      "$ref": "#/$defs/CommitAdvancement"
+    },
+    {
+      "$ref": "#/$defs/SubmitRecruitmentOffer"
+    },
+    {
+      "$ref": "#/$defs/RequestAutonomousActorAction"
+    },
+    {
+      "$ref": "#/$defs/DraftJourney"
+    },
+    {
+      "$ref": "#/$defs/CommitJourneyLeg"
+    },
+    {
+      "$ref": "#/$defs/DraftProjectInterval"
+    },
+    {
+      "$ref": "#/$defs/CommitProjectInterval"
+    },
+    {
+      "$ref": "#/$defs/TransferCustody"
+    },
+    {
+      "$ref": "#/$defs/RecordCaseClaim"
+    },
+    {
+      "$ref": "#/$defs/ChooseContinuation"
+    },
+    {
+      "$ref": "#/$defs/CommandReceipt"
+    }
+  ],
+  "$defs": {
+    "DraftAdvancement": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "draft_advancement"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "character_id",
+                "checkpoint_id",
+                "allocations"
+              ],
+              "properties": {
+                "character_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "checkpoint_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "allocations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "target_ref",
+                      "requested_rank"
+                    ],
+                    "properties": {
+                      "target_ref": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "requested_rank": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CommitAdvancement": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "commit_advancement"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "character_id",
+                "checkpoint_id",
+                "reviewed_draft_id",
+                "reviewed_allocation_ids",
+                "final_confirmation"
+              ],
+              "properties": {
+                "character_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "checkpoint_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "reviewed_draft_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "reviewed_allocation_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "final_confirmation": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SubmitRecruitmentOffer": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "submit_recruitment_offer"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "candidate_id",
+                "terms",
+                "voluntariness"
+              ],
+              "properties": {
+                "candidate_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "terms": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "purpose",
+                    "role",
+                    "duration",
+                    "compensation",
+                    "authority",
+                    "ownership",
+                    "boundaries",
+                    "exit_rights",
+                    "risks"
+                  ],
+                  "properties": {
+                    "purpose": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "role": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "duration": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "compensation": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "authority": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "ownership": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "boundaries": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4000
+                      }
+                    },
+                    "exit_rights": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "risks": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4000
+                      }
+                    }
+                  }
+                },
+                "voluntariness": {
+                  "type": "string",
+                  "enum": [
+                    "voluntary",
+                    "coerced_disclosed"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RequestAutonomousActorAction": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "request_autonomous_actor_action"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "actor_id",
+                "requested_goal",
+                "requested_method",
+                "authority_ref",
+                "refusal_preserved"
+              ],
+              "properties": {
+                "actor_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "requested_goal": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "requested_method": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "authority_ref": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "refusal_preserved": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DraftJourney": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "draft_journey"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "journey_id",
+                "method_ref",
+                "pace",
+                "intended_destination",
+                "roles",
+                "compression_requested"
+              ],
+              "properties": {
+                "journey_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "method_ref": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "pace": {
+                  "type": "string",
+                  "enum": [
+                    "cautious",
+                    "standard",
+                    "fast",
+                    "forced"
+                  ]
+                },
+                "intended_destination": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "role",
+                      "actor_id"
+                    ],
+                    "properties": {
+                      "role": {
+                        "type": "string",
+                        "enum": [
+                          "navigator",
+                          "scout",
+                          "operator",
+                          "trailblazer",
+                          "quartermaster",
+                          "guard"
+                        ]
+                      },
+                      "actor_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      }
+                    }
+                  }
+                },
+                "compression_requested": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CommitJourneyLeg": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "commit_journey_leg"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "journey_id",
+                "leg_id",
+                "reviewed_plan_id",
+                "final_confirmation"
+              ],
+              "properties": {
+                "journey_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "leg_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "reviewed_plan_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "final_confirmation": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DraftProjectInterval": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "draft_project_interval"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "project_id",
+                "worker_ids",
+                "material_lot_ids",
+                "method"
+              ],
+              "properties": {
+                "project_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "worker_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "material_lot_ids": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "method": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CommitProjectInterval": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "commit_project_interval"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "project_id",
+                "reviewed_interval_id",
+                "worker_authority_refs",
+                "material_authority_refs",
+                "final_confirmation"
+              ],
+              "properties": {
+                "project_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "reviewed_interval_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "worker_authority_refs": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "material_authority_refs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "final_confirmation": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "TransferCustody": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "transfer_custody"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "item_id",
+                "from_holder_id",
+                "to_holder_id",
+                "authority_ref",
+                "transfer_terms",
+                "final_confirmation"
+              ],
+              "properties": {
+                "item_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "from_holder_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "to_holder_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "authority_ref": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "transfer_terms": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "final_confirmation": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RecordCaseClaim": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "record_case_claim"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "case_id",
+                "claim_text",
+                "classification",
+                "supporting_evidence_ids",
+                "contradicting_evidence_ids"
+              ],
+              "properties": {
+                "case_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "claim_text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "classification": {
+                  "type": "string",
+                  "enum": [
+                    "reported",
+                    "observed",
+                    "inferred",
+                    "corroborated",
+                    "disputed",
+                    "refuted"
+                  ]
+                },
+                "supporting_evidence_ids": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "contradicting_evidence_ids": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ChooseContinuation": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/CommandEnvelope"
+        },
+        {
+          "properties": {
+            "command_type": {
+              "const": "choose_continuation"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "continuation_id",
+                "option_id",
+                "acknowledged_constraints",
+                "final_confirmation"
+              ],
+              "properties": {
+                "continuation_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "option_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "acknowledged_constraints": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "final_confirmation": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CommandReceipt": {
+      "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReceiptEnvelope"
+    }
+  }
+}

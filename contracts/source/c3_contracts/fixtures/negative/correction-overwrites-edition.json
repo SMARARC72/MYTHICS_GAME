@@ -1,0 +1,20 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_request_correction_001",
+  "command_type": "request_comic_correction",
+  "idempotency_key": "idem-request_correction-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "issue_id": "issue_archive_001",
+    "supersedes_edition_id": "edition_archive_001",
+    "correction_reason": "Correct speaker attribution on page one.",
+    "preserve_history": true,
+    "overwrite_published_edition": true
+  }
+}

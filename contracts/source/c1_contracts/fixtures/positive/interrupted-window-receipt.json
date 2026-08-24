@@ -1,0 +1,44 @@
+{
+  "contract_version": "1.0.0",
+  "receipt_id": "receipt_interrupted_001",
+  "command_id": "command_commit_007",
+  "lookup_key": "lookup-command_commit_007-20260823",
+  "status": "committed",
+  "campaign_id": "camp_breakwater_001",
+  "source_state_version": "sv_0001842",
+  "generated_at": "2026-08-23T14:00:02Z",
+  "outcome": {
+    "family": "interrupted",
+    "code": "interrupted.window",
+    "preserved_goal": "Reach the transformer control room",
+    "interpreted_method": "Cross the flooded maintenance gantry",
+    "accessible_obstacle": "A transformer arc collapses the gantry during the attempt.",
+    "revisable_fields": [
+      "method",
+      "timing"
+    ],
+    "cost_spent": true,
+    "time_spent": true,
+    "roll_spent": false,
+    "retry_eligible": false,
+    "current_accessible_state_version": "sv_0001842",
+    "help_refs": [
+      {
+        "source_id": "event_dockfire_001",
+        "source_type": "event",
+        "accessible": true,
+        "label": "Dockside transformer fire witnessed from Pier Nine"
+      }
+    ]
+  },
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "Action status: committed.",
+    "dedupe_key": "receipt-interrupted"
+  },
+  "current_state_version": "sv_0001843",
+  "committed_event_ids": [
+    "event_gantry_arc_001"
+  ]
+}

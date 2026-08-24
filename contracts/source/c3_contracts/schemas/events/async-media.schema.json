@@ -1,0 +1,589 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c3/schemas/events/async-media.schema.json",
+  "title": "Mythic RPG C3 Recovery, Accessibility and Media Events",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ConnectivityStateChanged"
+    },
+    {
+      "$ref": "#/$defs/SaveCheckpointCommitted"
+    },
+    {
+      "$ref": "#/$defs/RecoveryStateChanged"
+    },
+    {
+      "$ref": "#/$defs/AttentionDigestUpdated"
+    },
+    {
+      "$ref": "#/$defs/AccessibilityProfileChanged"
+    },
+    {
+      "$ref": "#/$defs/ContentControlsChanged"
+    },
+    {
+      "$ref": "#/$defs/ComicCaptureUpdated"
+    },
+    {
+      "$ref": "#/$defs/ComicInflectionReady"
+    },
+    {
+      "$ref": "#/$defs/ComicSourceLocked"
+    },
+    {
+      "$ref": "#/$defs/ComicJobStatusChanged"
+    },
+    {
+      "$ref": "#/$defs/ComicReviewRequired"
+    },
+    {
+      "$ref": "#/$defs/ComicEditionPublished"
+    },
+    {
+      "$ref": "#/$defs/ComicEditionSuperseded"
+    }
+  ],
+  "$defs": {
+    "ConnectivityStateChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "connectivity_state_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "connectivity",
+                "play_capability"
+              ],
+              "properties": {
+                "connectivity": {
+                  "type": "string",
+                  "enum": [
+                    "online",
+                    "degraded",
+                    "offline",
+                    "reconnecting"
+                  ]
+                },
+                "play_capability": {
+                  "type": "string",
+                  "enum": [
+                    "full",
+                    "offline_safe",
+                    "read_only",
+                    "canonical_commit_paused"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SaveCheckpointCommitted": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "save_checkpoint_committed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "checkpoint_id",
+                "durable_state_version",
+                "comic_capture_preserved",
+                "queue_preserved"
+              ],
+              "properties": {
+                "checkpoint_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "durable_state_version": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/StateVersion"
+                },
+                "comic_capture_preserved": {
+                  "const": true
+                },
+                "queue_preserved": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RecoveryStateChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "recovery_state_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "recovery_id",
+                "state",
+                "queue_preserved",
+                "source_locks_preserved"
+              ],
+              "properties": {
+                "recovery_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "recovering",
+                    "conflict",
+                    "provider_unavailable",
+                    "unknown_commit",
+                    "restored"
+                  ]
+                },
+                "queue_preserved": {
+                  "const": true
+                },
+                "source_locks_preserved": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "AttentionDigestUpdated": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "attention_digest_updated"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "digest_id",
+                "unread_count",
+                "knowledge_safe"
+              ],
+              "properties": {
+                "digest_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "unread_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "knowledge_safe": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "AccessibilityProfileChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "accessibility_profile_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile_id",
+                "semantic_update_required"
+              ],
+              "properties": {
+                "profile_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "semantic_update_required": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ContentControlsChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "content_controls_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile_id",
+                "applies_to_gameplay",
+                "applies_to_comics"
+              ],
+              "properties": {
+                "profile_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "applies_to_gameplay": {
+                  "const": true
+                },
+                "applies_to_comics": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicCaptureUpdated": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_capture_updated"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "capture_id",
+                "captured_through_event_id",
+                "canonical_mutation",
+                "gameplay_continues"
+              ],
+              "properties": {
+                "capture_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "captured_through_event_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "canonical_mutation": {
+                  "const": false
+                },
+                "gameplay_continues": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicInflectionReady": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_inflection_ready"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "review_id",
+                "trigger",
+                "gameplay_continues"
+              ],
+              "properties": {
+                "review_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "trigger": {
+                  "type": "string",
+                  "enum": [
+                    "hard_inflection",
+                    "cadence_threshold",
+                    "player_checkpoint",
+                    "campaign_end"
+                  ]
+                },
+                "gameplay_continues": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicSourceLocked": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_source_locked"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "source_lock_id",
+                "canon_snapshot_id",
+                "immutable",
+                "gameplay_continues",
+                "world_time_frozen"
+              ],
+              "properties": {
+                "source_lock_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "canon_snapshot_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "immutable": {
+                  "const": true
+                },
+                "gameplay_continues": {
+                  "const": true
+                },
+                "world_time_frozen": {
+                  "const": false
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicJobStatusChanged": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_job_status_changed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "stage",
+                "progress_display_mode",
+                "queue_durable",
+                "gameplay_continues"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "stage": {
+                  "type": "string",
+                  "enum": [
+                    "capturing",
+                    "waiting_for_inflection",
+                    "preparing",
+                    "source_locked",
+                    "outlined",
+                    "scripted",
+                    "storyboarded",
+                    "generating",
+                    "art_qa",
+                    "lettered",
+                    "page_qa",
+                    "exporting",
+                    "approved",
+                    "published",
+                    "blocked"
+                  ]
+                },
+                "progress_display_mode": {
+                  "const": "stage_only"
+                },
+                "queue_durable": {
+                  "const": true
+                },
+                "gameplay_continues": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicReviewRequired": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_review_required"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "job_id",
+                "review_kind",
+                "wip_requires_opt_in"
+              ],
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "review_kind": {
+                  "type": "string",
+                  "enum": [
+                    "inflection",
+                    "blocked_asset",
+                    "qa",
+                    "publication"
+                  ]
+                },
+                "wip_requires_opt_in": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicEditionPublished": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_edition_published"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "issue_id",
+                "edition_id",
+                "source_lock_id",
+                "immutable",
+                "hard_gates_passed"
+              ],
+              "properties": {
+                "issue_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "edition_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "source_lock_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "immutable": {
+                  "const": true
+                },
+                "hard_gates_passed": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ComicEditionSuperseded": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/EventEnvelope"
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "comic_edition_superseded"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "issue_id",
+                "superseded_edition_id",
+                "new_edition_id",
+                "history_preserved"
+              ],
+              "properties": {
+                "issue_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "superseded_edition_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "new_edition_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "history_preserved": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "autonomous_actor_status",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-autonomous_actor_status",
+    "text_alternative": "autonomous_actor_status updated."
+  },
+  "payload": {
+    "actor_id": "actor_ilya_rook_001",
+    "actor_kind": "companion",
+    "display_name": "Ilya Rook",
+    "availability": "refusing",
+    "operation_mode": "autonomous",
+    "relationship_summary": "cooperative",
+    "delegated_authority": [
+      {
+        "fact_id": "fact_delegation_medic_001",
+        "classification": "recorded",
+        "statement": "Ilya accepted authority over medical triage, not abandonment decisions.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "current_intent": {
+      "fact_id": "fact_intent_treat_001",
+      "classification": "perceived",
+      "statement": "Ilya is stabilizing the last trapped rigger.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "boundaries": [
+      {
+        "fact_id": "fact_boundary_abandon_001",
+        "classification": "recorded",
+        "statement": "Ilya will not abandon a treatable patient for convenience.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "evidence": [
+      {
+        "fact_id": "fact_reason_001",
+        "classification": "perceived",
+        "statement": "Ilya refuses to leave the injured workers behind.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "last_contact": {
+      "tick": 1900,
+      "display": "Rainsday, Third Bell — 14:20",
+      "calendar": "Breakwater Civic",
+      "sequence": 1900,
+      "phase": "aftermath"
+    },
+    "private_actor_motive": "SECRET_BETRAYAL_PLAN"
+  }
+}

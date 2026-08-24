@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server"; import { SLICE_CAMPAIGN_ID,sliceService } from "@/src/server/vertical-slice";
+export async function GET(_request:Request,{params}:{params:Promise<{campaignId:string;idempotencyKey:string}>}){const {campaignId,idempotencyKey}=await params;if(campaignId!==SLICE_CAMPAIGN_ID)return NextResponse.json({error:"Campaign not found"},{status:404});const receipt=sliceService().resolveStatus(idempotencyKey);return receipt?NextResponse.json(receipt):NextResponse.json({error:"Receipt not found"},{status:404});}

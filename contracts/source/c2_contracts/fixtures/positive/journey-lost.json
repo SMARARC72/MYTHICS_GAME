@@ -1,0 +1,206 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "journey_state",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-journey_state",
+    "text_alternative": "journey_state updated."
+  },
+  "payload": {
+    "journey_id": "journey_drowned_tram_001",
+    "status": "lost",
+    "location_state": "lost",
+    "sensory_position": {
+      "fact_id": "fact_sensory_lost_001",
+      "classification": "perceived",
+      "statement": "A broken signal tower leans west of the flooded track.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "method": {
+      "fact_id": "fact_method_skiff_001",
+      "classification": "recorded",
+      "statement": "The company is traveling by rescue skiff.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "pace": "cautious",
+    "roles": [
+      {
+        "role": "navigator",
+        "actor_id": "actor_mara_venn_001",
+        "authority": {
+          "fact_id": "fact_nav_authority_001",
+          "classification": "recorded",
+          "statement": "Mara accepted navigation for this leg.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      }
+    ],
+    "current_leg": {
+      "leg_id": "leg_tram_delta_001",
+      "intended_destination": {
+        "fact_id": "fact_destination_beacon_001",
+        "classification": "recorded",
+        "statement": "Reach the blue tram beacon.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      },
+      "planned_duration": "2 hours",
+      "commit_state": "resolved"
+    },
+    "known_route_state": [
+      {
+        "fact_id": "fact_route_flooded_001",
+        "classification": "perceived",
+        "statement": "The marked channel has vanished beneath floodwater.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "resource_forecast": [
+      {
+        "fact_id": "fact_fuel_forecast_001",
+        "classification": "forecast",
+        "statement": "Fuel should support one cautious reorientation interval.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "compression": {
+      "eligible": false,
+      "player_consented": true,
+      "pause_reasons": [
+        {
+          "fact_id": "fact_pause_lost_001",
+          "classification": "recorded",
+          "statement": "Compression paused because the party became lost.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_journey_leg_001",
+  "event_type": "journey_interval_resolved",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "journey interval resolved.",
+    "dedupe_key": "event-journey_interval_resolved",
+    "text_alternative": "journey interval resolved."
+  },
+  "payload": {
+    "journey_id": "journey_drowned_tram_001",
+    "leg_id": "leg_tram_delta_001",
+    "elapsed": "2 hours 30 minutes",
+    "location_state": "lost",
+    "resource_changes": [
+      {
+        "fact_id": "fact_fuel_spent_001",
+        "classification": "recorded",
+        "statement": "The skiff consumed two fuel units.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "pause_reason": {
+      "fact_id": "fact_journey_pause_001",
+      "classification": "recorded",
+      "statement": "Compression paused when location certainty fell to Lost.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c3/schemas/read-models/accessibility-content-localization.schema.json",
+  "title": "Mythic RPG C3 Accessibility, Content-Control and Localization Read Models",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/AccessibilityProfile"
+    },
+    {
+      "$ref": "#/$defs/ContentControlProfile"
+    },
+    {
+      "$ref": "#/$defs/LocalizationProfile"
+    },
+    {
+      "$ref": "#/$defs/IssueZeroAvailability"
+    }
+  ],
+  "$defs": {
+    "AccessibilityProfile": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "accessibility_profile"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile_id",
+                "input_modes",
+                "text_scale",
+                "contrast_mode",
+                "reduced_motion",
+                "screen_reader_mode",
+                "live_update_mode",
+                "color_independent",
+                "non_drag_alternative",
+                "hover_independent",
+                "session_persistent"
+              ],
+              "properties": {
+                "profile_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "input_modes": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "keyboard",
+                      "pointer",
+                      "controller",
+                      "voice",
+                      "switch",
+                      "touch"
+                    ]
+                  }
+                },
+                "text_scale": {
+                  "type": "string",
+                  "enum": [
+                    "compact",
+                    "standard",
+                    "large",
+                    "extra_large"
+                  ]
+                },
+                "contrast_mode": {
+                  "type": "string",
+                  "enum": [
+                    "standard",
+                    "high",
+                    "system"
+                  ]
+                },
+                "reduced_motion": {
+                  "type": "boolean"
+                },
+                "screen_reader_mode": {
+                  "type": "boolean"
+                },
+                "live_update_mode": {
+                  "type": "string",
+                  "enum": [
+                    "essential_only",
+                    "aggregated",
+                    "detailed"
+                  ]
+                },
+                "color_independent": {
+                  "const": true
+                },
+                "non_drag_alternative": {
+                  "const": true
+                },
+                "hover_independent": {
+                  "const": true
+                },
+                "session_persistent": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ContentControlProfile": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "content_control_profile"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile_id",
+                "controls",
+                "confirmed",
+                "never_inferred_from_prose",
+                "applies_to_gameplay",
+                "applies_to_comics"
+              ],
+              "properties": {
+                "profile_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "controls": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "control_id",
+                      "topic",
+                      "boundary"
+                    ],
+                    "properties": {
+                      "control_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "topic": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "boundary": {
+                        "type": "string",
+                        "enum": [
+                          "line",
+                          "veil",
+                          "standard",
+                          "intense"
+                        ]
+                      },
+                      "presentation_note": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      }
+                    }
+                  }
+                },
+                "confirmed": {
+                  "const": true
+                },
+                "never_inferred_from_prose": {
+                  "const": true
+                },
+                "applies_to_gameplay": {
+                  "const": true
+                },
+                "applies_to_comics": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "LocalizationProfile": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "localization_profile"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile_id",
+                "locale",
+                "reading_direction",
+                "separate_lettering_layers",
+                "approved_terminology",
+                "meaning_preserved",
+                "source_dialogue_traceable"
+              ],
+              "properties": {
+                "profile_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "locale": {
+                  "type": "string",
+                  "pattern": "^[a-z]{2,3}(?:-[A-Z]{2})?$"
+                },
+                "reading_direction": {
+                  "type": "string",
+                  "enum": [
+                    "left_to_right",
+                    "right_to_left"
+                  ]
+                },
+                "separate_lettering_layers": {
+                  "const": true
+                },
+                "approved_terminology": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "term_id",
+                      "source_term",
+                      "localized_term"
+                    ],
+                    "properties": {
+                      "term_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "source_term": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "localized_term": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      }
+                    }
+                  }
+                },
+                "meaning_preserved": {
+                  "const": true
+                },
+                "source_dialogue_traceable": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "IssueZeroAvailability": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "issue_zero_availability"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "issue_id",
+                "asset_state",
+                "supported_modes",
+                "blocking",
+                "choice_penalty",
+                "fallback_summary_available",
+                "gameplay_start_available"
+              ],
+              "properties": {
+                "issue_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "asset_state": {
+                  "type": "string",
+                  "enum": [
+                    "available",
+                    "preparing",
+                    "unavailable",
+                    "corrupt"
+                  ]
+                },
+                "supported_modes": {
+                  "type": "array",
+                  "minItems": 4,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "read",
+                      "summarize",
+                      "defer",
+                      "skip"
+                    ]
+                  }
+                },
+                "blocking": {
+                  "const": false
+                },
+                "choice_penalty": {
+                  "const": false
+                },
+                "fallback_summary_available": {
+                  "const": true
+                },
+                "gameplay_start_available": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

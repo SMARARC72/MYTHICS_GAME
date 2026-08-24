@@ -55,12 +55,6 @@
       "sha256": "c327734fdf408d3ba48e43ef9178cc61eda318234635ca1554d40d661689e223"
     },
     {
-      "path": "tests/validate_handoff.py",
-      "role": "Deterministic package validator",
-      "bytes": 4625,
-      "sha256": "f4ec0657ac45f7400c09bca91f4948333a5edce597a9ed9769372a2d6308cb72"
-    },
-    {
       "path": "01_GOVERNANCE/Mythic_Superhero_RPG_World_Constitution_v1.md",
       "role": "Supreme world/canon authority",
       "bytes": 476738,

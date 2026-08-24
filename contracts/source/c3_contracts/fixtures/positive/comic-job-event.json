@@ -1,0 +1,26 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_comic_job_001",
+  "event_type": "comic_job_status_changed",
+  "campaign_id": "campaign_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001043",
+  "ledger_time": {
+    "tick": 64800,
+    "display": "Day 0, 18:00",
+    "calendar": "BREAKWATER",
+    "sequence": 12,
+    "phase": "scene"
+  },
+  "occurred_at": "2026-08-23T18:00:04Z",
+  "correlation_id": "correlation_c3_flow_001",
+  "causation_id": "command_c3_flow_001",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "payload": {
+    "job_id": "comic_job_issue_001",
+    "stage": "art_qa",
+    "progress_display_mode": "stage_only",
+    "queue_durable": true,
+    "gameplay_continues": true
+  }
+}

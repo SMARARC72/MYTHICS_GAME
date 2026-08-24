@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c3/schemas/telemetry/privacy-safe-analytics.schema.json",
+  "title": "Mythic RPG C3 Privacy-Safe Analytics Event",
+  "$defs": {
+    "PrivacySafeAnalyticsEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "analytics_event_id",
+        "category",
+        "surface",
+        "coarse_outcome",
+        "contains_player_content",
+        "contains_private_canon",
+        "contains_prompt_text",
+        "contains_raw_dialogue",
+        "contains_asset_bytes",
+        "alters_play",
+        "retention_class",
+        "consent_scope"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ContractVersion"
+        },
+        "analytics_event_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "navigation",
+            "accessibility",
+            "performance",
+            "contract_outcome",
+            "comic_pipeline",
+            "recovery"
+          ]
+        },
+        "surface": {
+          "type": "string",
+          "enum": [
+            "home",
+            "onboarding",
+            "stage",
+            "character",
+            "company",
+            "holdings",
+            "world",
+            "chronicle",
+            "comic",
+            "settings",
+            "recovery"
+          ]
+        },
+        "coarse_outcome": {
+          "type": "string",
+          "enum": [
+            "opened",
+            "completed",
+            "abandoned",
+            "recovered",
+            "failed",
+            "blocked"
+          ]
+        },
+        "contract_ref": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "contains_player_content": {
+          "const": false
+        },
+        "contains_private_canon": {
+          "const": false
+        },
+        "contains_prompt_text": {
+          "const": false
+        },
+        "contains_raw_dialogue": {
+          "const": false
+        },
+        "contains_asset_bytes": {
+          "const": false
+        },
+        "alters_play": {
+          "const": false
+        },
+        "retention_class": {
+          "type": "string",
+          "enum": [
+            "ephemeral",
+            "aggregate_only",
+            "diagnostic_opt_in"
+          ]
+        },
+        "consent_scope": {
+          "type": "string",
+          "enum": [
+            "essential",
+            "product_improvement_opt_in",
+            "diagnostic_opt_in"
+          ]
+        }
+      }
+    }
+  }
+}

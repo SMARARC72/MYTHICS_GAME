@@ -1,0 +1,859 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c2/schemas/read-models/world-investigation.schema.json",
+  "title": "Mythic RPG C2 Known World, Journey, Site, Investigation, Front and Law Read Models",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/KnownWorldMap"
+    },
+    {
+      "$ref": "#/$defs/JourneyState"
+    },
+    {
+      "$ref": "#/$defs/SiteRecord"
+    },
+    {
+      "$ref": "#/$defs/CaseRecord"
+    },
+    {
+      "$ref": "#/$defs/FactionFrontLegalRecord"
+    }
+  ],
+  "$defs": {
+    "KnownWorldMap": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "known_world_map"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "map_id",
+                "location_state",
+                "places",
+                "routes",
+                "last_verified"
+              ],
+              "properties": {
+                "map_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "location_state": {
+                  "type": "string",
+                  "enum": [
+                    "exact",
+                    "uncertain",
+                    "lost",
+                    "displaced"
+                  ]
+                },
+                "places": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "place_id",
+                      "discovery_state",
+                      "knowledge"
+                    ],
+                    "properties": {
+                      "place_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "discovery_state": {
+                        "type": "string",
+                        "enum": [
+                          "unknown",
+                          "reported",
+                          "located",
+                          "entered",
+                          "surveyed",
+                          "mapped"
+                        ]
+                      },
+                      "knowledge": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "routes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "route_id",
+                      "state",
+                      "knowledge",
+                      "supported_methods"
+                    ],
+                    "properties": {
+                      "route_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "known",
+                          "believed",
+                          "uncertain",
+                          "closed",
+                          "damaged",
+                          "last_known"
+                        ]
+                      },
+                      "knowledge": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      },
+                      "supported_methods": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120
+                        }
+                      }
+                    }
+                  }
+                },
+                "sensory_position": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                },
+                "last_verified": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/LedgerTime"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "JourneyState": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "journey_state"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "journey_id",
+                "status",
+                "location_state",
+                "method",
+                "pace",
+                "roles",
+                "current_leg",
+                "known_route_state",
+                "resource_forecast",
+                "compression"
+              ],
+              "properties": {
+                "journey_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "planning",
+                    "ready",
+                    "underway",
+                    "paused",
+                    "lost",
+                    "arrived",
+                    "abandoned"
+                  ]
+                },
+                "location_state": {
+                  "type": "string",
+                  "enum": [
+                    "exact",
+                    "uncertain",
+                    "lost",
+                    "displaced"
+                  ]
+                },
+                "sensory_position": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                },
+                "method": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                },
+                "pace": {
+                  "type": "string",
+                  "enum": [
+                    "cautious",
+                    "standard",
+                    "fast",
+                    "forced"
+                  ]
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "role",
+                      "actor_id",
+                      "authority"
+                    ],
+                    "properties": {
+                      "role": {
+                        "type": "string",
+                        "enum": [
+                          "navigator",
+                          "scout",
+                          "operator",
+                          "trailblazer",
+                          "quartermaster",
+                          "guard"
+                        ]
+                      },
+                      "actor_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "authority": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      }
+                    }
+                  }
+                },
+                "current_leg": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "leg_id",
+                    "intended_destination",
+                    "planned_duration",
+                    "commit_state"
+                  ],
+                  "properties": {
+                    "leg_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                    },
+                    "intended_destination": {
+                      "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                    },
+                    "planned_duration": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160
+                    },
+                    "commit_state": {
+                      "type": "string",
+                      "enum": [
+                        "draft",
+                        "committed",
+                        "resolved"
+                      ]
+                    }
+                  }
+                },
+                "known_route_state": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "resource_forecast": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "compression": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "eligible",
+                    "player_consented",
+                    "pause_reasons"
+                  ],
+                  "properties": {
+                    "eligible": {
+                      "type": "boolean"
+                    },
+                    "player_consented": {
+                      "type": "boolean"
+                    },
+                    "pause_reasons": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SiteRecord": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "site_record"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "site_id",
+                "display_name",
+                "discovery_state",
+                "known_zones",
+                "known_connections",
+                "persistent_changes",
+                "current_assessments",
+                "last_verified"
+              ],
+              "properties": {
+                "site_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "display_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 180
+                },
+                "discovery_state": {
+                  "type": "string",
+                  "enum": [
+                    "unknown",
+                    "reported",
+                    "located",
+                    "entered",
+                    "surveyed",
+                    "mapped"
+                  ]
+                },
+                "known_zones": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "zone_id",
+                      "label",
+                      "knowledge"
+                    ],
+                    "properties": {
+                      "zone_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 180
+                      },
+                      "knowledge": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "known_connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "connection_id",
+                      "from_zone_id",
+                      "to_zone_id",
+                      "state",
+                      "knowledge"
+                    ],
+                    "properties": {
+                      "connection_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "from_zone_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "to_zone_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "open",
+                          "closed",
+                          "locked",
+                          "destroyed",
+                          "created",
+                          "blocked",
+                          "uncertain"
+                        ]
+                      },
+                      "knowledge": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "persistent_changes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "current_assessments": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "last_verified": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/LedgerTime"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CaseRecord": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "case_record"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "case_id",
+                "title",
+                "questions",
+                "claims",
+                "evidence",
+                "leads",
+                "contradictions",
+                "deadlines"
+              ],
+              "properties": {
+                "case_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 220
+                },
+                "questions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "question_id",
+                      "text",
+                      "status"
+                    ],
+                    "properties": {
+                      "question_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 800
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "open",
+                          "partially_supported",
+                          "supported",
+                          "disputed",
+                          "refuted",
+                          "unresolved"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "claims": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "claim_id",
+                      "text",
+                      "classification",
+                      "supporting_evidence_ids",
+                      "contradicting_evidence_ids"
+                    ],
+                    "properties": {
+                      "claim_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 1000
+                      },
+                      "classification": {
+                        "type": "string",
+                        "enum": [
+                          "reported",
+                          "observed",
+                          "inferred",
+                          "corroborated",
+                          "disputed",
+                          "refuted"
+                        ]
+                      },
+                      "supporting_evidence_ids": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                        }
+                      },
+                      "contradicting_evidence_ids": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                        }
+                      }
+                    }
+                  }
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "evidence_id",
+                      "observable_content",
+                      "custody",
+                      "integrity_band",
+                      "provenance"
+                    ],
+                    "properties": {
+                      "evidence_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "observable_content": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      },
+                      "custody": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      },
+                      "integrity_band": {
+                        "type": "string",
+                        "enum": [
+                          "destroyed",
+                          "poor",
+                          "compromised",
+                          "serviceable",
+                          "strong",
+                          "preserved"
+                        ]
+                      },
+                      "provenance": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "leads": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "contradictions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "deadlines": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "FactionFrontLegalRecord": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "faction_front_legal_record"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject_id",
+                "faction_knowledge",
+                "fronts",
+                "response_tracks",
+                "jurisdictions",
+                "legal_processes",
+                "reputation"
+              ],
+              "properties": {
+                "subject_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "faction_knowledge": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "fronts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "front_id",
+                      "title",
+                      "pressure_state",
+                      "supporting_evidence",
+                      "known_countermeasures"
+                    ],
+                    "properties": {
+                      "front_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 220
+                      },
+                      "pressure_state": {
+                        "type": "string",
+                        "enum": [
+                          "latent",
+                          "emerging",
+                          "escalating",
+                          "crisis",
+                          "transition",
+                          "unknown",
+                          "disputed"
+                        ]
+                      },
+                      "supporting_evidence": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      },
+                      "known_countermeasures": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "response_tracks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "track_id",
+                      "track_kind",
+                      "holder_or_audience_id",
+                      "state_label",
+                      "evidence"
+                    ],
+                    "properties": {
+                      "track_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "track_kind": {
+                        "type": "string",
+                        "enum": [
+                          "case_strength",
+                          "heat",
+                          "exposure",
+                          "threat_assessment",
+                          "notoriety",
+                          "infamy",
+                          "reputation"
+                        ]
+                      },
+                      "holder_or_audience_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "state_label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "accessible_value": {
+                        "type": "integer",
+                        "minimum": -20,
+                        "maximum": 20
+                      },
+                      "evidence": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "jurisdictions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "legal_processes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "process_id",
+                      "stage",
+                      "authority",
+                      "allegations",
+                      "evidence",
+                      "options"
+                    ],
+                    "properties": {
+                      "process_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "stage": {
+                        "type": "string",
+                        "enum": [
+                          "incident",
+                          "report",
+                          "jurisdiction_assessment",
+                          "case_creation",
+                          "suspect_identification",
+                          "evidence_collection",
+                          "authorization",
+                          "enforcement",
+                          "adjudication",
+                          "sanction_or_resolution"
+                        ]
+                      },
+                      "authority": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      },
+                      "warrant": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      },
+                      "allegations": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      },
+                      "evidence": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      },
+                      "options": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                },
+                "reputation": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

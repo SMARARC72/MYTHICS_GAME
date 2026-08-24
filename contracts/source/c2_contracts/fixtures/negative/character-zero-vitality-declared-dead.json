@@ -1,0 +1,151 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "character_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-character_record",
+    "text_alternative": "character_record updated."
+  },
+  "payload": {
+    "character_id": "actor_mara_venn_001",
+    "display_name": "Mara Venn",
+    "origin_lane": "ordinary_survivor",
+    "level": 3,
+    "power_tier": "Emergent",
+    "total_xp": 4200,
+    "xp_ledger": [
+      {
+        "entry_id": "xp_entry_rescue_001",
+        "source_event_id": "event_rescue_riggers_001",
+        "source_type": "objective",
+        "amount": 310,
+        "ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "provenance": [
+          {
+            "fact_id": "fact_source_award_001",
+            "classification": "recorded",
+            "statement": "The XP award came from the committed rescue of the trapped riggers.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "bp_ledger": {
+      "earned_total": 8,
+      "spent_total": 5,
+      "banked": 3,
+      "entries": [
+        {
+          "entry_id": "bp_entry_level_001",
+          "kind": "earned",
+          "amount": 4,
+          "source_event_id": "event_level_three_001"
+        },
+        {
+          "entry_id": "bp_entry_spend_001",
+          "kind": "spent",
+          "amount": 1,
+          "source_event_id": "event_training_spend_001",
+          "allocation_ref": "allocation_first_aid_001"
+        }
+      ]
+    },
+    "resources": [
+      {
+        "track_id": "track_vitality_001",
+        "label": "Vitality",
+        "current": 0,
+        "maximum": 18
+      },
+      {
+        "track_id": "track_composure_001",
+        "label": "Composure",
+        "current": 7,
+        "maximum": 10
+      }
+    ],
+    "wounds": [
+      {
+        "wound_id": "wound_ribs_001",
+        "severity": "serious",
+        "family": "physical",
+        "summary": "Cracked ribs limit heavy exertion.",
+        "treatment_state": "stabilized"
+      }
+    ],
+    "defeat_state": "dead",
+    "advancement_checkpoint": {
+      "state": "available",
+      "banking_preserved": true,
+      "checkpoint_id": "checkpoint_aftermath_001"
+    },
+    "constraints": [
+      {
+        "fact_id": "fact_constraint_wound_001",
+        "classification": "recorded",
+        "statement": "Leveling does not remove the cracked-rib Wound.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "continuation_ref": "continuation_threshold_001"
+  }
+}

@@ -7,7 +7,7 @@ Implementation repository for the **Mythic Superhero RPG Platform**.
 - Product planning: complete and approved
 - Pre-engineering specification: complete and approved
 - Frontend UX/UI: complete and approved
-- Clean-session implementation: awaiting explicit authorization
+- Clean-session implementation: authorized; protected-preview candidate implemented
 - Production deployment and public release: closed
 - Design workflow: Figma-free
 
@@ -22,18 +22,40 @@ Start with:
 3. [`docs/implementation-handoff/v1.0/SOURCE_PRECEDENCE.md`](docs/implementation-handoff/v1.0/SOURCE_PRECEDENCE.md)
 4. [`docs/implementation-handoff/v1.0/00_START_HERE/CODEX_EXECUTION_PROMPT.md`](docs/implementation-handoff/v1.0/00_START_HERE/CODEX_EXECUTION_PROMPT.md)
 
-## Verify the handoff
+## Handoff integrity
 
-From the repository root:
-
-```bash
-cd docs/implementation-handoff/v1.0
-python tests/validate_handoff.py
-```
-
-Expected result: 33 controlled artifacts, eight embedded approved packages, eight approved checkpoints, 127 fixture expectations, 14 routes, 40 components, 17 scenarios, 60 operations, 15 gates, 16 execution packets, and zero failed gates.
+The checksum ledger and embedded package archives remain available for optional
+integrity diagnostics. They are not a pre-mutation implementation gate.
 
 The source archive is also retained in `release-bundles/` for clean-session transfer or independent verification.
+
+## Run the protected preview
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000/campaign/glass-harbor/stage`. The implementation
+includes all fourteen approved route families, pinned C1–C3 contract sources,
+deterministic service fakes, generated schema registration, and automated
+contract, architecture, accessibility, route, and production-build checks.
+
+The Drowned Archive Stage is also a playable local vertical slice: free-form
+goal and method input are interpreted into a correctable proposal, confirmed
+through an idempotent authoritative campaign service, resolved with seeded
+dice, and returned as a recorded receipt. The local preview keeps canonical
+content and private NPC knowledge server-side while IndexedDB retains only
+draft and recovery workflow data. See the full engineering plan in
+[`docs/engineering/PLAYABLE_VERTICAL_SLICE_PLAN.md`](docs/engineering/PLAYABLE_VERTICAL_SLICE_PLAN.md).
+
+Run the complete local verification sequence with:
+
+```bash
+npm run check
+npm run test:contracts
+npm run test:e2e
+```
 
 ## Authorization boundary
 

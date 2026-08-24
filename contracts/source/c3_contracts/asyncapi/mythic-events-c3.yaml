@@ -1,0 +1,93 @@
+asyncapi: 3.1.0
+info:
+  title: Mythic RPG C3 Event Stream
+  version: 0.1.0
+channels:
+  campaignViewpointEvents:
+    address: campaigns/{campaignId}/viewpoints/{viewpointId}/c3-events
+    messages:
+      ConnectivityStateChanged:
+        $ref: '#/components/messages/ConnectivityStateChanged'
+      SaveCheckpointCommitted:
+        $ref: '#/components/messages/SaveCheckpointCommitted'
+      RecoveryStateChanged:
+        $ref: '#/components/messages/RecoveryStateChanged'
+      AttentionDigestUpdated:
+        $ref: '#/components/messages/AttentionDigestUpdated'
+      AccessibilityProfileChanged:
+        $ref: '#/components/messages/AccessibilityProfileChanged'
+      ContentControlsChanged:
+        $ref: '#/components/messages/ContentControlsChanged'
+      ComicCaptureUpdated:
+        $ref: '#/components/messages/ComicCaptureUpdated'
+      ComicInflectionReady:
+        $ref: '#/components/messages/ComicInflectionReady'
+      ComicSourceLocked:
+        $ref: '#/components/messages/ComicSourceLocked'
+      ComicJobStatusChanged:
+        $ref: '#/components/messages/ComicJobStatusChanged'
+      ComicReviewRequired:
+        $ref: '#/components/messages/ComicReviewRequired'
+      ComicEditionPublished:
+        $ref: '#/components/messages/ComicEditionPublished'
+      ComicEditionSuperseded:
+        $ref: '#/components/messages/ComicEditionSuperseded'
+operations:
+  receiveAsyncMediaEvents:
+    action: receive
+    channel:
+      $ref: '#/channels/campaignViewpointEvents'
+components:
+  messages:
+    ConnectivityStateChanged:
+      name: connectivity_state_changed
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ConnectivityStateChanged'
+    SaveCheckpointCommitted:
+      name: save_checkpoint_committed
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/SaveCheckpointCommitted'
+    RecoveryStateChanged:
+      name: recovery_state_changed
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/RecoveryStateChanged'
+    AttentionDigestUpdated:
+      name: attention_digest_updated
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/AttentionDigestUpdated'
+    AccessibilityProfileChanged:
+      name: accessibility_profile_changed
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/AccessibilityProfileChanged'
+    ContentControlsChanged:
+      name: content_controls_changed
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ContentControlsChanged'
+    ComicCaptureUpdated:
+      name: comic_capture_updated
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicCaptureUpdated'
+    ComicInflectionReady:
+      name: comic_inflection_ready
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicInflectionReady'
+    ComicSourceLocked:
+      name: comic_source_locked
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicSourceLocked'
+    ComicJobStatusChanged:
+      name: comic_job_status_changed
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicJobStatusChanged'
+    ComicReviewRequired:
+      name: comic_review_required
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicReviewRequired'
+    ComicEditionPublished:
+      name: comic_edition_published
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicEditionPublished'
+    ComicEditionSuperseded:
+      name: comic_edition_superseded
+      payload:
+        $ref: '../schemas/events/async-media.schema.json#/$defs/ComicEditionSuperseded'

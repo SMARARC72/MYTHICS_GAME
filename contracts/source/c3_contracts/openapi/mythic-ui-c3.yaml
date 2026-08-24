@@ -1,0 +1,391 @@
+openapi: 3.1.2
+info:
+  title: Mythic RPG Engine/UI C3 API
+  version: 0.1.0
+  description: Candidate async, accessibility, recovery and media boundary. Transport remains a C4 decision.
+paths:
+  /connectivity:
+    get:
+      operationId: getConnectivityState
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/async-attention-recovery.schema.json#/$defs/ConnectivityState'
+  /recovery/{recordId}:
+    get:
+      operationId: getSaveRecoveryState
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/async-attention-recovery.schema.json#/$defs/SaveRecoveryState'
+  /attention/{recordId}:
+    get:
+      operationId: getAttentionDigest
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/async-attention-recovery.schema.json#/$defs/AttentionDigest'
+  /accessibility/{recordId}:
+    get:
+      operationId: getAccessibilityProfile
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/accessibility-content-localization.schema.json#/$defs/AccessibilityProfile'
+  /content-controls/{recordId}:
+    get:
+      operationId: getContentControlProfile
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/accessibility-content-localization.schema.json#/$defs/ContentControlProfile'
+  /localization/{recordId}:
+    get:
+      operationId: getLocalizationProfile
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/accessibility-content-localization.schema.json#/$defs/LocalizationProfile'
+  /issue-zero/{recordId}:
+    get:
+      operationId: getIssueZeroAvailability
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/accessibility-content-localization.schema.json#/$defs/IssueZeroAvailability'
+  /comic/capture/{recordId}:
+    get:
+      operationId: getComicCaptureRecord
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/comic-capture-source-lock.schema.json#/$defs/ComicCaptureRecord'
+  /comic/inflection/{recordId}:
+    get:
+      operationId: getComicInflectionReview
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/comic-capture-source-lock.schema.json#/$defs/InflectionReview'
+  /comic/source-lock/{recordId}:
+    get:
+      operationId: getComicSourceLockRecord
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/comic-capture-source-lock.schema.json#/$defs/SourceLockRecord'
+  /comic/job/{recordId}:
+    get:
+      operationId: getComicJobRecord
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/comic-production-reader.schema.json#/$defs/ComicJobRecord'
+  /comic/reader/{recordId}:
+    get:
+      operationId: getComicReaderRecord
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/comic-production-reader.schema.json#/$defs/ComicReaderRecord'
+  /comic/editions/{recordId}:
+    get:
+      operationId: getComicEditionHistory
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/read-models/comic-production-reader.schema.json#/$defs/EditionHistory'
+  /media/asset/{recordId}:
+    get:
+      operationId: getMediaAssetManifest
+      parameters:
+        - { $ref: '#/components/parameters/CampaignId' }
+        - { $ref: '#/components/parameters/ViewpointId' }
+        - { $ref: '#/components/parameters/RecordId' }
+      responses:
+        '200':
+          description: Viewpoint-safe read model
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/media/media-provenance.schema.json#/$defs/MediaAssetManifest'
+  /recovery/acknowledge:
+    post:
+      operationId: acknowledgeRecovery
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/AcknowledgeRecovery'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /recovery/retry:
+    post:
+      operationId: retryRecovery
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/RetryRecovery'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /accessibility/update:
+    post:
+      operationId: updateAccessibilityProfile
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/UpdateAccessibilityProfile'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /content-controls/update:
+    post:
+      operationId: updateContentControlProfile
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/UpdateContentControlProfile'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /localization/update:
+    post:
+      operationId: updateLocalizationProfile
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/UpdateLocalizationProfile'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/inflection/review:
+    post:
+      operationId: reviewComicInflection
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/ReviewComicInflection'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/source-lock/create:
+    post:
+      operationId: createComicSourceLock
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/CreateComicSourceLock'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/wip-policy:
+    post:
+      operationId: setComicWipPolicy
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/SetComicWipPolicy'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/job/recover:
+    post:
+      operationId: requestComicJobRecovery
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/RequestComicJobRecovery'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/qa/disposition:
+    post:
+      operationId: submitComicQaDisposition
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/SubmitComicQaDisposition'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/edition/publish:
+    post:
+      operationId: publishComicEdition
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/PublishComicEdition'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+  /comic/edition/correct:
+    post:
+      operationId: requestComicCorrection
+      parameters:
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/commands/async-media.schema.json#/$defs/RequestComicCorrection'
+      responses:
+        '202':
+          description: Durable C1 receipt follows accepted command boundary
+components:
+  parameters:
+    CampaignId:
+      name: X-Campaign-Id
+      in: header
+      required: true
+      schema: { type: string }
+    ViewpointId:
+      name: X-Viewpoint-Id
+      in: header
+      required: true
+      schema: { type: string }
+    RecordId:
+      name: recordId
+      in: path
+      required: true
+      schema: { type: string }
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: { type: string, minLength: 16 }

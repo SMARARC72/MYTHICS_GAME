@@ -1,0 +1,35 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_project_checkpoint_001",
+  "event_type": "project_checkpoint_reached",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "project checkpoint reached.",
+    "dedupe_key": "event-project_checkpoint_reached",
+    "text_alternative": "project checkpoint reached."
+  },
+  "payload": {
+    "project_id": "project_skiff_repair_001",
+    "interval_id": "interval_skiff_repair_002",
+    "progress_delta": 2,
+    "material_changes": [
+      "lot_copper_coil_001"
+    ],
+    "next_checkpoint_ref": "fact_checkpoint_coil_001"
+  }
+}

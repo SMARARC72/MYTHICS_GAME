@@ -1,0 +1,65 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "world_strip_status",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T14:00:00Z",
+  "freshness": "current",
+  "permissions": [
+    {
+      "action": "declare_intent",
+      "available": true
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "event_dockfire_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Dockside transformer fire witnessed from Pier Nine"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "polite",
+    "announcement_text": "world strip status updated.",
+    "dedupe_key": "world_strip_status-sv-0001842"
+  },
+  "payload": {
+    "viewpoint_label": "Mara Venn",
+    "place": {
+      "fact_id": "fact_pier_nine_001",
+      "classification": "perceived",
+      "statement": "You are beneath Pier Nine's east gantry.",
+      "as_of_ledger_time": {
+        "tick": 1842,
+        "display": "Bell 6 · Rainwatch",
+        "calendar": "Breakwater Civic Reckoning",
+        "sequence": 44,
+        "phase": "scene"
+      },
+      "sources": [
+        {
+          "source_id": "event_dockfire_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Dockside transformer fire witnessed from Pier Nine"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "time_display": "Bell 6 · Rainwatch",
+    "danger_state": "pressure",
+    "save_state": "saved",
+    "comic_state": "idle"
+  }
+}

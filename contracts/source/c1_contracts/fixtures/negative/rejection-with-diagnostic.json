@@ -1,0 +1,41 @@
+{
+  "contract_version": "1.0.0",
+  "receipt_id": "receipt_bad_rejection_001",
+  "command_id": "command_commit_bad_002",
+  "lookup_key": "lookup-command_commit_bad_002-20260823",
+  "status": "rejected",
+  "campaign_id": "camp_breakwater_001",
+  "source_state_version": "sv_0001842",
+  "generated_at": "2026-08-23T14:00:02Z",
+  "outcome": {
+    "family": "rejected",
+    "code": "rejected.rule_invalid",
+    "preserved_goal": "Reach the transformer control room",
+    "interpreted_method": "Cross the flooded maintenance gantry",
+    "accessible_obstacle": "The action is not legal in the current timing window.",
+    "revisable_fields": [
+      "method",
+      "timing"
+    ],
+    "cost_spent": false,
+    "time_spent": false,
+    "roll_spent": false,
+    "retry_eligible": true,
+    "current_accessible_state_version": "sv_0001842",
+    "help_refs": [
+      {
+        "source_id": "event_dockfire_001",
+        "source_type": "event",
+        "accessible": true,
+        "label": "Dockside transformer fire witnessed from Pier Nine"
+      }
+    ],
+    "private_validator_diagnostic": "SECRET_DC_AND_COUNTERMEASURE"
+  },
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "assertive",
+    "announcement_text": "Action status: rejected.",
+    "dedupe_key": "receipt-bad_rejection"
+  }
+}

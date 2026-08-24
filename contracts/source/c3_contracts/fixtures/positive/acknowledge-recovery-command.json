@@ -1,0 +1,16 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_acknowledge_recovery_001",
+  "command_type": "acknowledge_recovery",
+  "idempotency_key": "idem-acknowledge_recovery-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "recovery_id": "recovery_provider_001"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "site_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-site_record",
+    "text_alternative": "site_record updated."
+  },
+  "payload": {
+    "site_id": "site_pier_nine_001",
+    "display_name": "Pier Nine Archive",
+    "discovery_state": "surveyed",
+    "known_zones": [
+      {
+        "zone_id": "zone_generator_hall_001",
+        "label": "Generator Hall",
+        "knowledge": [
+          {
+            "fact_id": "fact_location_pier_001",
+            "classification": "perceived",
+            "statement": "You are in the flooded generator hall beneath Pier Nine.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      },
+      {
+        "zone_id": "zone_archive_bay_001",
+        "label": "Archive Bay",
+        "knowledge": [
+          {
+            "fact_id": "fact_archive_bay_001",
+            "classification": "perceived",
+            "statement": "The bay is visible through the breached wall.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "known_connections": [
+      {
+        "connection_id": "connection_breach_001",
+        "from_zone_id": "zone_generator_hall_001",
+        "to_zone_id": "zone_archive_bay_001",
+        "state": "created",
+        "knowledge": [
+          {
+            "fact_id": "fact_wall_001",
+            "classification": "perceived",
+            "statement": "The west bulkhead is breached, creating a new passage into the archive bay.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "persistent_changes": [
+      {
+        "fact_id": "fact_wall_001",
+        "classification": "perceived",
+        "statement": "The west bulkhead is breached, creating a new passage into the archive bay.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      },
+      {
+        "fact_id": "fact_water_damage_001",
+        "classification": "perceived",
+        "statement": "Water continues to enter through the breach.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "current_assessments": [
+      {
+        "fact_id": "fact_assessment_not_clear_001",
+        "classification": "inferred",
+        "statement": "The surveyed zones are not confirmed safe or complete.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "last_verified": {
+      "tick": 1900,
+      "display": "Rainsday, Third Bell — 14:20",
+      "calendar": "Breakwater Civic",
+      "sequence": 1900,
+      "phase": "aftermath"
+    },
+    "hidden_feature_count": 12
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_custody_001",
+  "event_type": "custody_transferred",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "custody transferred.",
+    "dedupe_key": "event-custody_transferred",
+    "text_alternative": "custody transferred."
+  },
+  "payload": {
+    "item_id": "item_brass_witness_001",
+    "from_holder_id": "actor_mara_venn_001",
+    "to_holder_id": "actor_ilya_rook_001",
+    "authority_ref": "fact_authority_001",
+    "ownership_changed": false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "package": "mythic-rpg-engine-ui-contract-c3",
+  "version": "0.1.0",
+  "status": "approved",
+  "approved_on": "2026-08-23",
+  "checkpoint": "C3",
+  "approved_dependencies": [
+    {
+      "checkpoint": "C1",
+      "package": "mythic-rpg-engine-ui-contract-c1",
+      "version": "0.1.0",
+      "status": "approved"
+    },
+    {
+      "checkpoint": "C2",
+      "package": "mythic-rpg-engine-ui-contract-c2",
+      "version": "0.1.0",
+      "status": "approved"
+    }
+  ],
+  "standards": {
+    "json_schema": "2020-12",
+    "openapi": "3.1.2",
+    "asyncapi": "3.1.0"
+  },
+  "schema_ids": [
+    "https://contracts.mythic-rpg.local/c3/schemas/read-models/async-attention-recovery.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/read-models/accessibility-content-localization.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/read-models/comic-capture-source-lock.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/read-models/comic-production-reader.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/media/media-provenance.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/commands/async-media.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/events/async-media.schema.json",
+    "https://contracts.mythic-rpg.local/c3/schemas/telemetry/privacy-safe-analytics.schema.json"
+  ],
+  "operation_count": 26,
+  "event_message_count": 13,
+  "authority_boundary": "Recovery, accessibility, capture, media and analytics services do not mutate canonical play outside approved commands and reducers.",
+  "knowledge_boundary": "Attention, comic WIP, accessibility text and published media obey viewpoint-safe delivery and the selected Reader Knowledge Ceiling.",
+  "non_blocking_boundary": "Comic capture is lightweight; production is resumable background work; Source Lock never freezes gameplay or Ledger Time.",
+  "progress_boundary": "Player-facing media progress is stage/checkpoint based. Invented percentages and promised completion dates are invalid.",
+  "implementation_authorized": false
+}

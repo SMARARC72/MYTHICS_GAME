@@ -1,0 +1,95 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "advancement_draft",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-advancement_draft",
+    "text_alternative": "advancement_draft updated."
+  },
+  "payload": {
+    "draft_id": "draft_advancement_001",
+    "character_id": "actor_mara_venn_001",
+    "checkpoint_id": "checkpoint_aftermath_001",
+    "status": "review",
+    "noncanonical": true,
+    "available_bp": 3,
+    "allocations": [
+      {
+        "allocation_id": "allocation_first_aid_001",
+        "target_ref": "mastery_first_aid_001",
+        "cost": 2,
+        "label": "Raise First Aid mastery"
+      }
+    ],
+    "projected_changes": [
+      {
+        "fact_id": "fact_projection_aid_001",
+        "classification": "forecast",
+        "statement": "First Aid would rise after a valid commit.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "remaining_bp": 1,
+    "validation": [
+      {
+        "fact_id": "fact_validation_bp_001",
+        "classification": "recorded",
+        "statement": "The checkpoint is open and the allocation is affordable.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ]
+  }
+}

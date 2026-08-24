@@ -1,0 +1,446 @@
+{
+  "contract_version": "1.0.0",
+  "checkpoint": "C2",
+  "fixtures": [
+    {
+      "file": "positive/character-ordinary-survivor.json",
+      "schema": "schemas/read-models/character-continuation.schema.json",
+      "definition": "CharacterRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-02",
+        "SCN-03",
+        "FND-005"
+      ]
+    },
+    {
+      "file": "positive/advancement-draft.json",
+      "schema": "schemas/read-models/character-continuation.schema.json",
+      "definition": "AdvancementDraft",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-02",
+        "TIM-005",
+        "FND-003"
+      ]
+    },
+    {
+      "file": "positive/continuation-afterlife.json",
+      "schema": "schemas/read-models/character-continuation.schema.json",
+      "definition": "ContinuationState",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-03",
+        "SCN-06",
+        "FND-006"
+      ]
+    },
+    {
+      "file": "positive/company-record.json",
+      "schema": "schemas/read-models/company-relics.schema.json",
+      "definition": "CompanyRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-07",
+        "PTY-001"
+      ]
+    },
+    {
+      "file": "positive/autonomous-actor-refusal.json",
+      "schema": "schemas/read-models/company-relics.schema.json",
+      "definition": "AutonomousActorStatus",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-07",
+        "SCN-08",
+        "PTY-003"
+      ]
+    },
+    {
+      "file": "positive/relic-record.json",
+      "schema": "schemas/read-models/company-relics.schema.json",
+      "definition": "RelicRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-08",
+        "SCN-12",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "positive/holdings-record.json",
+      "schema": "schemas/read-models/holdings-projects.schema.json",
+      "definition": "HoldingsRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-12",
+        "SCN-13"
+      ]
+    },
+    {
+      "file": "positive/project-record.json",
+      "schema": "schemas/read-models/holdings-projects.schema.json",
+      "definition": "ProjectRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-13",
+        "TIM-004"
+      ]
+    },
+    {
+      "file": "positive/known-world-map.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "KnownWorldMap",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-09",
+        "SCN-10",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "positive/journey-lost.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "JourneyState",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-09",
+        "TIM-004"
+      ]
+    },
+    {
+      "file": "positive/site-persistent-breach.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "SiteRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-10",
+        "SCN-11",
+        "BRK-006"
+      ]
+    },
+    {
+      "file": "positive/case-record.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "CaseRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-09",
+        "SCN-10",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "positive/front-legal-record.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "FactionFrontLegalRecord",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-14",
+        "SCN-15",
+        "SCN-16"
+      ]
+    },
+    {
+      "file": "positive/chronicle-consequence-bundle.json",
+      "schema": "schemas/read-models/chronicle-routing.schema.json",
+      "definition": "ChronicleConsequenceBundle",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-11",
+        "SCN-12",
+        "SCN-16"
+      ]
+    },
+    {
+      "file": "positive/draft-advancement-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "DraftAdvancement",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-02",
+        "FND-003"
+      ]
+    },
+    {
+      "file": "positive/commit-advancement-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "CommitAdvancement",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-02",
+        "TIM-005"
+      ]
+    },
+    {
+      "file": "positive/recruitment-offer-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "SubmitRecruitmentOffer",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-07",
+        "PTY-003"
+      ]
+    },
+    {
+      "file": "positive/autonomous-action-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "RequestAutonomousActorAction",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-07",
+        "SCN-08"
+      ]
+    },
+    {
+      "file": "positive/draft-journey-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "DraftJourney",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-09",
+        "FND-003"
+      ]
+    },
+    {
+      "file": "positive/commit-journey-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "CommitJourneyLeg",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-09",
+        "TIM-005"
+      ]
+    },
+    {
+      "file": "positive/draft-project-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "DraftProjectInterval",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-13",
+        "FND-003"
+      ]
+    },
+    {
+      "file": "positive/commit-project-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "CommitProjectInterval",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-13",
+        "TIM-005"
+      ]
+    },
+    {
+      "file": "positive/transfer-custody-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "TransferCustody",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-12",
+        "SCN-15"
+      ]
+    },
+    {
+      "file": "positive/record-case-claim-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "RecordCaseClaim",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-10",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "positive/choose-continuation-command.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "ChooseContinuation",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-03",
+        "SCN-06"
+      ]
+    },
+    {
+      "file": "positive/progression-committed-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "ProgressionCommitted",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-02",
+        "TIM-005"
+      ]
+    },
+    {
+      "file": "positive/continuation-changed-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "DefeatContinuationChanged",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-03",
+        "SCN-06"
+      ]
+    },
+    {
+      "file": "positive/actor-refused-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "AutonomousActorStatusChanged",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-07",
+        "SCN-08"
+      ]
+    },
+    {
+      "file": "positive/relic-status-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "RelicStatusChanged",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-08",
+        "SCN-12"
+      ]
+    },
+    {
+      "file": "positive/custody-transfer-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "CustodyTransferred",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-12",
+        "SCN-15"
+      ]
+    },
+    {
+      "file": "positive/project-checkpoint-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "ProjectCheckpointReached",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-13",
+        "TIM-004"
+      ]
+    },
+    {
+      "file": "positive/journey-resolved-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "JourneyIntervalResolved",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-09",
+        "TIM-004"
+      ]
+    },
+    {
+      "file": "positive/world-record-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "WorldRecordUpdated",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-10",
+        "SCN-11"
+      ]
+    },
+    {
+      "file": "positive/chronicle-routed-event.json",
+      "schema": "schemas/events/system-breadth.schema.json",
+      "definition": "ChronicleConsequenceRouted",
+      "expected_valid": true,
+      "coverage": [
+        "SCN-11",
+        "SCN-16"
+      ]
+    },
+    {
+      "file": "negative/character-zero-vitality-declared-dead.json",
+      "schema": "schemas/read-models/character-continuation.schema.json",
+      "definition": "CharacterRecord",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-03",
+        "FND-006"
+      ]
+    },
+    {
+      "file": "negative/actor-private-motive.json",
+      "schema": "schemas/read-models/company-relics.schema.json",
+      "definition": "AutonomousActorStatus",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-07",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "negative/actor-obedience-score.json",
+      "schema": "schemas/read-models/company-relics.schema.json",
+      "definition": "AutonomousActorStatus",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-07",
+        "PTY-003"
+      ]
+    },
+    {
+      "file": "negative/relic-exact-bond.json",
+      "schema": "schemas/read-models/company-relics.schema.json",
+      "definition": "RelicRecord",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-08",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "negative/journey-canonical-coordinates-while-lost.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "JourneyState",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-09",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "negative/front-secret-clock.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "FactionFrontLegalRecord",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-14",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "negative/site-hidden-feature-count.json",
+      "schema": "schemas/read-models/world-investigation.schema.json",
+      "definition": "SiteRecord",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-10",
+        "KNO-001"
+      ]
+    },
+    {
+      "file": "negative/custody-transfer-without-authority.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "TransferCustody",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-12",
+        "TIM-005"
+      ]
+    },
+    {
+      "file": "negative/silent-bp-spend.json",
+      "schema": "schemas/commands/system-breadth.schema.json",
+      "definition": "CommitAdvancement",
+      "expected_valid": false,
+      "coverage": [
+        "SCN-02",
+        "TIM-005"
+      ]
+    }
+  ]
+}

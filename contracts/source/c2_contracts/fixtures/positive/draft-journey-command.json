@@ -1,0 +1,26 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_draft_journey_001",
+  "command_type": "draft_journey",
+  "idempotency_key": "idem-command_draft_journey_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "routine",
+  "input_provenance": "structured",
+  "payload": {
+    "journey_id": "journey_drowned_tram_001",
+    "method_ref": "item_rescue_skiff_001",
+    "pace": "cautious",
+    "intended_destination": "Blue tram beacon",
+    "roles": [
+      {
+        "role": "navigator",
+        "actor_id": "actor_mara_venn_001"
+      }
+    ],
+    "compression_requested": true
+  }
+}

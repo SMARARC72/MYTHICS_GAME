@@ -1,0 +1,211 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "project_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-project_record",
+    "text_alternative": "project_record updated."
+  },
+  "payload": {
+    "project_id": "project_skiff_repair_001",
+    "project_type": "repair",
+    "intended_output": {
+      "fact_id": "fact_output_skiff_001",
+      "classification": "recorded",
+      "statement": "Restore the skiff's port stabilizer.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "owner": {
+      "fact_id": "fact_owner_company_001",
+      "classification": "recorded",
+      "statement": "The Breakwater Irregulars own the skiff.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "workers": [
+      "actor_mara_venn_001",
+      "actor_ilya_rook_001"
+    ],
+    "status": "checkpoint",
+    "interval": {
+      "duration_display": "4 hours",
+      "commit_state": "resolved"
+    },
+    "progress": {
+      "current": 5,
+      "required": 8
+    },
+    "requirements": [
+      {
+        "fact_id": "fact_requirement_coil_001",
+        "classification": "recorded",
+        "statement": "One insulated copper coil remains required.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "material_ledger": [
+      {
+        "lot_id": "lot_copper_coil_001",
+        "state": "reserved",
+        "quantity": 1,
+        "provenance": [
+          {
+            "fact_id": "fact_lot_source_001",
+            "classification": "recorded",
+            "statement": "The coil came from the flooded substation salvage.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "known_hazards": [
+      {
+        "fact_id": "fact_hazard_battery_001",
+        "classification": "recorded",
+        "statement": "The cracked battery may vent salt vapor if heated.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "next_checkpoint": {
+      "fact_id": "fact_checkpoint_coil_001",
+      "classification": "recorded",
+      "statement": "Choose whether to install the salvaged coil or seek an exact replacement.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "provenance": [
+      {
+        "fact_id": "fact_project_roll_001",
+        "classification": "recorded",
+        "statement": "The completed interval added two Progress.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ]
+  }
+}

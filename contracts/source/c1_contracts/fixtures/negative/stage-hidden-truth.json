@@ -1,0 +1,79 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "stage_frame",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T14:00:00Z",
+  "freshness": "current",
+  "permissions": [
+    {
+      "action": "declare_intent",
+      "available": true
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "event_dockfire_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Dockside transformer fire witnessed from Pier Nine"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "polite",
+    "announcement_text": "stage frame updated.",
+    "dedupe_key": "stage_frame-sv-0001842"
+  },
+  "payload": {
+    "stage_id": "stage_pier_nine_001",
+    "scene_mode": "exploration",
+    "title": "Pier Nine",
+    "framing_text": "Rain crosses the gantry.",
+    "world_state": {
+      "place": {
+        "fact_id": "fact_pier_nine_001",
+        "classification": "perceived",
+        "statement": "You are beneath Pier Nine.",
+        "as_of_ledger_time": {
+          "tick": 1842,
+          "display": "Bell 6 · Rainwatch",
+          "calendar": "Breakwater Civic Reckoning",
+          "sequence": 44,
+          "phase": "scene"
+        },
+        "sources": [
+          {
+            "source_id": "event_dockfire_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Dockside transformer fire witnessed from Pier Nine"
+          }
+        ],
+        "visibility_scope": "active_character"
+      },
+      "active_entities": [],
+      "salient_objects": [],
+      "pressures": [],
+      "danger_state": "calm",
+      "exact_canonical_coordinates": [
+        38.1,
+        -77.2
+      ]
+    },
+    "stage_modules": [
+      "scene_frame"
+    ],
+    "intent_capability_ref": "capability_intent_001",
+    "chronicle_cursor": "chronicle:sv_0001842"
+  }
+}

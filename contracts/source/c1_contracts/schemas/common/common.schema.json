@@ -1,0 +1,1008 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json",
+  "title": "Mythic RPG C1 Common Contract Vocabulary",
+  "description": "Shared identifiers, authority metadata, knowledge, provenance, envelopes and public outcome semantics for Checkpoint C1.",
+  "$defs": {
+    "OpaqueId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+    },
+    "ContractVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "StateVersion": {
+      "type": "string",
+      "pattern": "^sv_[0-9]{7,20}$"
+    },
+    "KnowledgeSnapshotId": {
+      "type": "string",
+      "pattern": "^ks_[A-Za-z0-9_-]{8,128}$"
+    },
+    "LedgerTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tick",
+        "display",
+        "calendar",
+        "sequence"
+      ],
+      "properties": {
+        "tick": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "calendar": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "scene",
+            "round",
+            "interval",
+            "downtime",
+            "aftermath"
+          ]
+        }
+      }
+    },
+    "Freshness": {
+      "type": "string",
+      "enum": [
+        "current",
+        "superseded_nonmaterial",
+        "stale_material",
+        "last_known",
+        "disputed",
+        "unknown"
+      ]
+    },
+    "KnowledgeClass": {
+      "type": "string",
+      "enum": [
+        "perceived",
+        "recorded",
+        "reported",
+        "inferred",
+        "forecast",
+        "disputed",
+        "last_known",
+        "out_of_character"
+      ]
+    },
+    "InputProvenance": {
+      "type": "string",
+      "enum": [
+        "typed",
+        "dictated",
+        "structured",
+        "prior_pattern",
+        "system_decision"
+      ]
+    },
+    "ConfirmationClass": {
+      "type": "string",
+      "enum": [
+        "routine",
+        "material",
+        "consequential"
+      ]
+    },
+    "Permission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "available"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "reason_text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "available": {
+                "const": false
+              }
+            },
+            "required": [
+              "available"
+            ]
+          },
+          "then": {
+            "required": [
+              "reason_code",
+              "reason_text"
+            ]
+          }
+        }
+      ]
+    },
+    "ProvenanceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_type",
+        "accessible"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "event",
+            "record",
+            "observation",
+            "communication",
+            "rule",
+            "correction"
+          ]
+        },
+        "accessible": {
+          "const": true
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "citation_span": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "supersedes_source_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        }
+      }
+    },
+    "KnowledgeFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_id",
+        "classification",
+        "statement",
+        "as_of_ledger_time",
+        "sources"
+      ],
+      "properties": {
+        "fact_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "classification": {
+          "$ref": "#/$defs/KnowledgeClass"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1600
+        },
+        "as_of_ledger_time": {
+          "$ref": "#/$defs/LedgerTime"
+        },
+        "confidence_band": {
+          "type": "string",
+          "enum": [
+            "low",
+            "moderate",
+            "high",
+            "confirmed"
+          ]
+        },
+        "channel": {
+          "type": "string",
+          "enum": [
+            "sense",
+            "document",
+            "witness",
+            "analysis",
+            "memory",
+            "player_reference"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ProvenanceRef"
+          }
+        },
+        "contradiction_fact_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+          }
+        },
+        "visibility_scope": {
+          "type": "string",
+          "enum": [
+            "active_character",
+            "player",
+            "party_shared"
+          ]
+        }
+      }
+    },
+    "AccessibilitySemantic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic_role",
+        "announcement_priority",
+        "dedupe_key"
+      ],
+      "properties": {
+        "semantic_role": {
+          "type": "string",
+          "enum": [
+            "region",
+            "status",
+            "alert",
+            "dialogue",
+            "log",
+            "timer",
+            "decision"
+          ]
+        },
+        "announcement_priority": {
+          "type": "string",
+          "enum": [
+            "none",
+            "polite",
+            "assertive"
+          ]
+        },
+        "announcement_text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "dedupe_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "focus_recommendation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "text_alternative": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "structured_options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "option_id",
+              "label"
+            ],
+            "properties": {
+              "option_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              }
+            }
+          }
+        },
+        "time_semantics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "deadline_ledger_time": {
+              "$ref": "#/$defs/LedgerTime"
+            },
+            "ledger_time_paused": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "announcement_priority": {
+                "enum": [
+                  "polite",
+                  "assertive"
+                ]
+              }
+            },
+            "required": [
+              "announcement_priority"
+            ]
+          },
+          "then": {
+            "required": [
+              "announcement_text"
+            ]
+          }
+        }
+      ]
+    },
+    "ReadModelEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "payload_type",
+        "campaign_id",
+        "viewpoint_id",
+        "state_version",
+        "knowledge_snapshot_id",
+        "ledger_time",
+        "generated_at",
+        "freshness",
+        "permissions",
+        "provenance",
+        "payload"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "payload_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "campaign_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "viewpoint_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "knowledge_snapshot_id": {
+          "$ref": "#/$defs/KnowledgeSnapshotId"
+        },
+        "ledger_time": {
+          "$ref": "#/$defs/LedgerTime"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "freshness": {
+          "$ref": "#/$defs/Freshness"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Permission"
+          }
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProvenanceRef"
+          }
+        },
+        "accessibility": {
+          "$ref": "#/$defs/AccessibilitySemantic"
+        },
+        "payload": {
+          "type": "object"
+        }
+      }
+    },
+    "CommandEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "command_id",
+        "command_type",
+        "idempotency_key",
+        "campaign_id",
+        "actor_id",
+        "viewpoint_id",
+        "source_state_version",
+        "knowledge_snapshot_id",
+        "confirmation_class",
+        "input_provenance",
+        "payload"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "command_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "command_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 160
+        },
+        "campaign_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "actor_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "viewpoint_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "knowledge_snapshot_id": {
+          "$ref": "#/$defs/KnowledgeSnapshotId"
+        },
+        "proposal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "confirmation_class": {
+          "$ref": "#/$defs/ConfirmationClass"
+        },
+        "input_provenance": {
+          "$ref": "#/$defs/InputProvenance"
+        },
+        "payload": {
+          "type": "object"
+        }
+      }
+    },
+    "PublicOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "code",
+        "preserved_goal",
+        "interpreted_method",
+        "accessible_obstacle",
+        "revisable_fields",
+        "cost_spent",
+        "time_spent",
+        "roll_spent",
+        "retry_eligible"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "success",
+            "mixed_failure",
+            "rejected",
+            "refused",
+            "interrupted",
+            "unavailable",
+            "destructive_consequence",
+            "replan",
+            "conflict",
+            "recovery"
+          ]
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "success.committed",
+            "mixed.failure",
+            "rejected.causal_impossible",
+            "rejected.rule_invalid",
+            "refused.actor_boundary",
+            "interrupted.window",
+            "unavailable.access",
+            "unavailable.window_closed",
+            "unavailable.provider",
+            "destructive.consequence",
+            "replan.state_changed",
+            "conflict.state_version",
+            "recovery.unknown_commit"
+          ]
+        },
+        "preserved_goal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "interpreted_method": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "accessible_obstacle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "possible_portion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "revisable_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "goal",
+              "method",
+              "target",
+              "scope",
+              "timing",
+              "resource",
+              "authority",
+              "assumption"
+            ]
+          }
+        },
+        "cost_spent": {
+          "type": "boolean"
+        },
+        "time_spent": {
+          "type": "boolean"
+        },
+        "roll_spent": {
+          "type": "boolean"
+        },
+        "retry_eligible": {
+          "type": "boolean"
+        },
+        "current_accessible_state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "help_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProvenanceRef"
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "family": {
+              "const": "success"
+            },
+            "code": {
+              "const": "success.committed"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "mixed_failure"
+            },
+            "code": {
+              "const": "mixed.failure"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "rejected"
+            },
+            "code": {
+              "enum": [
+                "rejected.causal_impossible",
+                "rejected.rule_invalid"
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "refused"
+            },
+            "code": {
+              "const": "refused.actor_boundary"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "interrupted"
+            },
+            "code": {
+              "const": "interrupted.window"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "unavailable"
+            },
+            "code": {
+              "enum": [
+                "unavailable.access",
+                "unavailable.window_closed",
+                "unavailable.provider"
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "destructive_consequence"
+            },
+            "code": {
+              "const": "destructive.consequence"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "replan"
+            },
+            "code": {
+              "const": "replan.state_changed"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "conflict"
+            },
+            "code": {
+              "const": "conflict.state_version"
+            }
+          }
+        },
+        {
+          "properties": {
+            "family": {
+              "const": "recovery"
+            },
+            "code": {
+              "const": "recovery.unknown_commit"
+            }
+          }
+        }
+      ]
+    },
+    "RecoveryInstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recovery_type",
+        "safe_next_action",
+        "retry_permitted"
+      ],
+      "properties": {
+        "recovery_type": {
+          "type": "string",
+          "enum": [
+            "lookup_before_retry",
+            "compare_and_reconfirm",
+            "revise_method",
+            "wait_for_window",
+            "retry_dependency",
+            "contact_support"
+          ]
+        },
+        "safe_next_action": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "retry_permitted": {
+          "type": "boolean"
+        },
+        "lookup_command_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "current_state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "changed_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "recovery_type": {
+                "const": "lookup_before_retry"
+              }
+            },
+            "required": [
+              "recovery_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "lookup_command_id"
+            ],
+            "properties": {
+              "retry_permitted": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ReceiptEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "receipt_id",
+        "command_id",
+        "lookup_key",
+        "status",
+        "campaign_id",
+        "source_state_version",
+        "generated_at"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "command_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "lookup_key": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 160
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "accepted_pending",
+            "committed",
+            "rejected",
+            "replan_required",
+            "conflict",
+            "queued",
+            "retryable_failure",
+            "unknown_commit",
+            "canceled"
+          ]
+        },
+        "campaign_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "current_state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "committed_event_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+          }
+        },
+        "outcome": {
+          "$ref": "#/$defs/PublicOutcome"
+        },
+        "recovery": {
+          "$ref": "#/$defs/RecoveryInstruction"
+        },
+        "accessibility": {
+          "$ref": "#/$defs/AccessibilitySemantic"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "committed"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "current_state_version",
+              "committed_event_ids",
+              "outcome"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "rejected"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "outcome"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "replan_required",
+                  "conflict",
+                  "unknown_commit"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "outcome",
+              "recovery"
+            ]
+          }
+        }
+      ]
+    },
+    "EventEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "event_id",
+        "event_type",
+        "campaign_id",
+        "state_version",
+        "ledger_time",
+        "occurred_at",
+        "correlation_id",
+        "causation_id",
+        "payload"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "event_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "event_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 140
+        },
+        "campaign_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "viewpoint_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "state_version": {
+          "$ref": "#/$defs/StateVersion"
+        },
+        "ledger_time": {
+          "$ref": "#/$defs/LedgerTime"
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "correlation_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "causation_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "knowledge_snapshot_id": {
+          "$ref": "#/$defs/KnowledgeSnapshotId"
+        },
+        "accessibility": {
+          "$ref": "#/$defs/AccessibilitySemantic"
+        },
+        "payload": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

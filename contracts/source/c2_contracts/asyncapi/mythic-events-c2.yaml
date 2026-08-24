@@ -1,0 +1,51 @@
+asyncapi: 3.1.0
+info:
+  title: Mythic RPG Viewpoint Event Contract — Checkpoint C2
+  version: 0.1.0
+  description: Ordered accessible projections for system-breadth events. Transport remains descriptive and non-authoritative.
+channels:
+  campaignViewpointEvents:
+    address: campaigns/{campaignId}/viewpoints/{viewpointId}/events
+    messages:
+      ProgressionCommitted: { $ref: '#/components/messages/ProgressionCommitted' }
+      DefeatContinuationChanged: { $ref: '#/components/messages/DefeatContinuationChanged' }
+      AutonomousActorStatusChanged: { $ref: '#/components/messages/AutonomousActorStatusChanged' }
+      RelicStatusChanged: { $ref: '#/components/messages/RelicStatusChanged' }
+      CustodyTransferred: { $ref: '#/components/messages/CustodyTransferred' }
+      ProjectCheckpointReached: { $ref: '#/components/messages/ProjectCheckpointReached' }
+      JourneyIntervalResolved: { $ref: '#/components/messages/JourneyIntervalResolved' }
+      WorldRecordUpdated: { $ref: '#/components/messages/WorldRecordUpdated' }
+      ChronicleConsequenceRouted: { $ref: '#/components/messages/ChronicleConsequenceRouted' }
+operations:
+  receiveSystemBreadthEvents:
+    action: receive
+    channel: { $ref: '#/channels/campaignViewpointEvents' }
+components:
+  messages:
+    ProgressionCommitted:
+      name: progression_committed
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/ProgressionCommitted' }
+    DefeatContinuationChanged:
+      name: defeat_continuation_changed
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/DefeatContinuationChanged' }
+    AutonomousActorStatusChanged:
+      name: autonomous_actor_status_changed
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/AutonomousActorStatusChanged' }
+    RelicStatusChanged:
+      name: relic_status_changed
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/RelicStatusChanged' }
+    CustodyTransferred:
+      name: custody_transferred
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/CustodyTransferred' }
+    ProjectCheckpointReached:
+      name: project_checkpoint_reached
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/ProjectCheckpointReached' }
+    JourneyIntervalResolved:
+      name: journey_interval_resolved
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/JourneyIntervalResolved' }
+    WorldRecordUpdated:
+      name: world_record_updated
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/WorldRecordUpdated' }
+    ChronicleConsequenceRouted:
+      name: chronicle_consequence_routed
+      payload: { $ref: '../schemas/events/system-breadth.schema.json#/$defs/ChronicleConsequenceRouted' }

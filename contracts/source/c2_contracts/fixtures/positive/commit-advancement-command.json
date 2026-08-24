@@ -1,0 +1,22 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_commit_advancement_001",
+  "command_type": "commit_advancement",
+  "idempotency_key": "idem-command_commit_advancement_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "consequential",
+  "input_provenance": "structured",
+  "payload": {
+    "character_id": "actor_mara_venn_001",
+    "checkpoint_id": "checkpoint_aftermath_001",
+    "reviewed_draft_id": "draft_advancement_001",
+    "reviewed_allocation_ids": [
+      "allocation_first_aid_001"
+    ],
+    "final_confirmation": true
+  }
+}

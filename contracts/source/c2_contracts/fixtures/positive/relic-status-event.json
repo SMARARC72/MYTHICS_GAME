@@ -1,0 +1,34 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_relic_status_001",
+  "event_type": "relic_status_changed",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "relic status changed.",
+    "dedupe_key": "event-relic_status_changed",
+    "text_alternative": "relic status changed."
+  },
+  "payload": {
+    "relic_id": "relic_brass_witness_001",
+    "change_kind": "relationship",
+    "projection_refs": [
+      "relic_brass_witness_001",
+      "bundle_archive_breach_001"
+    ]
+  }
+}

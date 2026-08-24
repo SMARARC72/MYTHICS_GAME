@@ -1,0 +1,35 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_progression_001",
+  "event_type": "progression_committed",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "progression committed.",
+    "dedupe_key": "event-progression_committed",
+    "text_alternative": "progression committed."
+  },
+  "payload": {
+    "character_id": "actor_mara_venn_001",
+    "checkpoint_id": "checkpoint_aftermath_001",
+    "bp_spent": 2,
+    "bp_remaining": 1,
+    "allocation_refs": [
+      "allocation_first_aid_001"
+    ]
+  }
+}

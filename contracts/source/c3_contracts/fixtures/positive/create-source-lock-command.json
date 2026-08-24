@@ -1,0 +1,25 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_create_source_lock_001",
+  "command_type": "create_comic_source_lock",
+  "idempotency_key": "idem-create_source_lock-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "review_id": "review_archive_inflection_001",
+    "canon_snapshot_id": "snapshot_issue_001",
+    "canon_state_version": "sv_0001042",
+    "event_range": {
+      "start_event_id": "event_archive_entry_001",
+      "end_event_id": "event_archive_breach_001"
+    },
+    "selected_viewpoint_id": "viewpoint_mara_001",
+    "reader_knowledge_ceiling": "player_safe",
+    "gameplay_continues": true
+  }
+}

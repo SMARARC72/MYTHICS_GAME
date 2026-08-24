@@ -1,0 +1,140 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "company_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-company_record",
+    "text_alternative": "company_record updated."
+  },
+  "payload": {
+    "company_id": "company_breakwater_001",
+    "display_name": "The Breakwater Irregulars",
+    "purpose": {
+      "fact_id": "fact_company_purpose_001",
+      "classification": "recorded",
+      "statement": "Keep Pier Nine from becoming a permanent Salt Court foothold.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "governance": {
+      "decision_model": "consensus",
+      "authority_facts": [
+        {
+          "fact_id": "fact_governance_001",
+          "classification": "recorded",
+          "statement": "Immediate rescue choices are decided by the members present.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      ]
+    },
+    "roster": [
+      {
+        "member_id": "actor_ilya_rook_001",
+        "display_name": "Ilya Rook",
+        "membership_state": "member",
+        "operation_mode": "autonomous",
+        "role_facts": [
+          {
+            "fact_id": "fact_role_medic_001",
+            "classification": "recorded",
+            "statement": "Ilya serves as field medic by mutual agreement.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "shared_assets": [
+      "item_rescue_skiff_001"
+    ],
+    "active_obligations": [
+      {
+        "fact_id": "fact_obligation_workers_001",
+        "classification": "recorded",
+        "statement": "The company promised to evacuate the surviving riggers.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ]
+  }
+}

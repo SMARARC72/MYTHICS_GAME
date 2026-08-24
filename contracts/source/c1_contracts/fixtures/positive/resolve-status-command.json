@@ -1,0 +1,17 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_status_lookup_001",
+  "command_type": "resolve_commit_status",
+  "idempotency_key": "idem-command_status_lookup_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "confirmation_class": "routine",
+  "input_provenance": "typed",
+  "payload": {
+    "original_command_id": "command_commit_005",
+    "original_idempotency_key": "idem-command_commit_005-20260823"
+  }
+}

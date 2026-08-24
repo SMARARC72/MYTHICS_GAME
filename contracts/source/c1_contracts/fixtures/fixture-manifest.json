@@ -1,0 +1,272 @@
+{
+  "contract_version": "1.0.0",
+  "checkpoint": "C1",
+  "fixtures": [
+    {
+      "file": "positive/world-strip-current.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "WorldStripStatus",
+      "expected_valid": true,
+      "coverage": [
+        "FND-001",
+        "TIM-001",
+        "SCN-01",
+        "CMP-01"
+      ]
+    },
+    {
+      "file": "positive/stage-frame-current.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "StageFrame",
+      "expected_valid": true,
+      "coverage": [
+        "FND-001",
+        "TIM-002",
+        "SCN-01",
+        "CMP-03"
+      ]
+    },
+    {
+      "file": "positive/context-lens-disputed.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "EntityContextLens",
+      "expected_valid": true,
+      "coverage": [
+        "KNO-001",
+        "SCN-09",
+        "SCN-10",
+        "CMP-04"
+      ]
+    },
+    {
+      "file": "positive/intent-capability.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "IntentCapability",
+      "expected_valid": true,
+      "coverage": [
+        "FND-001",
+        "FND-002",
+        "SCN-01",
+        "CMP-05"
+      ]
+    },
+    {
+      "file": "positive/interpret-intent-command.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "InterpretIntentCommand",
+      "expected_valid": true,
+      "coverage": [
+        "FND-003",
+        "SCN-04",
+        "CMP-13"
+      ]
+    },
+    {
+      "file": "positive/interpreted-proposal.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "InterpretedProposal",
+      "expected_valid": true,
+      "coverage": [
+        "FND-003",
+        "SCN-04",
+        "CMP-13"
+      ]
+    },
+    {
+      "file": "positive/proposal-forecast.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "ProposalForecast",
+      "expected_valid": true,
+      "coverage": [
+        "FND-003",
+        "SCN-04",
+        "CMP-14"
+      ]
+    },
+    {
+      "file": "positive/commit-action-command.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommitActionCommand",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-005",
+        "SCN-04",
+        "CMP-15"
+      ]
+    },
+    {
+      "file": "positive/committed-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-005",
+        "SCN-04",
+        "CMP-17"
+      ]
+    },
+    {
+      "file": "positive/mixed-failure-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "FND-007",
+        "SCN-04",
+        "CMP-17"
+      ]
+    },
+    {
+      "file": "positive/rejected-impossible-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "FND-004",
+        "GAP-001",
+        "SCN-05"
+      ]
+    },
+    {
+      "file": "positive/refused-actor-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "PTY-003",
+        "GAP-001",
+        "SCN-07",
+        "SCN-08"
+      ]
+    },
+    {
+      "file": "positive/unavailable-access-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "GAP-001",
+        "SCN-15"
+      ]
+    },
+    {
+      "file": "positive/interrupted-window-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "FND-007",
+        "SCN-06",
+        "CMP-17"
+      ]
+    },
+    {
+      "file": "positive/destructive-consequence-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "BRK-006",
+        "SCN-11",
+        "CMP-17"
+      ]
+    },
+    {
+      "file": "positive/replan-state-changed-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-006",
+        "GAP-006",
+        "CMP-08"
+      ]
+    },
+    {
+      "file": "positive/stale-conflict-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-006",
+        "GAP-006",
+        "SCN-17"
+      ]
+    },
+    {
+      "file": "positive/unknown-commit-receipt.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-005",
+        "GAP-014",
+        "CMP-08"
+      ]
+    },
+    {
+      "file": "positive/resolve-status-command.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "ResolveCommitStatusCommand",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-005",
+        "GAP-014",
+        "CMP-17"
+      ]
+    },
+    {
+      "file": "positive/resolution-beat-mixed.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "ResolutionBeat",
+      "expected_valid": true,
+      "coverage": [
+        "FND-007",
+        "SCN-04",
+        "CMP-16"
+      ]
+    },
+    {
+      "file": "positive/recovery-required-event.json",
+      "schema": "schemas/events/core-loop.schema.json",
+      "definition": "RecoveryRequired",
+      "expected_valid": true,
+      "coverage": [
+        "TIM-005",
+        "GAP-014",
+        "CMP-38"
+      ]
+    },
+    {
+      "file": "negative/stage-hidden-truth.json",
+      "schema": "schemas/read-models/core-loop.schema.json",
+      "definition": "StageFrame",
+      "expected_valid": false,
+      "coverage": [
+        "KNO-001",
+        "SCN-09",
+        "SCN-10"
+      ]
+    },
+    {
+      "file": "negative/commit-without-idempotency.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommitActionCommand",
+      "expected_valid": false,
+      "coverage": [
+        "TIM-005",
+        "GAP-014"
+      ]
+    },
+    {
+      "file": "negative/rejection-with-diagnostic.json",
+      "schema": "schemas/commands/core-loop.schema.json",
+      "definition": "CommandReceipt",
+      "expected_valid": false,
+      "coverage": [
+        "GAP-001",
+        "SCN-05"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "contract_version": "1.0.0",
+  "receipt_id": "receipt_conflict_001",
+  "command_id": "command_commit_004",
+  "lookup_key": "lookup-command_commit_004-20260823",
+  "status": "conflict",
+  "campaign_id": "camp_breakwater_001",
+  "source_state_version": "sv_0001842",
+  "generated_at": "2026-08-23T14:00:02Z",
+  "outcome": {
+    "family": "conflict",
+    "code": "conflict.state_version",
+    "preserved_goal": "Reach the transformer control room",
+    "interpreted_method": "Cross the flooded maintenance gantry",
+    "accessible_obstacle": "The crane moved after the proposal was reviewed.",
+    "revisable_fields": [
+      "method",
+      "timing"
+    ],
+    "cost_spent": false,
+    "time_spent": false,
+    "roll_spent": false,
+    "retry_eligible": true,
+    "current_accessible_state_version": "sv_0001842",
+    "help_refs": [
+      {
+        "source_id": "event_dockfire_001",
+        "source_type": "event",
+        "accessible": true,
+        "label": "Dockside transformer fire witnessed from Pier Nine"
+      }
+    ]
+  },
+  "recovery": {
+    "recovery_type": "compare_and_reconfirm",
+    "safe_next_action": "Review the changed route and confirm or revise the method.",
+    "retry_permitted": false,
+    "current_state_version": "sv_0001843",
+    "changed_fields": [
+      "route",
+      "risk"
+    ]
+  },
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "assertive",
+    "announcement_text": "Action status: conflict.",
+    "dedupe_key": "receipt-conflict"
+  },
+  "current_state_version": "sv_0001843"
+}

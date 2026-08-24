@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c3/schemas/media/media-provenance.schema.json",
+  "title": "Mythic RPG C3 Media Provenance, QA and Accessibility Contracts",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/MediaAssetManifest"
+    },
+    {
+      "$ref": "#/$defs/AccessiblePublicationPackage"
+    }
+  ],
+  "$defs": {
+    "MediaAssetManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "asset_id",
+        "visibility",
+        "issue_id",
+        "page_id",
+        "panel_id",
+        "layer_id",
+        "source_lock_id",
+        "source_event_ids",
+        "content_hash",
+        "provider",
+        "model_profile",
+        "generation_settings_ref",
+        "prompt_manifest_ref",
+        "reference_manifest_ids",
+        "seed",
+        "attempt_number",
+        "edits",
+        "rights",
+        "qa_state",
+        "accepted_bytes_retained",
+        "exact_regeneration_assumed",
+        "published_asset_mutable"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ContractVersion"
+        },
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "visibility": {
+          "const": "protected_media_audit"
+        },
+        "issue_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "page_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "panel_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "layer_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_lock_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_event_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+          }
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "model_profile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "generation_settings_ref": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "prompt_manifest_ref": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "reference_manifest_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+          }
+        },
+        "seed": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "attempt_number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "edits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "edit_id",
+              "kind",
+              "creator_ref"
+            ],
+            "properties": {
+              "edit_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "crop",
+                  "color",
+                  "mask",
+                  "paint",
+                  "lettering",
+                  "layout",
+                  "export"
+                ]
+              },
+              "creator_ref": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+              }
+            }
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "license_state",
+            "likeness_authorized"
+          ],
+          "properties": {
+            "license_state": {
+              "type": "string",
+              "enum": [
+                "owned",
+                "licensed",
+                "public_domain",
+                "original_generated"
+              ]
+            },
+            "likeness_authorized": {
+              "type": "boolean"
+            },
+            "authorization_ref": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+            }
+          }
+        },
+        "qa_state": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "failed",
+            "passed",
+            "blocked"
+          ]
+        },
+        "accepted_bytes_retained": {
+          "const": true
+        },
+        "exact_regeneration_assumed": {
+          "const": false
+        },
+        "published_asset_mutable": {
+          "const": false
+        },
+        "supersedes_asset_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        }
+      }
+    },
+    "AccessiblePublicationPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "package_id",
+        "issue_id",
+        "edition_id",
+        "reader_knowledge_ceiling",
+        "knowledge_gate_passed",
+        "deterministic_reading_order",
+        "page_alt_text",
+        "dialogue_transcript",
+        "speaker_attribution",
+        "caption_sfx_transcript",
+        "color_independent_identification",
+        "navigable_structure",
+        "content_warnings",
+        "localization_profile_id"
+      ],
+      "properties": {
+        "contract_version": {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ContractVersion"
+        },
+        "package_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "issue_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "edition_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "reader_knowledge_ceiling": {
+          "type": "string",
+          "enum": [
+            "character_viewpoint",
+            "party_shared",
+            "player_safe",
+            "omniscient_archive"
+          ]
+        },
+        "knowledge_gate_passed": {
+          "const": true
+        },
+        "deterministic_reading_order": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+          }
+        },
+        "page_alt_text": {
+          "type": "array",
+          "items": {
+            "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+          }
+        },
+        "dialogue_transcript": {
+          "type": "array",
+          "items": {
+            "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+          }
+        },
+        "speaker_attribution": {
+          "type": "array",
+          "items": {
+            "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+          }
+        },
+        "caption_sfx_transcript": {
+          "type": "array",
+          "items": {
+            "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+          }
+        },
+        "color_independent_identification": {
+          "const": true
+        },
+        "navigable_structure": {
+          "const": true
+        },
+        "content_warnings": {
+          "type": "array",
+          "items": {
+            "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+          }
+        },
+        "localization_profile_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        }
+      }
+    }
+  }
+}

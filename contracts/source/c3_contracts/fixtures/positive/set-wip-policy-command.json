@@ -1,0 +1,18 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_set_wip_001",
+  "command_type": "set_comic_wip_policy",
+  "idempotency_key": "idem-set_wip-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "profile_id": "profile_comic_001",
+    "enabled": true,
+    "explicit_opt_in": true
+  }
+}

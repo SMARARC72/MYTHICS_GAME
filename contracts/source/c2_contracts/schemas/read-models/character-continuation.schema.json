@@ -1,0 +1,651 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c2/schemas/read-models/character-continuation.schema.json",
+  "title": "Mythic RPG C2 Character, Progression, Harm and Continuation Read Models",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/CharacterRecord"
+    },
+    {
+      "$ref": "#/$defs/AdvancementDraft"
+    },
+    {
+      "$ref": "#/$defs/ContinuationState"
+    }
+  ],
+  "$defs": {
+    "XpEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entry_id",
+        "source_event_id",
+        "source_type",
+        "amount",
+        "ledger_time",
+        "provenance"
+      ],
+      "properties": {
+        "entry_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_event_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "combat",
+            "exploration",
+            "objective",
+            "creation",
+            "survival",
+            "training",
+            "conviction",
+            "legacy"
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ledger_time": {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/LedgerTime"
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+          }
+        }
+      }
+    },
+    "BpLedger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "earned_total",
+        "spent_total",
+        "banked",
+        "entries"
+      ],
+      "properties": {
+        "earned_total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "spent_total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "banked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "entry_id",
+              "kind",
+              "amount",
+              "source_event_id"
+            ],
+            "properties": {
+              "entry_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "earned",
+                  "spent",
+                  "converted"
+                ]
+              },
+              "amount": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "source_event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+              },
+              "allocation_ref": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CharacterRecord": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "character_record"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "character_id",
+                "display_name",
+                "origin_lane",
+                "level",
+                "power_tier",
+                "total_xp",
+                "xp_ledger",
+                "bp_ledger",
+                "resources",
+                "wounds",
+                "defeat_state",
+                "advancement_checkpoint",
+                "constraints"
+              ],
+              "properties": {
+                "character_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "display_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "origin_lane": {
+                  "type": "string",
+                  "enum": [
+                    "hero",
+                    "villain",
+                    "ordinary_survivor",
+                    "unbound"
+                  ]
+                },
+                "level": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 20
+                },
+                "power_tier": {
+                  "type": "string",
+                  "enum": [
+                    "Emergent",
+                    "Established",
+                    "Iconic",
+                    "Mythic",
+                    "Ascendant"
+                  ]
+                },
+                "total_xp": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "xp_ledger": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/XpEntry"
+                  }
+                },
+                "bp_ledger": {
+                  "$ref": "#/$defs/BpLedger"
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "track_id",
+                      "label",
+                      "current",
+                      "maximum"
+                    ],
+                    "properties": {
+                      "track_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      },
+                      "current": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "maximum": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "skin_label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      }
+                    }
+                  }
+                },
+                "wounds": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "wound_id",
+                      "severity",
+                      "family",
+                      "summary",
+                      "treatment_state"
+                    ],
+                    "properties": {
+                      "wound_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "severity": {
+                        "type": "string",
+                        "enum": [
+                          "minor",
+                          "serious",
+                          "critical",
+                          "mortal"
+                        ]
+                      },
+                      "family": {
+                        "type": "string",
+                        "enum": [
+                          "physical",
+                          "psychic",
+                          "spiritual",
+                          "divine",
+                          "ontological"
+                        ]
+                      },
+                      "summary": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 800
+                      },
+                      "treatment_state": {
+                        "type": "string",
+                        "enum": [
+                          "untreated",
+                          "stabilized",
+                          "recovering",
+                          "resolved"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "defeat_state": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "downed",
+                    "unconscious",
+                    "incapacitated",
+                    "captured",
+                    "surrendering",
+                    "fleeing",
+                    "dying",
+                    "destroyed",
+                    "dead"
+                  ]
+                },
+                "death_record": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "death_event_id",
+                    "classification"
+                  ],
+                  "properties": {
+                    "death_event_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                    },
+                    "classification": {
+                      "type": "string",
+                      "enum": [
+                        "dead",
+                        "destroyed",
+                        "severed",
+                        "uncertain"
+                      ]
+                    }
+                  }
+                },
+                "advancement_checkpoint": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "state",
+                    "banking_preserved"
+                  ],
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "enum": [
+                        "closed",
+                        "available",
+                        "breakthrough_required",
+                        "active"
+                      ]
+                    },
+                    "banking_preserved": {
+                      "const": true
+                    },
+                    "checkpoint_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                    }
+                  }
+                },
+                "constraints": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "continuation_ref": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                }
+              },
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "defeat_state": {
+                        "const": "dead"
+                      }
+                    },
+                    "required": [
+                      "defeat_state"
+                    ]
+                  },
+                  "then": {
+                    "required": [
+                      "death_record",
+                      "continuation_ref"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "AdvancementDraft": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "advancement_draft"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "draft_id",
+                "character_id",
+                "checkpoint_id",
+                "status",
+                "noncanonical",
+                "available_bp",
+                "allocations",
+                "projected_changes",
+                "remaining_bp",
+                "validation"
+              ],
+              "properties": {
+                "draft_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "character_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "checkpoint_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "draft",
+                    "review",
+                    "invalid",
+                    "stale_material",
+                    "committed"
+                  ]
+                },
+                "noncanonical": {
+                  "const": true
+                },
+                "available_bp": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "allocations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "allocation_id",
+                      "target_ref",
+                      "cost",
+                      "label"
+                    ],
+                    "properties": {
+                      "allocation_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "target_ref": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "cost": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 240
+                      }
+                    }
+                  }
+                },
+                "projected_changes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "remaining_bp": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "validation": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ContinuationState": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "continuation_state"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "continuation_id",
+                "subject_id",
+                "classification",
+                "agency_state",
+                "body_state",
+                "soul_components",
+                "constraints",
+                "options"
+              ],
+              "properties": {
+                "continuation_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "subject_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "classification": {
+                  "type": "string",
+                  "enum": [
+                    "defeat",
+                    "dying",
+                    "threshold",
+                    "echo",
+                    "ghost",
+                    "shade",
+                    "returned",
+                    "replica",
+                    "possessed",
+                    "hollow",
+                    "composite",
+                    "successor",
+                    "permadeath"
+                  ]
+                },
+                "agency_state": {
+                  "type": "string",
+                  "enum": [
+                    "full",
+                    "constrained_playable",
+                    "viewpoint_transition",
+                    "none_by_choice"
+                  ]
+                },
+                "body_state": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                },
+                "soul_components": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "component",
+                      "known_state"
+                    ],
+                    "properties": {
+                      "component": {
+                        "type": "string",
+                        "enum": [
+                          "Self",
+                          "Memory",
+                          "Name",
+                          "Shadow"
+                        ]
+                      },
+                      "known_state": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      }
+                    }
+                  }
+                },
+                "constraints": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                  }
+                },
+                "options": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "option_id",
+                      "mode",
+                      "label",
+                      "available"
+                    ],
+                    "properties": {
+                      "option_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "afterlife_play",
+                          "escape",
+                          "bargain",
+                          "companion_recovery",
+                          "ghost_play",
+                          "returned",
+                          "successor",
+                          "new_character_legacy",
+                          "permadeath"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 240
+                      },
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "requirements": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

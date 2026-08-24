@@ -1,0 +1,51 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "comic_source_lock_record",
+  "campaign_id": "campaign_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "ledger_time": {
+    "tick": 64800,
+    "display": "Day 0, 18:00",
+    "calendar": "BREAKWATER",
+    "sequence": 12,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T18:00:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_archive_breach_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Archive breach"
+    }
+  ],
+  "payload": {
+    "source_lock_id": "source_lock_issue_001",
+    "immutable": true,
+    "event_range": {
+      "start_event_id": "event_archive_entry_001",
+      "end_event_id": "event_archive_breach_001"
+    },
+    "canon_snapshot_id": "snapshot_issue_001",
+    "canon_state_version": "sv_0001042",
+    "locked_at": "2026-08-23T18:00:07Z",
+    "selected_viewpoint_id": "viewpoint_mara_001",
+    "reader_knowledge_ceiling": "player_safe",
+    "included_beat_ids": [
+      "beat_archive_choice_001"
+    ],
+    "excluded_optional_beat_ids": [
+      "beat_buoy_nine_001"
+    ],
+    "rights_manifest_refs": [
+      "rights_issue_001"
+    ],
+    "gameplay_continues": true,
+    "world_time_frozen": false,
+    "next_adaptation_window_start_event_id": "event_after_breach_001"
+  }
+}

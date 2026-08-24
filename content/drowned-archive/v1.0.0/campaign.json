@@ -1,0 +1,85 @@
+{
+  "contentVersion": "drowned-archive@1.0.0",
+  "campaignId": "campaign-drowned-archive-preview",
+  "title": "The Drowned Archive Threshold",
+  "ledgerTime": "Cycle 18 · Third Bell · Tide rising",
+  "entrySceneId": "scene-threshold",
+  "viewpoints": ["mara-vale"],
+  "facts": [
+    {
+      "id": "fact-threshold-visible",
+      "classification": "perceived",
+      "summary": "A bronze threshold stands between the flooded stacks.",
+      "knownBy": ["mara-vale", "curator-ilya"]
+    },
+    {
+      "id": "fact-ilya-warning",
+      "classification": "reported",
+      "summary": "Ilya says the threshold answers to a name spoken without fear.",
+      "knownBy": ["mara-vale", "curator-ilya"]
+    },
+    {
+      "id": "fact-reflection-sigil",
+      "classification": "inferred",
+      "summary": "The sigil in the water may be a binding mark rather than a lock.",
+      "knownBy": ["mara-vale"]
+    },
+    {
+      "id": "fact-ilya-drive",
+      "classification": "private",
+      "summary": "Ilya will protect the archive's names even at personal cost.",
+      "knownBy": ["curator-ilya"],
+      "revealCondition": "ilya-discloses-vow"
+    },
+    {
+      "id": "fact-lower-vault-occupant",
+      "classification": "hidden",
+      "summary": "A salt-wraith waits below the threshold.",
+      "knownBy": [],
+      "revealCondition": "vault-observed"
+    }
+  ],
+  "actors": [
+    {
+      "id": "mara-vale",
+      "name": "Mara Vale",
+      "role": "player-character",
+      "publicDescription": "A storm-marked investigator at the archive threshold."
+    },
+    {
+      "id": "curator-ilya",
+      "name": "Curator Ilya",
+      "role": "autonomous-npc",
+      "publicDescription": "The archive's exhausted keeper.",
+      "privatePolicy": {
+        "driveFactId": "fact-ilya-drive",
+        "refusedMethods": ["destroy-names", "coerce-keeper"]
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-threshold",
+      "title": "The Drowned Archive",
+      "description": "Black water climbs the marble stacks while the bronze threshold hums.",
+      "visibleFactIds": ["fact-threshold-visible", "fact-ilya-warning", "fact-reflection-sigil"],
+      "suggestedActions": [
+        { "id": "ask-ilya", "label": "Ask Ilya about the sigil" },
+        { "id": "examine-reflection", "label": "Examine the reflection" },
+        { "id": "force-threshold", "label": "Force the threshold" },
+        { "id": "withdraw", "label": "Withdraw before the tide rises" }
+      ],
+      "pressure": { "label": "Tide pressure", "value": 2, "maximum": 6 }
+    }
+  ],
+  "branches": [
+    { "id": "success", "kind": "success", "summary": "The threshold opens and Mara reaches the upper vault.", "ledgerMinutes": 4 },
+    { "id": "mixed", "kind": "mixed", "summary": "The threshold opens as the tide damages one unsecured clue.", "ledgerMinutes": 6 },
+    { "id": "failure", "kind": "failure", "summary": "The seal holds and tide pressure advances.", "ledgerMinutes": 5 },
+    { "id": "impossible", "kind": "impossible", "summary": "The declared method cannot affect the recorded threshold.", "ledgerMinutes": 0 },
+    { "id": "refusal", "kind": "refusal", "summary": "Ilya refuses a method that would destroy the archive's names.", "ledgerMinutes": 1 },
+    { "id": "interruption", "kind": "interruption", "summary": "Collapsing shelves open an immediate rescue-or-pursuit window.", "ledgerMinutes": 2 },
+    { "id": "stale-conflict", "kind": "stale-conflict", "summary": "A committed change invalidates the reviewed proposal.", "ledgerMinutes": 0 },
+    { "id": "unknown-commit", "kind": "unknown-commit", "summary": "Commit status must be resolved before another attempt.", "ledgerMinutes": 0 }
+  ]
+}

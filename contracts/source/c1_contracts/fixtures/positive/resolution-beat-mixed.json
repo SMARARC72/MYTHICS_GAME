@@ -1,0 +1,93 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "resolution_beat",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T14:00:00Z",
+  "freshness": "current",
+  "permissions": [
+    {
+      "action": "declare_intent",
+      "available": true
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "event_dockfire_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Dockside transformer fire witnessed from Pier Nine"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "polite",
+    "announcement_text": "resolution beat updated.",
+    "dedupe_key": "resolution_beat-sv-0001842"
+  },
+  "payload": {
+    "resolution_id": "resolution_crane_entry_001",
+    "command_id": "command_commit_001",
+    "event_ids": [
+      "event_crane_entry_001"
+    ],
+    "outcome_class": "mixed_failure",
+    "summary": "Mara reaches the window, but the cable tears free and crashes into the flooded gantry below.",
+    "visible_rolls": [
+      {
+        "roll_id": "roll_crane_entry_001",
+        "source": "engine",
+        "result": 9,
+        "verified": true
+      }
+    ],
+    "costs_spent": [
+      {
+        "resource": "action",
+        "amount": 1
+      }
+    ],
+    "world_deltas": [
+      {
+        "fact_id": "fact_cable_destroyed_001",
+        "classification": "perceived",
+        "statement": "The crane cable has fallen into the flooded gantry.",
+        "as_of_ledger_time": {
+          "tick": 1842,
+          "display": "Bell 6 · Rainwatch",
+          "calendar": "Breakwater Civic Reckoning",
+          "sequence": 44,
+          "phase": "scene"
+        },
+        "sources": [
+          {
+            "source_id": "event_dockfire_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Dockside transformer fire witnessed from Pier Nine"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "continuation_choices": [
+      {
+        "choice_id": "choice_break_window_001",
+        "label": "Break the window now"
+      },
+      {
+        "choice_id": "choice_find_latch_001",
+        "label": "Search for the service latch"
+      }
+    ]
+  }
+}

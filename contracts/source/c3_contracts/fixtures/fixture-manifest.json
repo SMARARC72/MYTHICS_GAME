@@ -1,0 +1,726 @@
+{
+  "contract_version": "1.0.0",
+  "checkpoint": "C3",
+  "fixtures": [
+    {
+      "file": "positive/connectivity-state.json",
+      "schema": "schemas/read-models/async-attention-recovery.schema.json",
+      "definition": "ConnectivityState",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/save-recovery-state.json",
+      "schema": "schemas/read-models/async-attention-recovery.schema.json",
+      "definition": "SaveRecoveryState",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/attention-digest.json",
+      "schema": "schemas/read-models/async-attention-recovery.schema.json",
+      "definition": "AttentionDigest",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/accessibility-profile.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "AccessibilityProfile",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "SCN-16",
+        "CMP-039",
+        "C3-A11Y"
+      ]
+    },
+    {
+      "file": "positive/content-control-profile.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "ContentControlProfile",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/localization-profile.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "LocalizationProfile",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/issue-zero-skip.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "IssueZeroAvailability",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "SCN-15",
+        "ONB-001",
+        "C3-A11Y"
+      ]
+    },
+    {
+      "file": "positive/comic-capture-record.json",
+      "schema": "schemas/read-models/comic-capture-source-lock.schema.json",
+      "definition": "ComicCaptureRecord",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/inflection-review.json",
+      "schema": "schemas/read-models/comic-capture-source-lock.schema.json",
+      "definition": "InflectionReview",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/source-lock-record.json",
+      "schema": "schemas/read-models/comic-capture-source-lock.schema.json",
+      "definition": "SourceLockRecord",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "SCN-14",
+        "FLW-11",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-job-producing.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicJobRecord",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-job-provider-blocked.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicJobRecord",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "SCN-14",
+        "FLW-11",
+        "C3-ASYNC"
+      ]
+    },
+    {
+      "file": "positive/comic-reader-wip.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicReaderRecord",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-reader-published.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicReaderRecord",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/edition-history.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "EditionHistory",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/media-asset-manifest.json",
+      "schema": "schemas/media/media-provenance.schema.json",
+      "definition": "MediaAssetManifest",
+      "expected_valid": true,
+      "public_payload": false,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/accessible-publication-package.json",
+      "schema": "schemas/media/media-provenance.schema.json",
+      "definition": "AccessiblePublicationPackage",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/privacy-safe-analytics.json",
+      "schema": "schemas/telemetry/privacy-safe-analytics.schema.json",
+      "definition": "PrivacySafeAnalyticsEvent",
+      "expected_valid": true,
+      "public_payload": false,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/acknowledge-recovery-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "AcknowledgeRecovery",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/retry-recovery-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "RetryRecovery",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/update-accessibility-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "UpdateAccessibilityProfile",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/update-content-controls-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "UpdateContentControlProfile",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/update-localization-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "UpdateLocalizationProfile",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/review-inflection-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "ReviewComicInflection",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/create-source-lock-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "CreateComicSourceLock",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/set-wip-policy-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "SetComicWipPolicy",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/recover-comic-job-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "RequestComicJobRecovery",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/qa-disposition-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "SubmitComicQaDisposition",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/publish-edition-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "PublishComicEdition",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/request-correction-command.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "RequestComicCorrection",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/connectivity-changed-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ConnectivityStateChanged",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/save-checkpoint-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "SaveCheckpointCommitted",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/recovery-state-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "RecoveryStateChanged",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/attention-digest-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "AttentionDigestUpdated",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/accessibility-changed-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "AccessibilityProfileChanged",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/content-controls-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ContentControlsChanged",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-capture-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicCaptureUpdated",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-inflection-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicInflectionReady",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-source-lock-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicSourceLocked",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-job-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicJobStatusChanged",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-review-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicReviewRequired",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-published-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicEditionPublished",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "positive/comic-superseded-event.json",
+      "schema": "schemas/events/async-media.schema.json",
+      "definition": "ComicEditionSuperseded",
+      "expected_valid": true,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/comic-job-invented-percentage.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicJobRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/comic-job-promised-eta.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicJobRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/wip-without-opt-in.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicReaderRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/wip-above-knowledge-ceiling.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicReaderRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/published-asset-without-qa.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicReaderRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/source-lock-missing-canon-snapshot.json",
+      "schema": "schemas/read-models/comic-capture-source-lock.schema.json",
+      "definition": "SourceLockRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/source-lock-freezes-gameplay.json",
+      "schema": "schemas/read-models/comic-capture-source-lock.schema.json",
+      "definition": "SourceLockRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/published-job-labeled-wip.json",
+      "schema": "schemas/read-models/comic-production-reader.schema.json",
+      "definition": "ComicJobRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/correction-overwrites-edition.json",
+      "schema": "schemas/commands/async-media.schema.json",
+      "definition": "RequestComicCorrection",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/attention-undelivered-fact.json",
+      "schema": "schemas/read-models/async-attention-recovery.schema.json",
+      "definition": "AttentionDigest",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/provider-recovery-drops-queue.json",
+      "schema": "schemas/read-models/async-attention-recovery.schema.json",
+      "definition": "SaveRecoveryState",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/comic-capture-mutates-canon.json",
+      "schema": "schemas/read-models/comic-capture-source-lock.schema.json",
+      "definition": "ComicCaptureRecord",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/issue-zero-blocks-play.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "IssueZeroAvailability",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/analytics-contains-player-content.json",
+      "schema": "schemas/telemetry/privacy-safe-analytics.schema.json",
+      "definition": "PrivacySafeAnalyticsEvent",
+      "expected_valid": false,
+      "public_payload": false,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/localization-alters-meaning.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "LocalizationProfile",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/accessibility-drag-only.json",
+      "schema": "schemas/read-models/accessibility-content-localization.schema.json",
+      "definition": "AccessibilityProfile",
+      "expected_valid": false,
+      "public_payload": true,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    },
+    {
+      "file": "negative/media-bytes-not-retained.json",
+      "schema": "schemas/media/media-provenance.schema.json",
+      "definition": "MediaAssetManifest",
+      "expected_valid": false,
+      "public_payload": false,
+      "coverage": [
+        "C3-ASYNC",
+        "C3-A11Y",
+        "C3-MEDIA"
+      ]
+    }
+  ]
+}

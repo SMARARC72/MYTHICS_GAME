@@ -1,0 +1,327 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.mythic-rpg.local/c3/schemas/read-models/async-attention-recovery.schema.json",
+  "title": "Mythic RPG C3 Connectivity, Recovery and Attention Read Models",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ConnectivityState"
+    },
+    {
+      "$ref": "#/$defs/SaveRecoveryState"
+    },
+    {
+      "$ref": "#/$defs/AttentionDigest"
+    }
+  ],
+  "$defs": {
+    "ConnectivityState": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "connectivity_state"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "connectivity",
+                "play_capability",
+                "unsent_command_count",
+                "last_durable_state_version",
+                "comic_queue_durable",
+                "recovery_refs"
+              ],
+              "properties": {
+                "connectivity": {
+                  "type": "string",
+                  "enum": [
+                    "online",
+                    "degraded",
+                    "offline",
+                    "reconnecting"
+                  ]
+                },
+                "play_capability": {
+                  "type": "string",
+                  "enum": [
+                    "full",
+                    "offline_safe",
+                    "read_only",
+                    "canonical_commit_paused"
+                  ]
+                },
+                "unsent_command_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "last_durable_state_version": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/StateVersion"
+                },
+                "comic_queue_durable": {
+                  "const": true
+                },
+                "recovery_refs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                  }
+                },
+                "accessible_status": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SaveRecoveryState": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "save_recovery_state"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "recovery_id",
+                "state",
+                "durable_checkpoint_id",
+                "last_durable_state_version",
+                "gameplay_access",
+                "queue_preserved",
+                "comic_capture_preserved",
+                "source_locks_preserved",
+                "recovery_actions",
+                "accessible_explanation"
+              ],
+              "properties": {
+                "recovery_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "clean",
+                    "saving",
+                    "recovering",
+                    "conflict",
+                    "provider_unavailable",
+                    "unknown_commit",
+                    "restored"
+                  ]
+                },
+                "durable_checkpoint_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "last_durable_state_version": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/StateVersion"
+                },
+                "gameplay_access": {
+                  "type": "string",
+                  "enum": [
+                    "full",
+                    "offline_safe",
+                    "read_only",
+                    "paused_for_canonical_conflict"
+                  ]
+                },
+                "queue_preserved": {
+                  "const": true
+                },
+                "comic_capture_preserved": {
+                  "const": true
+                },
+                "source_locks_preserved": {
+                  "const": true
+                },
+                "resumes_from_checkpoint": {
+                  "const": true
+                },
+                "recovery_actions": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action_id",
+                      "label",
+                      "kind"
+                    ],
+                    "properties": {
+                      "action_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "retry",
+                          "lookup",
+                          "reconnect",
+                          "compare",
+                          "restore",
+                          "continue_offline",
+                          "contact_support"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "accessible_explanation": {
+                  "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "AttentionDigest": {
+      "allOf": [
+        {
+          "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/ReadModelEnvelope"
+        },
+        {
+          "properties": {
+            "payload_type": {
+              "const": "attention_digest"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "digest_id",
+                "aggregation_window",
+                "items",
+                "unread_count",
+                "knowledge_safe"
+              ],
+              "properties": {
+                "digest_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                },
+                "aggregation_window": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "start_ledger_time",
+                    "end_ledger_time"
+                  ],
+                  "properties": {
+                    "start_ledger_time": {
+                      "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/LedgerTime"
+                    },
+                    "end_ledger_time": {
+                      "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/LedgerTime"
+                    }
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "item_id",
+                      "category",
+                      "urgency",
+                      "action_required",
+                      "delivery_verified",
+                      "summary",
+                      "source_event_ids"
+                    ],
+                    "properties": {
+                      "item_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                      },
+                      "category": {
+                        "type": "string",
+                        "enum": [
+                          "world",
+                          "party",
+                          "law",
+                          "front",
+                          "recovery",
+                          "comic",
+                          "system"
+                        ]
+                      },
+                      "urgency": {
+                        "type": "string",
+                        "enum": [
+                          "ambient",
+                          "notable",
+                          "urgent",
+                          "blocking"
+                        ]
+                      },
+                      "action_required": {
+                        "type": "boolean"
+                      },
+                      "delivery_verified": {
+                        "const": true
+                      },
+                      "summary": {
+                        "$ref": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json#/$defs/KnowledgeFact"
+                      },
+                      "source_event_ids": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z][a-z0-9_]*_[A-Za-z0-9][A-Za-z0-9_-]{5,127}$"
+                        }
+                      },
+                      "target_surface": {
+                        "type": "string",
+                        "enum": [
+                          "stage",
+                          "character",
+                          "company",
+                          "world",
+                          "chronicle",
+                          "comic",
+                          "settings",
+                          "recovery"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "unread_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "knowledge_safe": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_update_accessibility_001",
+  "command_type": "update_accessibility_profile",
+  "idempotency_key": "idem-update_accessibility-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "profile_id": "profile_accessibility_001",
+    "input_modes": [
+      "keyboard",
+      "voice"
+    ],
+    "text_scale": "large",
+    "contrast_mode": "high",
+    "reduced_motion": true,
+    "screen_reader_mode": true,
+    "live_update_mode": "aggregated"
+  }
+}

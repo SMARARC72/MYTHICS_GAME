@@ -1,0 +1,236 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "holdings_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-holdings_record",
+    "text_alternative": "holdings_record updated."
+  },
+  "payload": {
+    "holder_id": "actor_mara_venn_001",
+    "items": [
+      {
+        "item_id": "item_brass_witness_001",
+        "display_name": "The Brass Witness",
+        "physical_location": {
+          "fact_id": "fact_location_pier_001",
+          "classification": "perceived",
+          "statement": "You are in the flooded generator hall beneath Pier Nine.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "custody": {
+          "fact_id": "fact_custody_001",
+          "classification": "recorded",
+          "statement": "Mara currently carries the Brass Witness.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "ownership": {
+          "fact_id": "fact_ownership_001",
+          "classification": "disputed",
+          "statement": "The Salt Court still asserts legal ownership of the Brass Witness.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "condition": {
+          "fact_id": "fact_condition_relic_001",
+          "classification": "perceived",
+          "statement": "The case is cracked but the face remains legible.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "access_state": "carried",
+        "legal_status": {
+          "fact_id": "fact_legal_seizure_001",
+          "classification": "reported",
+          "statement": "The Harbor Watch has listed the object for possible seizure.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "provenance": [
+          {
+            "fact_id": "fact_provenance_recovery_001",
+            "classification": "recorded",
+            "statement": "Mara recovered it from the collapsed archive vault.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "facilities": [
+      {
+        "facility_id": "facility_skiff_bench_001",
+        "display_name": "Skiff repair bench",
+        "rating": 1,
+        "access": {
+          "fact_id": "fact_facility_access_001",
+          "classification": "recorded",
+          "statement": "The Irregulars may use the bench while docked.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      }
+    ],
+    "funds": [
+      {
+        "account_id": "account_company_scrip_001",
+        "label": "Company scrip",
+        "available_amount": 140,
+        "currency": "Harbor marks",
+        "as_of": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        }
+      }
+    ],
+    "obligations": [
+      {
+        "fact_id": "fact_debt_fuel_001",
+        "classification": "recorded",
+        "statement": "Twenty marks are reserved for skiff fuel.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ]
+  }
+}

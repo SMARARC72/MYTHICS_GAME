@@ -1,0 +1,20 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_actor_request_001",
+  "command_type": "request_autonomous_actor_action",
+  "idempotency_key": "idem-command_actor_request_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "consequential",
+  "input_provenance": "structured",
+  "payload": {
+    "actor_id": "actor_ilya_rook_001",
+    "requested_goal": "Leave the generator hall now",
+    "requested_method": "Board the skiff before the Watch arrives",
+    "authority_ref": "fact_governance_001",
+    "refusal_preserved": true
+  }
+}

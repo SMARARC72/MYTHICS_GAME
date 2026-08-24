@@ -1,0 +1,378 @@
+{
+  "checkpoint": "C2",
+  "validator": "dependency-free deterministic JSON Schema 2020-12 subset used by C1 and C2",
+  "c1_dependency_schema_count": 4,
+  "c2_schema_count": 7,
+  "schema_reference_failure_count": 0,
+  "fixture_count": 43,
+  "positive_fixture_count": 34,
+  "negative_fixture_count": 9,
+  "passed_count": 43,
+  "failed_count": 0,
+  "openapi_operation_count": 25,
+  "asyncapi_message_count": 9,
+  "results": [
+    {
+      "file": "positive/character-ordinary-survivor.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/advancement-draft.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/continuation-afterlife.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/company-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/autonomous-actor-refusal.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/relic-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/holdings-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/project-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/known-world-map.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/journey-lost.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/site-persistent-breach.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/case-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/front-legal-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/chronicle-consequence-bundle.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/draft-advancement-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/commit-advancement-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/recruitment-offer-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/autonomous-action-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/draft-journey-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/commit-journey-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/draft-project-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/commit-project-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/transfer-custody-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/record-case-claim-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/choose-continuation-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/progression-committed-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/continuation-changed-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/actor-refused-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/relic-status-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/custody-transfer-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/project-checkpoint-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/journey-resolved-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/world-record-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/chronicle-routed-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "negative/character-zero-vitality-declared-dead.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: missing required property death_record"
+      ]
+    },
+    {
+      "file": "negative/actor-private-motive.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property private_actor_motive is not allowed"
+      ]
+    },
+    {
+      "file": "negative/actor-obedience-score.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property obedience_score is not allowed"
+      ]
+    },
+    {
+      "file": "negative/relic-exact-bond.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property exact_bond is not allowed"
+      ]
+    },
+    {
+      "file": "negative/journey-canonical-coordinates-while-lost.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property exact_canonical_coordinates is not allowed"
+      ]
+    },
+    {
+      "file": "negative/front-secret-clock.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.fronts[0]: additional property secret_front_clock is not allowed"
+      ]
+    },
+    {
+      "file": "negative/site-hidden-feature-count.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property hidden_feature_count is not allowed"
+      ]
+    },
+    {
+      "file": "negative/custody-transfer-without-authority.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: missing required property authority_ref"
+      ]
+    },
+    {
+      "file": "negative/silent-bp-spend.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: missing required property reviewed_draft_id"
+      ]
+    }
+  ]
+}

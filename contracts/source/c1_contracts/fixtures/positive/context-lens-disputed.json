@@ -1,0 +1,82 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "entity_context_lens",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T14:00:00Z",
+  "freshness": "current",
+  "permissions": [
+    {
+      "action": "declare_intent",
+      "available": true
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "event_dockfire_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Dockside transformer fire witnessed from Pier Nine"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "polite",
+    "announcement_text": "entity context lens updated.",
+    "dedupe_key": "entity_context_lens-sv-0001842"
+  },
+  "payload": {
+    "entity_ref": "entity_worker_silhouette_001",
+    "entity_kind": "person",
+    "display_name": "Figure behind the glass",
+    "facts": [
+      {
+        "fact_id": "fact_worker_identity_001",
+        "classification": "disputed",
+        "statement": "The figure may be Dockmaster Vale; the rain and firelight prevent confirmation.",
+        "as_of_ledger_time": {
+          "tick": 1842,
+          "display": "Bell 6 · Rainwatch",
+          "calendar": "Breakwater Civic Reckoning",
+          "sequence": 44,
+          "phase": "scene"
+        },
+        "sources": [
+          {
+            "source_id": "event_dockfire_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Dockside transformer fire witnessed from Pier Nine"
+          }
+        ],
+        "visibility_scope": "active_character",
+        "confidence_band": "low",
+        "contradiction_fact_ids": [
+          "fact_vale_radio_001"
+        ]
+      }
+    ],
+    "available_actions": [
+      {
+        "action": "call_out",
+        "available": true
+      },
+      {
+        "action": "order_compliance",
+        "available": false,
+        "reason_code": "authority.not_established",
+        "reason_text": "You have no established authority over this person."
+      }
+    ],
+    "compare_refs": []
+  }
+}

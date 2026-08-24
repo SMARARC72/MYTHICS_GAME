@@ -1,0 +1,32 @@
+{
+  "package": "mythic-rpg-engine-ui-contract-c1",
+  "version": "0.1.0",
+  "status": "approved",
+  "approved_at": "2026-08-23",
+  "checkpoint": "C1",
+  "approved_foundation": "Mythic_RPG_Engine_UI_Contract_Foundation_v0.1A.md",
+  "standards": {
+    "json_schema": "2020-12",
+    "openapi": "3.1.2",
+    "asyncapi": "3.1.0"
+  },
+  "schema_ids": [
+    "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json",
+    "https://contracts.mythic-rpg.local/c1/schemas/read-models/core-loop.schema.json",
+    "https://contracts.mythic-rpg.local/c1/schemas/commands/core-loop.schema.json",
+    "https://contracts.mythic-rpg.local/c1/schemas/events/core-loop.schema.json"
+  ],
+  "artifacts": [
+    "schemas/common/common.schema.json",
+    "schemas/read-models/core-loop.schema.json",
+    "schemas/commands/core-loop.schema.json",
+    "schemas/events/core-loop.schema.json",
+    "openapi/mythic-ui-c1.yaml",
+    "asyncapi/mythic-events-c1.yaml",
+    "generation-policy.json",
+    "fixtures/fixture-manifest.json",
+    "tests/validate_contracts.py"
+  ],
+  "authority_boundary": "Canonical reducers and validators remain the only source of canonical state mutation.",
+  "implementation_authorized": false
+}

@@ -1,0 +1,25 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_review_inflection_001",
+  "command_type": "review_comic_inflection",
+  "idempotency_key": "idem-review_inflection-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "review_id": "review_archive_inflection_001",
+    "decision": "ready_to_lock",
+    "included_beat_ids": [
+      "beat_archive_choice_001"
+    ],
+    "excluded_optional_beat_ids": [
+      "beat_buoy_nine_001"
+    ],
+    "selected_viewpoint_id": "viewpoint_mara_001",
+    "reader_knowledge_ceiling": "player_safe"
+  }
+}

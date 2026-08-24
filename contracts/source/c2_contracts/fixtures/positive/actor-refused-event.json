@@ -1,0 +1,55 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_actor_refused_001",
+  "event_type": "autonomous_actor_status_changed",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "autonomous actor status changed.",
+    "dedupe_key": "event-autonomous_actor_status_changed",
+    "text_alternative": "autonomous actor status changed."
+  },
+  "payload": {
+    "actor_id": "actor_ilya_rook_001",
+    "change_kind": "refused",
+    "accessible_reason": {
+      "fact_id": "fact_reason_001",
+      "classification": "perceived",
+      "statement": "Ilya refuses to leave the injured workers behind.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "projection_refs": [
+      "company_breakwater_001",
+      "bundle_archive_breach_001"
+    ]
+  }
+}

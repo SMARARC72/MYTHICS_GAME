@@ -1,0 +1,38 @@
+{
+  "contract_version": "1.0.0",
+  "asset_id": "asset_page_archive_001",
+  "visibility": "protected_media_audit",
+  "issue_id": "issue_archive_001",
+  "page_id": "page_archive_001",
+  "panel_id": "panel_archive_001",
+  "layer_id": "layer_art_001",
+  "source_lock_id": "source_lock_issue_001",
+  "source_event_ids": [
+    "event_archive_breach_001"
+  ],
+  "content_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "provider": "approved-provider",
+  "model_profile": "breakwater-panel-v1",
+  "generation_settings_ref": "settings_panel_001",
+  "prompt_manifest_ref": "prompt_manifest_001",
+  "reference_manifest_ids": [
+    "reference_mara_001"
+  ],
+  "seed": "issue-archive-panel-1-attempt-1",
+  "attempt_number": 1,
+  "edits": [
+    {
+      "edit_id": "edit_crop_001",
+      "kind": "crop",
+      "creator_ref": "editor_system_001"
+    }
+  ],
+  "rights": {
+    "license_state": "original_generated",
+    "likeness_authorized": false
+  },
+  "qa_state": "passed",
+  "accepted_bytes_retained": true,
+  "exact_regeneration_assumed": false,
+  "published_asset_mutable": false
+}

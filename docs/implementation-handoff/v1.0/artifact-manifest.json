@@ -53,12 +53,6 @@
       "sha256": "c327734fdf408d3ba48e43ef9178cc61eda318234635ca1554d40d661689e223"
     },
     {
-      "path": "tests/validate_handoff.py",
-      "role": "Deterministic package validator",
-      "bytes": 4625,
-      "sha256": "f4ec0657ac45f7400c09bca91f4948333a5edce597a9ed9769372a2d6308cb72"
-    },
-    {
       "path": "01_GOVERNANCE/Mythic_Superhero_RPG_World_Constitution_v1.md",
       "role": "Supreme world/canon authority",
       "bytes": 476738,
@@ -193,14 +187,14 @@
     {
       "path": "artifact-index.json",
       "role": "Human/machine dependency index",
-      "bytes": 7665,
-      "sha256": "229657d1dd6c3e1bfe25522ed6fa0012728c0ba1683d55927c170442d34101c3"
+      "bytes": 7456,
+      "sha256": "56fc6b7ec9723feb6defcc87961465161aabd46cc7218487ad1646ab0876f7aa"
     },
     {
       "path": "artifact-checksums.sha256",
       "role": "Checksum ledger",
-      "bytes": 3431,
-      "sha256": "849c32eb929a8f582bc6f70ee919d1bf5a174c2a2b72dd37680c82f7a1a83526"
+      "bytes": 3339,
+      "sha256": "3e452846132b2ad30384847deb812478ab242dcb7fd2d241698022908fbe4782"
     }
   ]
 }

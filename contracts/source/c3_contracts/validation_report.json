@@ -1,0 +1,532 @@
+{
+  "checkpoint": "C3",
+  "validator": "dependency-free deterministic JSON Schema 2020-12 subset used by C1-C3",
+  "c1_dependency_schema_count": 4,
+  "c2_dependency_schema_count": 7,
+  "c3_schema_count": 8,
+  "schema_reference_failure_count": 0,
+  "fixture_count": 60,
+  "positive_fixture_count": 43,
+  "negative_fixture_count": 17,
+  "passed_count": 60,
+  "failed_count": 0,
+  "openapi_operation_count": 26,
+  "asyncapi_message_count": 13,
+  "results": [
+    {
+      "file": "positive/connectivity-state.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/save-recovery-state.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/attention-digest.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/accessibility-profile.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/content-control-profile.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/localization-profile.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/issue-zero-skip.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-capture-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/inflection-review.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/source-lock-record.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-job-producing.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-job-provider-blocked.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-reader-wip.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-reader-published.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/edition-history.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/media-asset-manifest.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/accessible-publication-package.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/privacy-safe-analytics.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/acknowledge-recovery-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/retry-recovery-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/update-accessibility-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/update-content-controls-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/update-localization-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/review-inflection-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/create-source-lock-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/set-wip-policy-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/recover-comic-job-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/qa-disposition-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/publish-edition-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/request-correction-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/connectivity-changed-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/save-checkpoint-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/recovery-state-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/attention-digest-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/accessibility-changed-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/content-controls-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-capture-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-inflection-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-source-lock-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-job-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-review-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-published-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/comic-superseded-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "negative/comic-job-invented-percentage.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property progress_percentage is not allowed"
+      ]
+    },
+    {
+      "file": "negative/comic-job-promised-eta.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: additional property promised_completion_at is not allowed"
+      ]
+    },
+    {
+      "file": "negative/wip-without-opt-in.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.wip_opt_in: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/wip-above-knowledge-ceiling.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.knowledge_gate_passed: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/published-asset-without-qa.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.pages[0].qa_state: expected constant 'passed'"
+      ]
+    },
+    {
+      "file": "negative/source-lock-missing-canon-snapshot.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: missing required property canon_snapshot_id"
+      ]
+    },
+    {
+      "file": "negative/source-lock-freezes-gameplay.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.gameplay_continues: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/published-job-labeled-wip.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.presentation_state: expected constant 'final'"
+      ]
+    },
+    {
+      "file": "negative/correction-overwrites-edition.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload: missing required property new_edition_id",
+        "$.payload: additional property overwrite_published_edition is not allowed"
+      ]
+    },
+    {
+      "file": "negative/attention-undelivered-fact.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.items[0].delivery_verified: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/provider-recovery-drops-queue.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.queue_preserved: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/comic-capture-mutates-canon.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.canonical_mutation: expected constant False"
+      ]
+    },
+    {
+      "file": "negative/issue-zero-blocks-play.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.blocking: expected constant False"
+      ]
+    },
+    {
+      "file": "negative/analytics-contains-player-content.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.contains_player_content: expected constant False"
+      ]
+    },
+    {
+      "file": "negative/localization-alters-meaning.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.meaning_preserved: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/accessibility-drag-only.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.non_drag_alternative: expected constant True"
+      ]
+    },
+    {
+      "file": "negative/media-bytes-not-retained.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.accepted_bytes_retained: expected constant True"
+      ]
+    }
+  ]
+}

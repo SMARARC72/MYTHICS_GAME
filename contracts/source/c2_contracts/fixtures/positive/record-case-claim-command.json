@@ -1,0 +1,24 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_record_claim_001",
+  "command_type": "record_case_claim",
+  "idempotency_key": "idem-command_record_claim_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "routine",
+  "input_provenance": "structured",
+  "payload": {
+    "case_id": "case_missing_shipment_001",
+    "claim_text": "A Salt Court official authorized the redirect.",
+    "classification": "inferred",
+    "supporting_evidence_ids": [
+      "evidence_manifest_001"
+    ],
+    "contradicting_evidence_ids": [
+      "evidence_dockworker_testimony_001"
+    ]
+  }
+}

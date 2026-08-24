@@ -1,0 +1,80 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "attention_digest",
+  "campaign_id": "campaign_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "ledger_time": {
+    "tick": 64800,
+    "display": "Day 0, 18:00",
+    "calendar": "BREAKWATER",
+    "sequence": 12,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T18:00:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_archive_breach_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Archive breach"
+    }
+  ],
+  "payload": {
+    "digest_id": "digest_evening_001",
+    "aggregation_window": {
+      "start_ledger_time": {
+        "tick": 64800,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 12,
+        "phase": "scene"
+      },
+      "end_ledger_time": {
+        "tick": 65400,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 13,
+        "phase": "scene"
+      }
+    },
+    "items": [
+      {
+        "item_id": "attention_comic_blocked_001",
+        "category": "comic",
+        "urgency": "notable",
+        "action_required": false,
+        "delivery_verified": false,
+        "summary": {
+          "fact_id": "fact_status_recovery_001",
+          "classification": "recorded",
+          "statement": "Comic production is paused at art QA; captured events and completed checkpoints are preserved.",
+          "as_of_ledger_time": {
+            "tick": 64800,
+            "display": "Day 0, 18:00",
+            "calendar": "BREAKWATER",
+            "sequence": 12,
+            "phase": "scene"
+          },
+          "sources": [
+            {
+              "source_id": "event_archive_breach_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Archive breach"
+            }
+          ]
+        },
+        "source_event_ids": [
+          "event_comic_blocked_001"
+        ],
+        "target_surface": "comic"
+      }
+    ],
+    "unread_count": 1,
+    "knowledge_safe": true
+  }
+}

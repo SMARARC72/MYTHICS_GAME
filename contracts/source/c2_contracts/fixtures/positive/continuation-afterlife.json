@@ -1,0 +1,218 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "continuation_state",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-continuation_state",
+    "text_alternative": "continuation_state updated."
+  },
+  "payload": {
+    "continuation_id": "continuation_threshold_001",
+    "subject_id": "actor_mara_venn_001",
+    "classification": "threshold",
+    "agency_state": "constrained_playable",
+    "body_state": {
+      "fact_id": "fact_body_threshold_001",
+      "classification": "reported",
+      "statement": "Mara's body remains in the generator hall under Ilya's guard.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "soul_components": [
+      {
+        "component": "Self",
+        "known_state": {
+          "fact_id": "fact_soul_self_001",
+          "classification": "inferred",
+          "statement": "Mara experiences a continuous point of view beyond the Threshold.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      },
+      {
+        "component": "Memory",
+        "known_state": {
+          "fact_id": "fact_soul_memory_002",
+          "classification": "recorded",
+          "statement": "Memory remains traceable through the current passage.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      },
+      {
+        "component": "Name",
+        "known_state": {
+          "fact_id": "fact_soul_name_003",
+          "classification": "recorded",
+          "statement": "Name remains traceable through the current passage.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      },
+      {
+        "component": "Shadow",
+        "known_state": {
+          "fact_id": "fact_soul_shadow_004",
+          "classification": "recorded",
+          "statement": "Shadow remains traceable through the current passage.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "fact_id": "fact_constraint_threshold_001",
+        "classification": "perceived",
+        "statement": "Movement is limited to the Salt Threshold until a passage is opened.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "options": [
+      {
+        "option_id": "option_afterlife_play_001",
+        "mode": "afterlife_play",
+        "label": "Cross the Salt Threshold",
+        "available": true,
+        "requirements": []
+      },
+      {
+        "option_id": "option_successor_001",
+        "mode": "successor",
+        "label": "Continue as Leona, carrying Mara's unfinished oath",
+        "available": true,
+        "requirements": [
+          {
+            "fact_id": "fact_successor_consent_001",
+            "classification": "recorded",
+            "statement": "Leona previously consented to act as successor if Mara fell.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ]
+  }
+}

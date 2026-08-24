@@ -1,0 +1,23 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_draft_project_001",
+  "command_type": "draft_project_interval",
+  "idempotency_key": "idem-command_draft_project_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "routine",
+  "input_provenance": "structured",
+  "payload": {
+    "project_id": "project_skiff_repair_001",
+    "worker_ids": [
+      "actor_mara_venn_001"
+    ],
+    "material_lot_ids": [
+      "lot_copper_coil_001"
+    ],
+    "method": "Fit the salvaged coil after isolating the cracked battery"
+  }
+}

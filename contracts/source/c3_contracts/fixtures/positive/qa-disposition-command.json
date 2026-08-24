@@ -1,0 +1,19 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_qa_disposition_001",
+  "command_type": "submit_comic_qa_disposition",
+  "idempotency_key": "idem-qa_disposition-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "asset_id": "asset_page_archive_001",
+    "qa_result_id": "qa_result_archive_001",
+    "disposition": "approve",
+    "source_lock_id": "source_lock_issue_001"
+  }
+}

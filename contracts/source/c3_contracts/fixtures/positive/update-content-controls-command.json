@@ -1,0 +1,24 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_update_content_001",
+  "command_type": "update_content_control_profile",
+  "idempotency_key": "idem-update_content-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "profile_id": "profile_content_001",
+    "controls": [
+      {
+        "control_id": "control_gore_001",
+        "topic": "Graphic gore",
+        "boundary": "veil"
+      }
+    ],
+    "explicit_confirmation": true
+  }
+}

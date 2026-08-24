@@ -1,0 +1,142 @@
+openapi: 3.1.2
+info:
+  title: Mythic RPG Engine/UI Contract — Checkpoint C2
+  version: 0.1.0
+  description: Viewpoint-safe system-breadth reads plus explicit draft and commit boundaries. Draft operations never mutate canonical state.
+servers:
+  - url: https://api.example.invalid/mythic/v1
+    description: Placeholder only; transport and production platform remain gated at C4
+security:
+  - bearerAuth: []
+paths:
+  /campaigns/{campaignId}/characters/{characterId}:
+    get:
+      operationId: getCharacterRecord
+      responses: { '200': { description: Character projection, content: { application/json: { schema: { $ref: '../schemas/read-models/character-continuation.schema.json#/$defs/CharacterRecord' } } } } }
+  /campaigns/{campaignId}/characters/{characterId}/advancement-draft:
+    get:
+      operationId: getAdvancementDraft
+      responses: { '200': { description: Noncanonical advancement draft, content: { application/json: { schema: { $ref: '../schemas/read-models/character-continuation.schema.json#/$defs/AdvancementDraft' } } } } }
+  /campaigns/{campaignId}/continuations/{continuationId}:
+    get:
+      operationId: getContinuationState
+      responses: { '200': { description: Playable continuation projection, content: { application/json: { schema: { $ref: '../schemas/read-models/character-continuation.schema.json#/$defs/ContinuationState' } } } } }
+  /campaigns/{campaignId}/company:
+    get:
+      operationId: getCompanyRecord
+      responses: { '200': { description: Company projection, content: { application/json: { schema: { $ref: '../schemas/read-models/company-relics.schema.json#/$defs/CompanyRecord' } } } } }
+  /campaigns/{campaignId}/autonomous-actors/{actorId}:
+    get:
+      operationId: getAutonomousActorStatus
+      responses: { '200': { description: Evidence-backed actor status, content: { application/json: { schema: { $ref: '../schemas/read-models/company-relics.schema.json#/$defs/AutonomousActorStatus' } } } } }
+  /campaigns/{campaignId}/relics/{relicId}:
+    get:
+      operationId: getRelicRecord
+      responses: { '200': { description: Relic projection, content: { application/json: { schema: { $ref: '../schemas/read-models/company-relics.schema.json#/$defs/RelicRecord' } } } } }
+  /campaigns/{campaignId}/holdings/{holderId}:
+    get:
+      operationId: getHoldingsRecord
+      responses: { '200': { description: Holdings projection, content: { application/json: { schema: { $ref: '../schemas/read-models/holdings-projects.schema.json#/$defs/HoldingsRecord' } } } } }
+  /campaigns/{campaignId}/projects/{projectId}:
+    get:
+      operationId: getProjectRecord
+      responses: { '200': { description: Project projection, content: { application/json: { schema: { $ref: '../schemas/read-models/holdings-projects.schema.json#/$defs/ProjectRecord' } } } } }
+  /campaigns/{campaignId}/known-world:
+    get:
+      operationId: getKnownWorldMap
+      responses: { '200': { description: Viewpoint knowledge map, content: { application/json: { schema: { $ref: '../schemas/read-models/world-investigation.schema.json#/$defs/KnownWorldMap' } } } } }
+  /campaigns/{campaignId}/journeys/{journeyId}:
+    get:
+      operationId: getJourneyState
+      responses: { '200': { description: Journey projection, content: { application/json: { schema: { $ref: '../schemas/read-models/world-investigation.schema.json#/$defs/JourneyState' } } } } }
+  /campaigns/{campaignId}/sites/{siteId}:
+    get:
+      operationId: getSiteRecord
+      responses: { '200': { description: Known persistent Site projection, content: { application/json: { schema: { $ref: '../schemas/read-models/world-investigation.schema.json#/$defs/SiteRecord' } } } } }
+  /campaigns/{campaignId}/cases/{caseId}:
+    get:
+      operationId: getCaseRecord
+      responses: { '200': { description: Player-built Case Graph, content: { application/json: { schema: { $ref: '../schemas/read-models/world-investigation.schema.json#/$defs/CaseRecord' } } } } }
+  /campaigns/{campaignId}/world-response/{subjectId}:
+    get:
+      operationId: getFactionFrontLegalRecord
+      responses: { '200': { description: Evidence-backed Front, response-track, jurisdiction and legal projection, content: { application/json: { schema: { $ref: '../schemas/read-models/world-investigation.schema.json#/$defs/FactionFrontLegalRecord' } } } } }
+  /campaigns/{campaignId}/chronicle/consequences/{bundleId}:
+    get:
+      operationId: getChronicleConsequenceBundle
+      responses: { '200': { description: Cross-surface consequence routing, content: { application/json: { schema: { $ref: '../schemas/read-models/chronicle-routing.schema.json#/$defs/ChronicleConsequenceBundle' } } } } }
+  /campaigns/{campaignId}/commands/draft-advancement:
+    post:
+      operationId: draftAdvancement
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/DraftAdvancement' } } } }
+      responses: { '200': { description: Noncanonical draft only } }
+  /campaigns/{campaignId}/commands/commit-advancement:
+    post:
+      operationId: commitAdvancement
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/CommitAdvancement' } } } }
+      responses: { '202': { description: Accepted for canonical validation } }
+  /campaigns/{campaignId}/commands/recruitment-offer:
+    post:
+      operationId: submitRecruitmentOffer
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/SubmitRecruitmentOffer' } } } }
+      responses: { '202': { description: Accepted for actor-aware resolution } }
+  /campaigns/{campaignId}/commands/autonomous-actor-action:
+    post:
+      operationId: requestAutonomousActorAction
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/RequestAutonomousActorAction' } } } }
+      responses: { '202': { description: Request accepted; actor refusal remains legal } }
+  /campaigns/{campaignId}/commands/draft-journey:
+    post:
+      operationId: draftJourney
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/DraftJourney' } } } }
+      responses: { '200': { description: Noncanonical journey plan } }
+  /campaigns/{campaignId}/commands/commit-journey-leg:
+    post:
+      operationId: commitJourneyLeg
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/CommitJourneyLeg' } } } }
+      responses: { '202': { description: Leg accepted for canonical resolution } }
+  /campaigns/{campaignId}/commands/draft-project-interval:
+    post:
+      operationId: draftProjectInterval
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/DraftProjectInterval' } } } }
+      responses: { '200': { description: Noncanonical project interval preview } }
+  /campaigns/{campaignId}/commands/commit-project-interval:
+    post:
+      operationId: commitProjectInterval
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/CommitProjectInterval' } } } }
+      responses: { '202': { description: Interval accepted for canonical validation } }
+  /campaigns/{campaignId}/commands/transfer-custody:
+    post:
+      operationId: transferCustody
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/TransferCustody' } } } }
+      responses: { '202': { description: Custody transfer accepted; ownership remains separate } }
+  /campaigns/{campaignId}/commands/record-case-claim:
+    post:
+      operationId: recordCaseClaim
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/RecordCaseClaim' } } } }
+      responses: { '202': { description: Claim recorded as player knowledge, not canonical certification } }
+  /campaigns/{campaignId}/commands/choose-continuation:
+    post:
+      operationId: chooseContinuation
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '../schemas/commands/system-breadth.schema.json#/$defs/ChooseContinuation' } } } }
+      responses: { '202': { description: Continuation choice accepted for validation } }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer }
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: { type: string, minLength: 16, maxLength: 160 }

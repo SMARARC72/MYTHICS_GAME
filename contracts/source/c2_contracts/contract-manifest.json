@@ -1,0 +1,44 @@
+{
+  "package": "mythic-rpg-engine-ui-contract-c2",
+  "version": "0.1.0",
+  "status": "approved",
+  "checkpoint": "C2",
+  "approved_at": "2026-08-23",
+  "approved_dependency": {
+    "checkpoint": "C1",
+    "package": "mythic-rpg-engine-ui-contract-c1",
+    "version": "0.1.0",
+    "status": "approved",
+    "common_schema_id": "https://contracts.mythic-rpg.local/c1/schemas/common/common.schema.json"
+  },
+  "standards": {
+    "json_schema": "2020-12",
+    "openapi": "3.1.2",
+    "asyncapi": "3.1.0"
+  },
+  "schema_ids": [
+    "https://contracts.mythic-rpg.local/c2/schemas/read-models/character-continuation.schema.json",
+    "https://contracts.mythic-rpg.local/c2/schemas/read-models/company-relics.schema.json",
+    "https://contracts.mythic-rpg.local/c2/schemas/read-models/holdings-projects.schema.json",
+    "https://contracts.mythic-rpg.local/c2/schemas/read-models/world-investigation.schema.json",
+    "https://contracts.mythic-rpg.local/c2/schemas/read-models/chronicle-routing.schema.json",
+    "https://contracts.mythic-rpg.local/c2/schemas/commands/system-breadth.schema.json",
+    "https://contracts.mythic-rpg.local/c2/schemas/events/system-breadth.schema.json"
+  ],
+  "artifacts": [
+    "schemas/read-models/character-continuation.schema.json",
+    "schemas/read-models/company-relics.schema.json",
+    "schemas/read-models/holdings-projects.schema.json",
+    "schemas/read-models/world-investigation.schema.json",
+    "schemas/read-models/chronicle-routing.schema.json",
+    "schemas/commands/system-breadth.schema.json",
+    "schemas/events/system-breadth.schema.json",
+    "openapi/mythic-ui-c2.yaml",
+    "asyncapi/mythic-events-c2.yaml",
+    "fixtures/fixture-manifest.json",
+    "tests/validate_contracts.py"
+  ],
+  "authority_boundary": "Drafts are noncanonical; only validated reducers may mutate canonical state, spend resources or advance Ledger Time.",
+  "knowledge_boundary": "Public projections contain accessible knowledge and evidence, never hidden truth, exact private relationship values, private motives, hidden Site counts or private Front clocks.",
+  "implementation_authorized": false
+}

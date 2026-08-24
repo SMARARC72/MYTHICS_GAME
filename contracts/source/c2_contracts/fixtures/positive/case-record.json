@@ -1,0 +1,194 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "case_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-case_record",
+    "text_alternative": "case_record updated."
+  },
+  "payload": {
+    "case_id": "case_missing_shipment_001",
+    "title": "The Missing Salt Court Shipment",
+    "questions": [
+      {
+        "question_id": "question_shipment_actor_001",
+        "text": "Who redirected the Relic shipment to Pier Nine?",
+        "status": "partially_supported"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "claim_court_redirect_001",
+        "text": "A Salt Court official authorized the redirect.",
+        "classification": "inferred",
+        "supporting_evidence_ids": [
+          "evidence_manifest_001"
+        ],
+        "contradicting_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "evidence_manifest_001",
+        "observable_content": {
+          "fact_id": "fact_evidence_001",
+          "classification": "recorded",
+          "statement": "The recovered manifest lists a Salt Court seal and the shipment time.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "custody": {
+          "fact_id": "fact_custody_001",
+          "classification": "recorded",
+          "statement": "Mara currently carries the Brass Witness.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        },
+        "integrity_band": "serviceable",
+        "provenance": [
+          {
+            "fact_id": "fact_chain_manifest_001",
+            "classification": "recorded",
+            "statement": "Mara sealed the manifest in an evidence sleeve after recovery.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "leads": [
+      {
+        "fact_id": "fact_lead_seal_001",
+        "classification": "inferred",
+        "statement": "Compare the seal against Harbor Tribunal appointment records.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "contradictions": [
+      {
+        "fact_id": "fact_contradiction_time_001",
+        "classification": "disputed",
+        "statement": "A dockworker places the courier elsewhere at the listed time.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "deadlines": [
+      {
+        "fact_id": "fact_deadline_tide_001",
+        "classification": "reported",
+        "statement": "The lower archive will flood at Fourth Bell.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ]
+  }
+}

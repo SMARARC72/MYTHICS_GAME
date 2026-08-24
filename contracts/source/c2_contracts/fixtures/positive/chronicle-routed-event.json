@@ -1,0 +1,39 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_chronicle_route_001",
+  "event_type": "chronicle_consequence_routed",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "chronicle consequence routed.",
+    "dedupe_key": "event-chronicle_consequence_routed",
+    "text_alternative": "chronicle consequence routed."
+  },
+  "payload": {
+    "bundle_id": "bundle_archive_breach_001",
+    "source_event_ids": [
+      "event_archive_breach_001"
+    ],
+    "surface_projection_refs": [
+      "actor_mara_venn_001",
+      "company_breakwater_001",
+      "item_brass_witness_001",
+      "site_pier_nine_001",
+      "chronicle_entry_breach_001"
+    ]
+  }
+}

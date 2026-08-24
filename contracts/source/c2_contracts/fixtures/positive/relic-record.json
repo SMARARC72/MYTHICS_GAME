@@ -1,0 +1,302 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "relic_record",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-relic_record",
+    "text_alternative": "relic_record updated."
+  },
+  "payload": {
+    "relic_id": "relic_brass_witness_001",
+    "item_id": "item_brass_witness_001",
+    "display_name": "The Brass Witness",
+    "grade": 2,
+    "agency_state": "communicative",
+    "custody": {
+      "fact_id": "fact_custody_001",
+      "classification": "recorded",
+      "statement": "Mara currently carries the Brass Witness.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "legal_ownership": {
+      "fact_id": "fact_ownership_001",
+      "classification": "disputed",
+      "statement": "The Salt Court still asserts legal ownership of the Brass Witness.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "claims": [
+      {
+        "fact_id": "fact_claim_mara_001",
+        "classification": "inferred",
+        "statement": "Mara has a recovery Claim supported by the archive rescue.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      },
+      {
+        "fact_id": "fact_claim_court_001",
+        "classification": "reported",
+        "statement": "The Salt Court asserts inheritance through the drowned magistrate.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "recognition": [
+      {
+        "fact_id": "fact_recognition_witness_001",
+        "classification": "perceived",
+        "statement": "The Relic addresses Mara by her chosen Name.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "relationship_state": "recognized",
+    "relationship_evidence": [
+      {
+        "fact_id": "fact_relationship_relic_001",
+        "classification": "perceived",
+        "statement": "It answered Mara's question but refused the command to burn the manifest.",
+        "as_of_ledger_time": {
+          "tick": 1900,
+          "display": "Rainsday, Third Bell — 14:20",
+          "calendar": "Breakwater Civic",
+          "sequence": 1900,
+          "phase": "aftermath"
+        },
+        "sources": [
+          {
+            "source_id": "event_source_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Committed ledger event"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "attunement": {
+      "state": "active",
+      "bearer_ref": "actor_mara_venn_001",
+      "accessible_conditions": [
+        {
+          "fact_id": "fact_attunement_limit_001",
+          "classification": "recorded",
+          "statement": "Attunement grants testimony recall but not obedience.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      ]
+    },
+    "accessible_functions": [
+      {
+        "function_id": "function_testimony_001",
+        "label": "Replay witnessed testimony",
+        "available": true,
+        "reason": {
+          "fact_id": "fact_function_access_001",
+          "classification": "recorded",
+          "statement": "Recognition currently permits the Rank-1 testimony function.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      },
+      {
+        "function_id": "function_judgment_001",
+        "label": "Pronounce binding judgment",
+        "available": false,
+        "reason": {
+          "fact_id": "fact_function_denied_001",
+          "classification": "recorded",
+          "statement": "Mara lacks Sovereign access.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      }
+    ],
+    "continuity": {
+      "state": "intact",
+      "anchors_known": [
+        {
+          "fact_id": "fact_anchor_name_001",
+          "classification": "recorded",
+          "statement": "Its Name is preserved in the Harbor Tribunal archive.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      ],
+      "succession_facts": [
+        {
+          "fact_id": "fact_succession_relic_001",
+          "classification": "reported",
+          "statement": "The current recognized bearer has priority if the magistrate line ends.",
+          "as_of_ledger_time": {
+            "tick": 1900,
+            "display": "Rainsday, Third Bell — 14:20",
+            "calendar": "Breakwater Civic",
+            "sequence": 1900,
+            "phase": "aftermath"
+          },
+          "sources": [
+            {
+              "source_id": "event_source_001",
+              "source_type": "event",
+              "accessible": true,
+              "label": "Committed ledger event"
+            }
+          ],
+          "visibility_scope": "active_character"
+        }
+      ]
+    }
+  }
+}

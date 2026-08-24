@@ -1,0 +1,156 @@
+openapi: 3.1.2
+info:
+  title: Mythic RPG Engine/UI Contract — Checkpoint C1
+  version: 0.1.0
+  description: Synchronous viewpoint-safe reads and immutable core-loop commands. No operation grants the UI direct canonical mutation authority.
+servers:
+  - url: https://api.example.invalid/mythic/v1
+    description: Placeholder only; no production platform selected
+security:
+  - bearerAuth: []
+paths:
+  /campaigns/{campaignId}/stage:
+    get:
+      operationId: getStageFrame
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ViewpointId'
+      responses:
+        '200': { $ref: '#/components/responses/StageFrame' }
+        '409': { $ref: '#/components/responses/ConflictReceipt' }
+  /campaigns/{campaignId}/world-strip:
+    get:
+      operationId: getWorldStripStatus
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ViewpointId'
+      responses:
+        '200': { $ref: '#/components/responses/WorldStripStatus' }
+  /campaigns/{campaignId}/lens/{entityId}:
+    get:
+      operationId: getEntityContextLens
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ViewpointId'
+        - $ref: '#/components/parameters/EntityId'
+      responses:
+        '200': { $ref: '#/components/responses/EntityContextLens' }
+        '404': { $ref: '#/components/responses/UnavailableReceipt' }
+  /campaigns/{campaignId}/intent-capability:
+    get:
+      operationId: getIntentCapability
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ViewpointId'
+      responses:
+        '200': { $ref: '#/components/responses/IntentCapability' }
+  /campaigns/{campaignId}/intent/interpret:
+    post:
+      operationId: interpretIntent
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/InterpretIntentCommand' }
+      responses:
+        '200': { $ref: '#/components/responses/InterpretedProposal' }
+        '422': { $ref: '#/components/responses/RejectedReceipt' }
+  /campaigns/{campaignId}/proposals/{proposalId}/revise:
+    post:
+      operationId: reviseProposal
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ProposalId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/ReviseProposalCommand' }
+      responses:
+        '200': { $ref: '#/components/responses/InterpretedProposal' }
+        '409': { $ref: '#/components/responses/ConflictReceipt' }
+  /campaigns/{campaignId}/proposals/{proposalId}/forecast:
+    post:
+      operationId: forecastProposal
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ProposalId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/ForecastProposalCommand' }
+      responses:
+        '200': { $ref: '#/components/responses/ProposalForecast' }
+        '409': { $ref: '#/components/responses/ConflictReceipt' }
+  /campaigns/{campaignId}/proposals/{proposalId}/commit:
+    post:
+      operationId: commitAction
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/ProposalId'
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema: { type: string, minLength: 16, maxLength: 160 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/CommitActionCommand' }
+      responses:
+        '202': { $ref: '#/components/responses/CommandReceipt' }
+        '409': { $ref: '#/components/responses/ConflictReceipt' }
+        '422': { $ref: '#/components/responses/RejectedReceipt' }
+  /campaigns/{campaignId}/commands/{commandId}:
+    get:
+      operationId: resolveCommitStatus
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+        - $ref: '#/components/parameters/CommandId'
+      responses:
+        '200': { $ref: '#/components/responses/CommandReceipt' }
+        '202': { $ref: '#/components/responses/CommandReceipt' }
+        '404': { $ref: '#/components/responses/UnavailableReceipt' }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer }
+  parameters:
+    CampaignId: { name: campaignId, in: path, required: true, schema: { type: string } }
+    ViewpointId: { name: X-Viewpoint-Id, in: header, required: true, schema: { type: string } }
+    EntityId: { name: entityId, in: path, required: true, schema: { type: string } }
+    ProposalId: { name: proposalId, in: path, required: true, schema: { type: string } }
+    CommandId: { name: commandId, in: path, required: true, schema: { type: string } }
+  responses:
+    StageFrame:
+      description: Viewpoint-safe Stage projection
+      content: { application/json: { schema: { $ref: '../schemas/read-models/core-loop.schema.json#/$defs/StageFrame' } } }
+    WorldStripStatus:
+      description: Viewpoint-safe global shell status
+      content: { application/json: { schema: { $ref: '../schemas/read-models/core-loop.schema.json#/$defs/WorldStripStatus' } } }
+    EntityContextLens:
+      description: Viewpoint-safe entity Lens
+      content: { application/json: { schema: { $ref: '../schemas/read-models/core-loop.schema.json#/$defs/EntityContextLens' } } }
+    IntentCapability:
+      description: Current legal intent input capability without a permission menu
+      content: { application/json: { schema: { $ref: '../schemas/read-models/core-loop.schema.json#/$defs/IntentCapability' } } }
+    InterpretedProposal:
+      description: Versioned, noncanonical interpretation for player review
+      content: { application/json: { schema: { $ref: '../schemas/read-models/core-loop.schema.json#/$defs/InterpretedProposal' } } }
+    ProposalForecast:
+      description: Accessible, explicitly noncanonical forecast
+      content: { application/json: { schema: { $ref: '../schemas/read-models/core-loop.schema.json#/$defs/ProposalForecast' } } }
+    CommandReceipt:
+      description: Durable command receipt; unknown status requires lookup before retry
+      content: { application/json: { schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/CommandReceipt' } } }
+    RejectedReceipt:
+      description: Actor-safe rejection with no hidden validator diagnostics
+      content: { application/json: { schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/CommandReceipt' } } }
+    ConflictReceipt:
+      description: Material stale-state conflict or replan instruction
+      content: { application/json: { schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/CommandReceipt' } } }
+    UnavailableReceipt:
+      description: Access or timing unavailability
+      content: { application/json: { schema: { $ref: '../schemas/commands/core-loop.schema.json#/$defs/CommandReceipt' } } }

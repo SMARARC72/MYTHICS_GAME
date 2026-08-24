@@ -1,0 +1,42 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "accessibility_profile",
+  "campaign_id": "campaign_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "ledger_time": {
+    "tick": 64800,
+    "display": "Day 0, 18:00",
+    "calendar": "BREAKWATER",
+    "sequence": 12,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T18:00:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_archive_breach_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Archive breach"
+    }
+  ],
+  "payload": {
+    "profile_id": "profile_accessibility_001",
+    "input_modes": [
+      "keyboard",
+      "voice"
+    ],
+    "text_scale": "large",
+    "contrast_mode": "high",
+    "reduced_motion": true,
+    "screen_reader_mode": true,
+    "live_update_mode": "aggregated",
+    "color_independent": true,
+    "non_drag_alternative": false,
+    "hover_independent": true,
+    "session_persistent": true
+  }
+}

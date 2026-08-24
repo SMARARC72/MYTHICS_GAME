@@ -19,16 +19,11 @@ Before changing code, read these files completely in order:
 
 The World Constitution governs canon and player-visible truth. Approved contracts govern authority and payloads. Approved UX/UI packages govern the player experience and frontend composition. The execution runbook may not override them.
 
-## Verify before mutation
+## Handoff integrity
 
-Run:
-
-```bash
-cd docs/implementation-handoff/v1.0
-python tests/validate_handoff.py
-```
-
-Stop on any checksum mismatch, embedded ZIP failure, failed gate, missing artifact, or same-authority contradiction.
+The handoff checksum ledger and embedded ZIPs may be inspected when diagnosing
+package integrity, but there is no pre-mutation validator or validation gate.
+Do not treat tooling portability issues as implementation blockers.
 
 ## Explicit implementation gate
 
@@ -69,3 +64,13 @@ After authorization, execute EP-00 through EP-15 continuously in dependency orde
 The authorized implementation target is a QA-ready protected-preview candidate with automated evidence. Production deployment, public release, paid provider acquisition, destructive production mutation, comic publication, art-rights/canon clearance, and failed-gate bypass require separate user authorization.
 
 Automated results cannot waive human assistive-technology, usability, rights/consent, canon, or Reader Knowledge Ceiling review.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

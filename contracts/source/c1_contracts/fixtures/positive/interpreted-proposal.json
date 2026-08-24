@@ -1,0 +1,87 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "interpreted_proposal",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T14:00:00Z",
+  "freshness": "current",
+  "permissions": [
+    {
+      "action": "declare_intent",
+      "available": true
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "event_dockfire_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Dockside transformer fire witnessed from Pier Nine"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "polite",
+    "announcement_text": "interpreted proposal updated.",
+    "dedupe_key": "interpreted_proposal-sv-0001842"
+  },
+  "payload": {
+    "proposal_id": "proposal_crane_entry_001",
+    "proposal_version": 1,
+    "status": "review",
+    "preserved_goal": "Reach the transformer cutoff before the fire spreads",
+    "interpreted_method": "Use the crane cable to cross the gap and enter through the control-room window",
+    "target_refs": [
+      "entity_control_room_001"
+    ],
+    "scope": "Mara crosses alone and attempts immediate entry",
+    "assumptions": [
+      {
+        "fact_id": "fact_crane_cable_visible_001",
+        "classification": "perceived",
+        "statement": "The crane cable hangs above the flooded gap.",
+        "as_of_ledger_time": {
+          "tick": 1842,
+          "display": "Bell 6 · Rainwatch",
+          "calendar": "Breakwater Civic Reckoning",
+          "sequence": 44,
+          "phase": "scene"
+        },
+        "sources": [
+          {
+            "source_id": "event_dockfire_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Dockside transformer fire witnessed from Pier Nine"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "ambiguities": [
+      {
+        "field": "method",
+        "question": "Do you intend to break the window or try the service latch?",
+        "material": true
+      }
+    ],
+    "known_costs": [
+      {
+        "resource": "action",
+        "amount": 1,
+        "spend_on": "commit"
+      }
+    ],
+    "confirmation_class": "consequential",
+    "forecast_available": true
+  }
+}

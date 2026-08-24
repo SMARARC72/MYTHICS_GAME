@@ -1,0 +1,22 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_interpret_001",
+  "command_type": "interpret_intent",
+  "idempotency_key": "idem-command_interpret_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "confirmation_class": "routine",
+  "input_provenance": "typed",
+  "payload": {
+    "draft_text": "I want to swing from the crane cable, kick through the control-room window, and reach the cutoff before the fire spreads.",
+    "requested_goal": "Reach the cutoff",
+    "context_refs": [
+      "entity_crane_cable_001",
+      "entity_control_room_001"
+    ],
+    "explanation_depth": "standard"
+  }
+}

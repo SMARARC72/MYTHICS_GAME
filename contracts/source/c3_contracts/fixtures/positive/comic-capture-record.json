@@ -1,0 +1,83 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "comic_capture_record",
+  "campaign_id": "campaign_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "ledger_time": {
+    "tick": 64800,
+    "display": "Day 0, 18:00",
+    "calendar": "BREAKWATER",
+    "sequence": 12,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T18:00:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_archive_breach_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Archive breach"
+    }
+  ],
+  "payload": {
+    "capture_id": "capture_archive_001",
+    "captured_through_event_id": "event_archive_breach_001",
+    "captures": [
+      {
+        "beat_id": "beat_archive_choice_001",
+        "source_event_ids": [
+          "event_archive_breach_001"
+        ],
+        "start_ledger_time": {
+          "tick": 64800,
+          "display": "Day 0, 18:00",
+          "calendar": "BREAKWATER",
+          "sequence": 12,
+          "phase": "scene"
+        },
+        "end_ledger_time": {
+          "tick": 64806,
+          "display": "Day 0, 18:00",
+          "calendar": "BREAKWATER",
+          "sequence": 13,
+          "phase": "scene"
+        },
+        "viewpoint_id": "viewpoint_mara_001",
+        "knowledge_ceiling": "player_safe",
+        "visible_state": [
+          {
+            "fact_id": "fact_alt_page_001",
+            "classification": "recorded",
+            "statement": "Mara stands beside a breached archive wall while Ilya treats an injured rigger.",
+            "as_of_ledger_time": {
+              "tick": 64800,
+              "display": "Day 0, 18:00",
+              "calendar": "BREAKWATER",
+              "sequence": 12,
+              "phase": "scene"
+            },
+            "sources": [
+              {
+                "source_id": "event_archive_breach_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Archive breach"
+              }
+            ]
+          }
+        ],
+        "dialogue_source_ids": [
+          "dialogue_ilya_refusal_001"
+        ],
+        "candidate_form": "decision"
+      }
+    ],
+    "foreground_cost": "lightweight",
+    "canonical_mutation": false,
+    "gameplay_continues": true
+  }
+}

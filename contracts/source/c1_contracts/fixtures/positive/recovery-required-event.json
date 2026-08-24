@@ -1,0 +1,58 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_recovery_001",
+  "event_type": "recovery_required",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "occurred_at": "2026-08-23T14:00:03Z",
+  "correlation_id": "correlation_commit_005",
+  "causation_id": "command_commit_005",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "accessibility": {
+    "semantic_role": "alert",
+    "announcement_priority": "assertive",
+    "announcement_text": "Commit status is unknown. Check status before retrying.",
+    "dedupe_key": "recovery-command-commit-005"
+  },
+  "payload": {
+    "command_id": "command_commit_005",
+    "outcome": {
+      "family": "recovery",
+      "code": "recovery.unknown_commit",
+      "preserved_goal": "Reach the transformer control room",
+      "interpreted_method": "Cross the flooded maintenance gantry",
+      "accessible_obstacle": "The response was lost before commit status could be confirmed.",
+      "revisable_fields": [
+        "method",
+        "timing"
+      ],
+      "cost_spent": false,
+      "time_spent": false,
+      "roll_spent": false,
+      "retry_eligible": false,
+      "current_accessible_state_version": "sv_0001842",
+      "help_refs": [
+        {
+          "source_id": "event_dockfire_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Dockside transformer fire witnessed from Pier Nine"
+        }
+      ]
+    },
+    "recovery": {
+      "recovery_type": "lookup_before_retry",
+      "safe_next_action": "Look up the original command status before attempting another commit.",
+      "retry_permitted": false,
+      "lookup_command_id": "command_commit_005"
+    }
+  }
+}

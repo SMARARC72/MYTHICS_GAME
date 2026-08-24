@@ -1,0 +1,16 @@
+{
+  "contract_version": "1.0.0",
+  "analytics_event_id": "analytics_comic_open_001",
+  "category": "comic_pipeline",
+  "surface": "comic",
+  "coarse_outcome": "opened",
+  "contract_ref": "comic_job_issue_001",
+  "contains_player_content": false,
+  "contains_private_canon": false,
+  "contains_prompt_text": false,
+  "contains_raw_dialogue": false,
+  "contains_asset_bytes": false,
+  "alters_play": false,
+  "retention_class": "aggregate_only",
+  "consent_scope": "essential"
+}

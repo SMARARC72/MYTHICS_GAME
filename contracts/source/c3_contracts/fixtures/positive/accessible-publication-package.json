@@ -1,0 +1,124 @@
+{
+  "contract_version": "1.0.0",
+  "package_id": "accessibility_issue_001",
+  "issue_id": "issue_archive_001",
+  "edition_id": "edition_archive_001",
+  "reader_knowledge_ceiling": "player_safe",
+  "knowledge_gate_passed": true,
+  "deterministic_reading_order": [
+    "panel_archive_001"
+  ],
+  "page_alt_text": [
+    {
+      "fact_id": "fact_alt_page_001",
+      "classification": "recorded",
+      "statement": "Mara stands beside a breached archive wall while Ilya treats an injured rigger.",
+      "as_of_ledger_time": {
+        "tick": 64800,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 12,
+        "phase": "scene"
+      },
+      "sources": [
+        {
+          "source_id": "event_archive_breach_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Archive breach"
+        }
+      ]
+    }
+  ],
+  "dialogue_transcript": [
+    {
+      "fact_id": "fact_dialogue_transcript_001",
+      "classification": "recorded",
+      "statement": "Ilya says, ‘I am not leaving them.’",
+      "as_of_ledger_time": {
+        "tick": 64800,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 12,
+        "phase": "scene"
+      },
+      "sources": [
+        {
+          "source_id": "event_archive_breach_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Archive breach"
+        }
+      ]
+    }
+  ],
+  "speaker_attribution": [
+    {
+      "fact_id": "fact_speaker_001",
+      "classification": "recorded",
+      "statement": "Ilya Rook speaks the refusal.",
+      "as_of_ledger_time": {
+        "tick": 64800,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 12,
+        "phase": "scene"
+      },
+      "sources": [
+        {
+          "source_id": "event_archive_breach_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Archive breach"
+        }
+      ]
+    }
+  ],
+  "caption_sfx_transcript": [
+    {
+      "fact_id": "fact_sfx_001",
+      "classification": "recorded",
+      "statement": "SFX: concrete cracking.",
+      "as_of_ledger_time": {
+        "tick": 64800,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 12,
+        "phase": "scene"
+      },
+      "sources": [
+        {
+          "source_id": "event_archive_breach_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Archive breach"
+        }
+      ]
+    }
+  ],
+  "color_independent_identification": true,
+  "navigable_structure": true,
+  "content_warnings": [
+    {
+      "fact_id": "fact_warning_001",
+      "classification": "recorded",
+      "statement": "Includes injury and structural collapse.",
+      "as_of_ledger_time": {
+        "tick": 64800,
+        "display": "Day 0, 18:00",
+        "calendar": "BREAKWATER",
+        "sequence": 12,
+        "phase": "scene"
+      },
+      "sources": [
+        {
+          "source_id": "event_archive_breach_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Archive breach"
+        }
+      ]
+    }
+  ],
+  "localization_profile_id": "profile_locale_001"
+}

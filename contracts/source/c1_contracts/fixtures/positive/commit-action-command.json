@@ -1,0 +1,21 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_commit_001",
+  "command_type": "commit_action",
+  "idempotency_key": "idem-command_commit_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "proposal_id": "proposal_crane_entry_001",
+  "confirmation_class": "consequential",
+  "input_provenance": "typed",
+  "payload": {
+    "proposal_version": 1,
+    "final_confirmation": true,
+    "acknowledged_consequence_ids": [
+      "consequence_fall_001"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "contract_version": "1.0.0",
+  "event_id": "event_world_update_001",
+  "event_type": "world_record_updated",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001901",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "occurred_at": "2026-08-23T18:20:02Z",
+  "correlation_id": "correlation_c2_001",
+  "causation_id": "command_c2_source_001",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1901",
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "polite",
+    "announcement_text": "world record updated.",
+    "dedupe_key": "event-world_record_updated",
+    "text_alternative": "world record updated."
+  },
+  "payload": {
+    "record_kind": "site",
+    "record_id": "site_pier_nine_001",
+    "change_kind": "connection_created_by_wall_destruction",
+    "projection_refs": [
+      "site_pier_nine_001",
+      "case_missing_shipment_001"
+    ]
+  }
+}

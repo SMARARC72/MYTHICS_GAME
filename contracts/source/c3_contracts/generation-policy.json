@@ -1,0 +1,18 @@
+{
+  "contract_version": "1.0.0",
+  "schema_source_globs": [
+    "../c1_contracts/schemas/**/*.schema.json",
+    "../c2_contracts/schemas/**/*.schema.json",
+    "schemas/**/*.schema.json",
+    "openapi/*.yaml",
+    "asyncapi/*.yaml"
+  ],
+  "generated_output": "generated/typescript/",
+  "generated_artifacts_hand_editable": false,
+  "required_consumers": [
+    "TypeScript static types",
+    "runtime payload validators"
+  ],
+  "drift_rule": "CI must fail when generated consumers differ from approved schema output.",
+  "tool_selection_gate": "C4 implementation authorization"
+}

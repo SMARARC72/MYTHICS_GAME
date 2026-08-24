@@ -1,0 +1,18 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_update_locale_001",
+  "command_type": "update_localization_profile",
+  "idempotency_key": "idem-update_locale-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "profile_id": "profile_locale_001",
+    "locale": "en-US",
+    "reading_direction": "left_to_right"
+  }
+}

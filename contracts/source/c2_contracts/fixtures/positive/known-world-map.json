@@ -1,0 +1,153 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "known_world_map",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "ledger_time": {
+    "tick": 1900,
+    "display": "Rainsday, Third Bell — 14:20",
+    "calendar": "Breakwater Civic",
+    "sequence": 1900,
+    "phase": "aftermath"
+  },
+  "generated_at": "2026-08-23T18:20:00Z",
+  "freshness": "current",
+  "permissions": [],
+  "provenance": [
+    {
+      "source_id": "event_source_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Committed ledger event"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "none",
+    "dedupe_key": "read-known_world_map",
+    "text_alternative": "known_world_map updated."
+  },
+  "payload": {
+    "map_id": "map_breakwater_known_001",
+    "location_state": "uncertain",
+    "places": [
+      {
+        "place_id": "site_pier_nine_001",
+        "discovery_state": "entered",
+        "knowledge": [
+          {
+            "fact_id": "fact_location_pier_001",
+            "classification": "perceived",
+            "statement": "You are in the flooded generator hall beneath Pier Nine.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      },
+      {
+        "place_id": "site_salt_court_001",
+        "discovery_state": "reported",
+        "knowledge": [
+          {
+            "fact_id": "fact_court_rumor_001",
+            "classification": "reported",
+            "statement": "The Salt Court lies beyond the drowned tramline.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "route_id": "route_service_east_001",
+        "state": "last_known",
+        "knowledge": [
+          {
+            "fact_id": "fact_route_001",
+            "classification": "last_known",
+            "statement": "The east service road was open two hours ago.",
+            "as_of_ledger_time": {
+              "tick": 1900,
+              "display": "Rainsday, Third Bell — 14:20",
+              "calendar": "Breakwater Civic",
+              "sequence": 1900,
+              "phase": "aftermath"
+            },
+            "sources": [
+              {
+                "source_id": "event_source_001",
+                "source_type": "event",
+                "accessible": true,
+                "label": "Committed ledger event"
+              }
+            ],
+            "visibility_scope": "active_character"
+          }
+        ],
+        "supported_methods": [
+          "walking",
+          "skiff"
+        ]
+      }
+    ],
+    "sensory_position": {
+      "fact_id": "fact_position_uncertain_001",
+      "classification": "perceived",
+      "statement": "The tilted red crane is visible upriver through the rain.",
+      "as_of_ledger_time": {
+        "tick": 1900,
+        "display": "Rainsday, Third Bell — 14:20",
+        "calendar": "Breakwater Civic",
+        "sequence": 1900,
+        "phase": "aftermath"
+      },
+      "sources": [
+        {
+          "source_id": "event_source_001",
+          "source_type": "event",
+          "accessible": true,
+          "label": "Committed ledger event"
+        }
+      ],
+      "visibility_scope": "active_character"
+    },
+    "last_verified": {
+      "tick": 1900,
+      "display": "Rainsday, Third Bell — 14:20",
+      "calendar": "Breakwater Civic",
+      "sequence": 1900,
+      "phase": "aftermath"
+    }
+  }
+}

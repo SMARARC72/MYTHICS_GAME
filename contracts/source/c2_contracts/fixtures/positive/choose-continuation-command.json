@@ -1,0 +1,21 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_choose_continuation_001",
+  "command_type": "choose_continuation",
+  "idempotency_key": "idem-command_choose_continuation_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "consequential",
+  "input_provenance": "structured",
+  "payload": {
+    "continuation_id": "continuation_threshold_001",
+    "option_id": "option_afterlife_play_001",
+    "acknowledged_constraints": [
+      "fact_constraint_threshold_001"
+    ],
+    "final_confirmation": true
+  }
+}

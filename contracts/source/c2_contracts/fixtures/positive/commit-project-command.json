@@ -1,0 +1,24 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_commit_project_001",
+  "command_type": "commit_project_interval",
+  "idempotency_key": "idem-command_commit_project_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "consequential",
+  "input_provenance": "structured",
+  "payload": {
+    "project_id": "project_skiff_repair_001",
+    "reviewed_interval_id": "interval_skiff_repair_002",
+    "worker_authority_refs": [
+      "fact_worker_consent_001"
+    ],
+    "material_authority_refs": [
+      "fact_material_company_001"
+    ],
+    "final_confirmation": true
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "contract_version": "1.0.0",
+  "payload_type": "proposal_forecast",
+  "campaign_id": "camp_breakwater_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "state_version": "sv_0001842",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1842",
+  "ledger_time": {
+    "tick": 1842,
+    "display": "Bell 6 · Rainwatch",
+    "calendar": "Breakwater Civic Reckoning",
+    "sequence": 44,
+    "phase": "scene"
+  },
+  "generated_at": "2026-08-23T14:00:00Z",
+  "freshness": "current",
+  "permissions": [
+    {
+      "action": "declare_intent",
+      "available": true
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "event_dockfire_001",
+      "source_type": "event",
+      "accessible": true,
+      "label": "Dockside transformer fire witnessed from Pier Nine"
+    }
+  ],
+  "accessibility": {
+    "semantic_role": "region",
+    "announcement_priority": "polite",
+    "announcement_text": "proposal forecast updated.",
+    "dedupe_key": "proposal_forecast-sv-0001842"
+  },
+  "payload": {
+    "forecast_id": "forecast_crane_entry_001",
+    "proposal_id": "proposal_crane_entry_001",
+    "proposal_version": 1,
+    "noncanonical": true,
+    "assumptions": [
+      {
+        "fact_id": "fact_crane_cable_visible_001",
+        "classification": "perceived",
+        "statement": "The crane cable hangs above the flooded gap.",
+        "as_of_ledger_time": {
+          "tick": 1842,
+          "display": "Bell 6 · Rainwatch",
+          "calendar": "Breakwater Civic Reckoning",
+          "sequence": 44,
+          "phase": "scene"
+        },
+        "sources": [
+          {
+            "source_id": "event_dockfire_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Dockside transformer fire witnessed from Pier Nine"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "risk_band": "high",
+    "possible_outcomes": [
+      {
+        "fact_id": "fact_forecast_entry_001",
+        "classification": "forecast",
+        "statement": "You may reach the room quickly, but a miss could leave you exposed above energized water.",
+        "as_of_ledger_time": {
+          "tick": 1842,
+          "display": "Bell 6 · Rainwatch",
+          "calendar": "Breakwater Civic Reckoning",
+          "sequence": 44,
+          "phase": "scene"
+        },
+        "sources": [
+          {
+            "source_id": "event_dockfire_001",
+            "source_type": "event",
+            "accessible": true,
+            "label": "Dockside transformer fire witnessed from Pier Nine"
+          }
+        ],
+        "visibility_scope": "active_character"
+      }
+    ],
+    "invalidation_conditions": [
+      "The crane moves",
+      "The cable is cut",
+      "The control-room window is no longer reachable"
+    ]
+  }
+}

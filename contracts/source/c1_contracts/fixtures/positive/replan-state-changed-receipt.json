@@ -1,0 +1,51 @@
+{
+  "contract_version": "1.0.0",
+  "receipt_id": "receipt_replan_001",
+  "command_id": "command_commit_009",
+  "lookup_key": "lookup-command_commit_009-20260823",
+  "status": "replan_required",
+  "campaign_id": "camp_breakwater_001",
+  "source_state_version": "sv_0001842",
+  "generated_at": "2026-08-23T14:00:02Z",
+  "outcome": {
+    "family": "replan",
+    "code": "replan.state_changed",
+    "preserved_goal": "Reach the transformer control room",
+    "interpreted_method": "Cross the flooded maintenance gantry",
+    "accessible_obstacle": "The worker opens the emergency door, changing the safest route.",
+    "revisable_fields": [
+      "method",
+      "timing"
+    ],
+    "cost_spent": false,
+    "time_spent": false,
+    "roll_spent": false,
+    "retry_eligible": true,
+    "current_accessible_state_version": "sv_0001842",
+    "help_refs": [
+      {
+        "source_id": "event_dockfire_001",
+        "source_type": "event",
+        "accessible": true,
+        "label": "Dockside transformer fire witnessed from Pier Nine"
+      }
+    ]
+  },
+  "recovery": {
+    "recovery_type": "revise_method",
+    "safe_next_action": "Review the newly accessible door and revise or retain the original method.",
+    "retry_permitted": false,
+    "current_state_version": "sv_0001843",
+    "changed_fields": [
+      "route",
+      "risk"
+    ]
+  },
+  "accessibility": {
+    "semantic_role": "status",
+    "announcement_priority": "assertive",
+    "announcement_text": "Action status: replan required.",
+    "dedupe_key": "receipt-replan"
+  },
+  "current_state_version": "sv_0001843"
+}

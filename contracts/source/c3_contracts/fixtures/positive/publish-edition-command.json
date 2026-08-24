@@ -1,0 +1,21 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_publish_edition_001",
+  "command_type": "publish_comic_edition",
+  "idempotency_key": "idem-publish_edition-0000000001",
+  "campaign_id": "campaign_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001042",
+  "knowledge_snapshot_id": "ks_breakwater_001",
+  "confirmation_class": "material",
+  "input_provenance": "structured",
+  "payload": {
+    "issue_id": "issue_archive_001",
+    "edition_id": "edition_archive_001",
+    "source_lock_id": "source_lock_issue_001",
+    "hard_gates_passed": true,
+    "accessibility_package_id": "accessibility_issue_001",
+    "rights_manifest_id": "rights_issue_001"
+  }
+}

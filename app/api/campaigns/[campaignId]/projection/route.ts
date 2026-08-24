@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server"; import { SLICE_CAMPAIGN_ID,stageProjection } from "@/src/server/vertical-slice";
+export async function GET(_request:Request,{params}:{params:Promise<{campaignId:string}>}){if((await params).campaignId!==SLICE_CAMPAIGN_ID)return NextResponse.json({error:"Campaign not found"},{status:404});return NextResponse.json(stageProjection(),{headers:{"cache-control":"no-store"}});}

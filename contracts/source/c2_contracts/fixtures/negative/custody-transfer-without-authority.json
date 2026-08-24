@@ -1,0 +1,20 @@
+{
+  "contract_version": "1.0.0",
+  "command_id": "command_transfer_custody_001",
+  "command_type": "transfer_custody",
+  "idempotency_key": "idem-command_transfer_custody_001-20260823",
+  "campaign_id": "camp_breakwater_001",
+  "actor_id": "actor_mara_venn_001",
+  "viewpoint_id": "viewpoint_mara_001",
+  "source_state_version": "sv_0001900",
+  "knowledge_snapshot_id": "ks_mara_breakwater_1900",
+  "confirmation_class": "consequential",
+  "input_provenance": "structured",
+  "payload": {
+    "item_id": "item_brass_witness_001",
+    "from_holder_id": "actor_mara_venn_001",
+    "to_holder_id": "actor_ilya_rook_001",
+    "transfer_terms": "Temporary safekeeping; no ownership transfer",
+    "final_confirmation": true
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "checkpoint": "C1",
+  "validator": "dependency-free deterministic JSON Schema 2020-12 subset used by C1",
+  "schema_count": 4,
+  "schema_reference_failure_count": 0,
+  "fixture_count": 24,
+  "positive_fixture_count": 21,
+  "negative_fixture_count": 3,
+  "passed_count": 24,
+  "failed_count": 0,
+  "openapi_operation_count": 9,
+  "asyncapi_message_count": 6,
+  "results": [
+    {
+      "file": "positive/world-strip-current.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/stage-frame-current.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/context-lens-disputed.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/intent-capability.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/interpret-intent-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/interpreted-proposal.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/proposal-forecast.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/commit-action-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/committed-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/mixed-failure-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/rejected-impossible-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/refused-actor-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/unavailable-access-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/interrupted-window-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/destructive-consequence-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/replan-state-changed-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/stale-conflict-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/unknown-commit-receipt.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/resolve-status-command.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/resolution-beat-mixed.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "positive/recovery-required-event.json",
+      "expected_valid": true,
+      "actual_valid": true,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "file": "negative/stage-hidden-truth.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.payload.world_state: additional property exact_canonical_coordinates is not allowed"
+      ]
+    },
+    {
+      "file": "negative/commit-without-idempotency.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$: missing required property idempotency_key"
+      ]
+    },
+    {
+      "file": "negative/rejection-with-diagnostic.json",
+      "expected_valid": false,
+      "actual_valid": false,
+      "knowledge_leak_keys": [],
+      "passed": true,
+      "errors": [
+        "$.outcome: additional property private_validator_diagnostic is not allowed"
+      ]
+    }
+  ]
+}
