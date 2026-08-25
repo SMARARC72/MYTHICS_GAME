@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "wotc.srd-5.2.1",
+      "name": "System Reference Document v5.2.1",
+      "publisher": "Wizards of the Coast",
+      "sourceUrl": "https://www.dndbeyond.com/srd",
+      "license": "CC-BY-4.0",
+      "status": "approved-reference",
+      "notes": "Use only deliberately adopted SRD content. Do not assume non-SRD D&D product identity, settings, monsters, classes, spells, logos or trade dress are licensed by this entry."
+    }
+  ],
+  "adoptions": [
+    {
+      "id": "mechanic.d20-check-core",
+      "sourceId": "wotc.srd-5.2.1",
+      "status": "candidate",
+      "category": "mechanic",
+      "mythicImplementation": "d20 + modifier compared to a difficulty/defense target",
+      "notes": "Finalize exact mapping after current deterministic rules kernel comparison."
+    },
+    {
+      "id": "mechanic.advantage-disadvantage",
+      "sourceId": "wotc.srd-5.2.1",
+      "status": "candidate",
+      "category": "mechanic",
+      "mythicImplementation": "player-facing familiarity layer replacing or mapping current Edge/Setback where appropriate",
+      "notes": "Do not change authoritative semantics until mapping is explicitly approved."
+    },
+    {
+      "id": "mechanic.hp-ac-initiative",
+      "sourceId": "wotc.srd-5.2.1",
+      "status": "candidate",
+      "category": "mechanic",
+      "mythicImplementation": "familiar HP, defense/AC and initiative presentation for the vertical slice",
+      "notes": "May be a presentation mapping rather than a wholesale rules rewrite."
+    }
+  ]
+}
