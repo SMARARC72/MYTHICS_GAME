@@ -1,8 +1,8 @@
-# Mythic 2.0 Contract Schemas v0.1
+# Mythic 2.0 Contract Schemas v0.1.1
 
-**Status:** PREIMPLEMENTATION SCHEMA BASELINE
+**Status:** VALIDATED PREIMPLEMENTATION SCHEMA BASELINE — expanded W1 contract set
 
-This directory is the first language-neutral contract source for Mythic 2.0. It is intended to generate C# DTOs/validators for the authoritative server and Godot client, plus API/event documentation and permanent fixtures.
+This directory is the language-neutral contract authority index for Mythic 2.0. The complete validated v0.1.1 schema bundle is retained in the Mythic 2.0 Library workspace until the Effect Primitive Catalog v0.1 is locked and the exploded GitHub mirror is generated for C# DTO/validator production.
 
 ## Design rules
 
@@ -16,13 +16,23 @@ This directory is the first language-neutral contract source for Mythic 2.0. It 
 - Canonical encounter state and player-safe tactical projection are separate contracts.
 - Model telemetry persists structured metadata, never private chain-of-thought.
 
-## v0.1 schema set
+## v0.1.1 coverage
 
-Common: IDs, Ledger Time, knowledge basis, command envelope, canonical event, projection envelope.
+Foundation: IDs, Ledger Time, EntityReference, Money, KnowledgeBasis, CommandEnvelope, CanonicalEvent, ProjectionEnvelope.
 
-Tactical: ActionProposal, canonical EncounterState, player-safe TacticalProjection, CommitActionCommand, ActionCommittedEvent.
+Action transaction: ActionProposal, CommitActionCommand, ActionCommittedEvent, ActionReceipt, ResolveCommitStatusCommand.
 
-AI/agentic: EconomicIntentPacket, LifePlanProposal, StrategicPlanProposal, UniqueItemProposal, RumorSeed, ModelActivity.
+Tactical: canonical EncounterState and player-safe TacticalProjection.
+
+Persistent world: PersonRecord, RelationshipRecord, MemoryBeliefRecord, SettlementRecord, RouteRecord, BusinessRecord, OwnershipClaimRecord.
+
+AI/agentic: EntityGrounding, IntentInterpretation, TacticalIntentPacket, TacticalReplanProposal, CommandDoctrine, NPCPlanProposal, EconomicIntentPacket, LifePlanProposal, StrategicPlanProposal, RelationshipInterpretationProposal, MemorySalienceProposal, WorldGenerationProposal, UniqueItemProposal, ImprintCandidateProposal, RumorSeed, NarrationResponse and ModelActivity.
+
+Visual: Semantic AssetRecipe.
+
+## Validation
+
+40 JSON Schema 2020-12 documents meta-validate. Nine targeted fixtures pass expected positive/negative behavior, including unknown-commit recovery, unavailable-object grounding, false-but-valid NPC belief, blocked-route state, and rejection of private diagnostics/private narration fields.
 
 ## Version policy
 
@@ -31,6 +41,6 @@ AI/agentic: EconomicIntentPacket, LifePlanProposal, StrategicPlanProposal, Uniqu
 - Once implementation begins, every persisted event/proposal includes its schema/version lineage.
 - Never reuse a version identifier for changed semantics.
 
-## Next schema work
+## Next dependency
 
-Add effect-primitive catalog v0.1 and compile its primitive IDs/parameter schemas into ActionProposal and UniqueItemProposal validation; add business/world-state schemas; add explicit action receipt/status lookup; add memory/belief and world-generation proposal schemas; generate positive/negative fixture suite.
+Effect Primitive Catalog v0.1: define approved `fx_*` primitives, typed parameters, budget weights, compatibility rules, triggers and Power Tier ceilings, then tighten ActionProposal and UniqueItemProposal validation before C# DTO generation.
