@@ -1,6 +1,6 @@
 # Mythic 2.0 — FP-12 Implementation Readiness and Handoff
 
-**Status:** PREPRODUCTION BASELINE LOCKED; implementation remains intentionally unauthorized until repository packaging/audit completes.
+**Status:** PREIMPLEMENTATION BASELINE LOCKED; production implementation remains intentionally unauthorized.
 
 ## Product definition
 
@@ -8,54 +8,47 @@ Mythic 2.0 is a native desktop/Steam-first persistent living-world tactical RPG.
 
 > **Attempt anything plausible. The world decides what happens. The world remembers.**
 
-The game must remain fun without AI novelty; AI expands agency, interpretation, actor behavior and world generation while authoritative rules/simulation own reality. One campaign can outlive multiple protagonists and generations.
+The game must remain fun without AI novelty. AI expands agency, semantic interpretation, character/world planning and generative identity/rewards while authoritative rules/simulation own reality. One campaign can outlive multiple protagonists and generations.
 
 ## Authority
 
-1. `docs/mythic-2.0/` locked first-principles package.
+1. `docs/mythic-2.0/README.md` mandatory read order and all locked Mythic 2.0 packets.
 2. World Constitution for setting/lore/canon where not explicitly superseded.
 3. Migrated deterministic contracts/engine concepts that pass Mythic 2.0 audit.
 4. Legacy browser/Game-First-v2/UX documents as historical evidence only.
 
-## Preserve from legacy
+## Preserved legacy invariants
 
-- alternate-Earth mythic-superhero canon and Veilbreak;
-- Greek/Roman/Norse starting cosmology;
-- open-world/player-freedom contract;
-- consequence-over-prohibition and no plot armor;
-- actor knowledge boundaries;
-- death/soul/resurrection canon;
-- Levels 1–20, Power Tier, Mantle, Name, Epithet and Legacy concepts;
-- deterministic event ledger/replay/versioning principles;
-- Fate concept, world adaptation without universal level scaling;
-- asset provenance/invariant discipline.
+Preserve alternate-Earth mythic-superhero canon and Veilbreak, open-world/player-freedom contract, consequence-over-prohibition/no plot armor, actor knowledge boundaries, death/soul/resurrection canon, Levels 1–20/Power Tier/Mantle/Name/Epithet/Legacy concepts, deterministic event ledger/replay/versioning, Fate, non-universal world adaptation and asset provenance discipline.
 
-## Supersede
+## Superseded legacy assumptions
 
-- text/browser-first product definition;
-- React/Phaser player client;
-- comic production/reader/publication systems;
-- dashboard-like player UX;
-- seven-attribute universal player stat model;
-- Edge/Setback as universal dice system;
-- Major/Move/Quick tactical economy;
-- universal Composure/Momentum requirements;
-- browser-specific accessibility implementation assumptions.
+Supersede text/browser-first product definition, React/Phaser player client, comic systems, dashboard UX, seven-attribute model, Edge/Setback universal dice model, Major/Move/Quick tactical economy, universal Composure/Momentum requirements and browser-specific client assumptions.
 
-## Locked systems
+## Locked preimplementation stack
 
-- FP-02 core player/game/generational loops;
-- FP-03 stable world identity/ontology;
-- FP-04 causal simulation and fidelity tiers;
-- FP-05 six-ability d20/5E-familiar rules baseline;
-- FP-05B hex/AP/Reaction tactical combat;
+- FP-02 core game/generational loops;
+- FP-03 world ontology;
+- FP-04 causal simulation;
+- FP-05 rules/character baseline;
+- FP-05B tactical combat;
 - FP-05C progression/buildcraft/loot;
+- FP-05D event-driven combat AI/dynamic loot;
 - FP-06 AI orchestration/model routing;
-- FP-07 Godot .NET/C# native client;
-- FP-08 semantic asset/content grammar;
-- FP-09 C# authoritative server + Supabase Postgres;
-- FP-10 AI economics/telemetry;
-- FP-11 30–45 minute Glass Harbor/Drowned Archive product proof.
+- FP-07 Godot native client;
+- FP-08 semantic asset system;
+- FP-09 server/data/persistence;
+- FP-10 AI economics;
+- FP-11 product proof;
+- W0 migration audit;
+- W1 contract/domain blueprint;
+- W2 headless tactical kernel blueprint;
+- W3 grounded intent/dynamic reward blueprint;
+- W4 balance/content tooling;
+- W5 effect primitive/item grammar;
+- W6 world simulation scheduler;
+- W7 Godot scene/data pipeline;
+- W8 vertical-slice QA/balance matrix.
 
 ## Target repository structure
 
@@ -84,35 +77,38 @@ MYTHICS_GAME/
   docs/mythic-2.0/
 ```
 
-## Implementation workstreams
+## Production implementation sequence after explicit authorization
 
-- **W0 Migration/authority audit:** inventory repo and classify preserve/migrate/rewrite/archive.
-- **W1 Contracts/domain skeleton:** IDs, Ledger Time, commands/events, projections, spatial/grounding contracts.
-- **W2 Rules/tactical kernel:** d20, AP/Reaction, LOS/cover/pathing, Exertion, morale, injuries/death, Stunts, replay.
-- **W3 Persistence/event ledger:** Supabase migrations, receipts, snapshots, entity graph, transactional commit.
-- **W4 Simulation:** consequences, tiers/catch-up, family/business/ownership/aging/routes/projects/economy/factions.
-- **W5 AI orchestration:** routing, knowledge projector, grounding, structured proposals, actor/world plans, telemetry.
-- **W6 Godot foundation:** .NET project, networking, projections, input/settings/accessibility, World/Local/Encounter.
-- **W7 Asset pipeline:** audit 800+ monsters, semantic registry, Drowned Archive family, people/props/UI/VFX/audio.
-- **W8 Vertical slice:** tutorial, exploration, Hero, tactical encounter, Stunts, consequence, progression, persistence.
-- **W9 QA/playtest/economics:** blind non-AI fun test, AI value test, replay, human playtest, cost/hour.
+To avoid collision with the W0–W8 preimplementation packet names, production work uses **I-series** workstreams:
+
+- **I0 — Repository restructuring:** preserve Git history, isolate legacy web reference, establish new solution boundaries.
+- **I1 — Contracts/domain skeleton:** canonical IDs, Ledger Time, command/event/projection schemas, tactical and AI proposal DTO generation, Priority-A golden regression fixtures.
+- **I2 — Headless rules/tactical kernel:** d20, AP/Reaction, hex topology, LOS/cover, Exertion, morale, injuries/death, effect primitives, utility AI, deterministic replay and simulation harness.
+- **I3 — Persistence/event ledger:** Supabase migrations, receipts, idempotency, current state, snapshots, entity graph and transactional commit.
+- **I4 — Causal world simulation:** scheduler/fidelity tiers, projects, aging/family, business/ownership, infrastructure, economy, factions and catch-up simulation.
+- **I5 — Grounded AI/reward orchestration:** local parser, R1/R2 routing, knowledge-safe context, Stunt grounding, doctrines, planner/replanner, Ingenuity, unique-item forge, artifact imprinting and telemetry.
+- **I6 — Godot native foundation:** C# project, networking, projections/reconnect, World/Local/Encounter scenes, UI/input/accessibility and authoritative presentation mapping.
+- **I7 — Asset/content pipeline:** normalize 800+ monsters, semantic registries, environmental/systemic props, people/equipment/UI/VFX/audio and validators.
+- **I8 — Native vertical slice:** Glass Harbor/Drowned Archive 30–45 minute proof with exploration, social play, combat, free intent, causal rewards, progression and persistent consequence.
+- **I9 — QA/playtest/economics:** blind non-AI fun test, balance simulation, AI-value test, hidden-knowledge/replay/reconnect proof, runtime cost and external playtesting.
 
 ## Gates
 
-A. Repository audit before construction.
-B. Headless rules/simulation proof before polished client work.
-C. Godot graybox proof.
-D. Combat/exploration fun without AI.
-E. AI demonstrably expands solution space.
-F. Coherent visual slice.
-G. Measured commercial AI economics.
+A. Preimplementation authority complete — **PASSED**.  
+B. Headless rules/simulation proof before polished combat presentation.  
+C. Godot graybox proof.  
+D. Combat/exploration fun without AI.  
+E. AI demonstrably expands solution space without controlling reality.  
+F. Causal reward/unique-item generation feels earned and balanced.  
+G. Coherent visual native slice.  
+H. Measured commercial AI economics.
 
-No broad content expansion until these pass.
+No broad content expansion until B–H pass.
 
 ## Codex first-run mandate
 
-When implementation is authorized, Codex starts with W0, not Godot scaffolding: read Mythic 2.0 docs, inspect the full repo, run existing tests, produce a migration matrix, identify reusable deterministic/server work, classify browser-only code, preserve unique work/history, and only then begin W1.
+When implementation is explicitly authorized, Codex reads the entire Mythic 2.0 authority chain and W0 audit, runs existing tests, preserves all golden behavioral fixtures, then begins I0/I1. It must not begin by polishing Godot screens or porting legacy React code.
 
 ## Final decision
 
-**GO — greenfield Mythic 2.0 implementation after repository packaging and audit.** Do not continue the legacy browser implementation and do not destructively erase its history.
+**GO — greenfield Mythic 2.0 implementation once explicitly authorized.** Do not continue the legacy browser implementation and do not destructively erase its history.
