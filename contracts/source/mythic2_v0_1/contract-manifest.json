@@ -1,0 +1,50 @@
+{
+  "contract_family": "mythic2",
+  "contract_version": "0.1.0",
+  "json_schema_draft": "2020-12",
+  "schema_base": "https://schemas.mythic.game/v2/0.1",
+  "authority": "preimplementation-language-neutral-source",
+  "status": "schema-baseline-v0.1",
+  "schemas": [
+    "schemas/ai/economic-intent-packet.schema.json",
+    "schemas/ai/life-plan-proposal.schema.json",
+    "schemas/ai/model-activity.schema.json",
+    "schemas/ai/rumor-seed.schema.json",
+    "schemas/ai/strategic-plan-proposal.schema.json",
+    "schemas/ai/unique-item-proposal.schema.json",
+    "schemas/commands/commit-action-command.schema.json",
+    "schemas/common/canonical-event.schema.json",
+    "schemas/common/command-envelope.schema.json",
+    "schemas/common/ids.schema.json",
+    "schemas/common/knowledge-basis.schema.json",
+    "schemas/common/ledger-time.schema.json",
+    "schemas/common/projection-envelope.schema.json",
+    "schemas/events/action-committed-event.schema.json",
+    "schemas/projections/tactical-projection.schema.json",
+    "schemas/tactical/action-proposal.schema.json",
+    "schemas/tactical/encounter-state.schema.json"
+  ],
+  "invariants": [
+    "stable opaque IDs",
+    "integer Ledger Time",
+    "commands require idempotency and state basis",
+    "canonical events append-only and ordered",
+    "player projections are viewpoint/knowledge scoped",
+    "AI proposals never directly mutate canon",
+    "canonical encounter state is distinct from player-safe tactical projection",
+    "no chain-of-thought persistence"
+  ],
+  "supersedes": [
+    "browser-specific C1/C2 payload shapes where incompatible"
+  ],
+  "preserves": [
+    "stale-state rejection",
+    "idempotent duplicate handling",
+    "unknown-commit lookup",
+    "ordered event gap detection",
+    "deterministic replay",
+    "hidden-truth protection",
+    "custody authority",
+    "continuation after death"
+  ]
+}
