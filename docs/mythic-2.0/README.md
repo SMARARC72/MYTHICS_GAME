@@ -1,6 +1,6 @@
 # Mythic 2.0 — Preproduction Workspace
 
-**Status:** First-principles + W0–W12 preimplementation baseline locked  
+**Status:** First-principles + W0–W12 preimplementation baseline locked; schema v0.1 validated  
 **Date:** 2026-08-24/25  
 **Target:** Native Steam/desktop tactical RPG built in Godot with an authoritative persistent server-side world simulation.
 
@@ -56,6 +56,9 @@ AI is not the canonical simulation and is not one monolithic GM. Mythic uses mod
 34. `32_W10_PREIMPLEMENTATION_MODEL_ACTIVITY_SCHEDULER.md`
 35. `33_W11_PREIMPLEMENTATION_NPC_LIFE_RELATIONSHIP_AND_FACTION_AGENCY.md`
 36. `34_W12_PREIMPLEMENTATION_EMERGENT_OPPORTUNITY_RUMOR_AND_HISTORY.md`
+37. `35_NEXT_OPTIMAL_STEPS_AND_SCHEMA_EXECUTION.md`
+38. `36_SCHEMA_BASELINE_V0_1.md`
+39. `../contracts/source/mythic2_v0_1/contract-manifest.json` and `../contracts/source/mythic2_v0_1/README.md` as the language-neutral schema authority index.
 
 `08_FP03_WORLD_ONTOLOGY_DRAFT.md` remains design history; `09_...LOCKED.md` is authoritative.
 
@@ -90,8 +93,16 @@ These materially reduce development cost but do not eliminate runtime AI COGS or
 - No universal level scaling.
 - No broad content expansion before the 30–45 minute native vertical slice passes external playtest, replay, balance and cost gates.
 
+## Contract state
+
+Mythic 2.0 contract schema v0.1 is validated using JSON Schema 2020-12. It currently defines stable identities, Ledger Time, knowledge basis, command/event/projection envelopes, ActionProposal, commit/action event contracts, canonical encounter state, player-safe tactical projection, economic/life/faction planning proposals, unique-item proposals, rumor provenance and model-activity budget/telemetry.
+
+The exploded validated schema package is retained in the Mythic 2.0 Library workspace. GitHub currently records the schema authority index/manifest and locked semantic decisions; the exploded files are to be mirrored before C# DTO generation begins.
+
 ## Implementation state
 
-First-principles preproduction, W0 migration audit, and W1–W12 **preimplementation blueprints** are complete. Production code is still intentionally gated.
+First-principles preproduction, W0 migration audit, W1–W12 **preimplementation blueprints**, and schema v0.1 are complete. Production code is still intentionally gated.
+
+The next dependency is **Effect Primitive Catalog v0.1**, followed by the remaining schema tranche, monster normalization, tactical content matrix, canonical Drowned Archive dataset, permanent benchmarks, AI routing policy and visual style bible.
 
 Once explicitly authorized, implementation should proceed from the locked blueprints in dependency order: contract/domain schemas -> headless deterministic tactical/economy kernels -> persistence/simulation -> grounded AI/reward/economic-agent integration -> Godot native presentation -> asset normalization/content -> vertical slice -> QA/economics.
