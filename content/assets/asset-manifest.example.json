@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "id": "prototype.kenney.tiny-dungeon",
+      "kind": "tileset",
+      "status": "prototype",
+      "sourceUrl": "https://kenney.nl/assets/tiny-dungeon",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "attributionRequired": false,
+      "allowedUse": ["prototype", "commercial"],
+      "styleFamily": "prototype-pixel-16",
+      "sourceVersion": "1.0",
+      "localRoot": "public/game-assets/prototype/tiles/tiny-dungeon",
+      "notes": "Prototype source for Drowned Archive map/encounter spike. Replace or art-direct before production if the final visual direction is not pixel based."
+    },
+    {
+      "id": "prototype.kenney.tiny-town",
+      "kind": "tileset",
+      "status": "prototype",
+      "sourceUrl": "https://kenney.nl/assets/tiny-town",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "attributionRequired": false,
+      "allowedUse": ["prototype", "commercial"],
+      "styleFamily": "prototype-pixel-16",
+      "sourceVersion": "1.1",
+      "localRoot": "public/game-assets/prototype/tiles/tiny-town",
+      "notes": "Candidate regional/world-map prototype pack."
+    },
+    {
+      "id": "prototype.kenney.ui-rpg-expansion",
+      "kind": "ui-kit",
+      "status": "prototype",
+      "sourceUrl": "https://kenney.nl/assets/ui-pack-rpg-expansion",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "attributionRequired": false,
+      "allowedUse": ["prototype", "commercial"],
+      "styleFamily": "prototype-rpg-ui",
+      "sourceVersion": "1.0",
+      "localRoot": "public/game-assets/prototype/ui/kenney-rpg",
+      "notes": "Functional prototyping only. Final UI must be bespoke and aligned to Mythic visual direction."
+    },
+    {
+      "id": "prototype.game-icons.selected",
+      "kind": "icon-set",
+      "status": "prototype",
+      "sourceUrl": "https://game-icons.net/",
+      "author": "Lorc, Delapouite and contributors; record per-icon author in item metadata",
+      "license": "CC-BY-3.0-or-CC0-per-item",
+      "attributionRequired": true,
+      "allowedUse": ["prototype", "commercial-with-attribution"],
+      "styleFamily": "monochrome-rpg-icons",
+      "sourceVersion": "rolling",
+      "localRoot": "public/game-assets/prototype/icons/game-icons",
+      "notes": "Each selected icon must include author/license metadata. Prefer CC0 entries or replace before production if attribution burden becomes undesirable."
+    }
+  ],
+  "items": []
+}
