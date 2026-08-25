@@ -1,6 +1,6 @@
 # Mythic 2.0 — Preproduction Workspace
 
-**Status:** First-principles + W0–W12 preimplementation baseline locked; schema v0.1 validated  
+**Status:** First-principles + W0–W12 preimplementation baseline locked; W1 schemas v0.1.1 and Effect Primitive Catalog v0.1 validated  
 **Date:** 2026-08-24/25  
 **Target:** Native Steam/desktop tactical RPG built in Godot with an authoritative persistent server-side world simulation.
 
@@ -58,7 +58,10 @@ AI is not the canonical simulation and is not one monolithic GM. Mythic uses mod
 36. `34_W12_PREIMPLEMENTATION_EMERGENT_OPPORTUNITY_RUMOR_AND_HISTORY.md`
 37. `35_NEXT_OPTIMAL_STEPS_AND_SCHEMA_EXECUTION.md`
 38. `36_SCHEMA_BASELINE_V0_1.md`
-39. `../contracts/source/mythic2_v0_1/contract-manifest.json` and `../contracts/source/mythic2_v0_1/README.md` as the language-neutral schema authority index.
+39. `37_SCHEMA_W1_COMPLETE_V0_1_1.md`
+40. `38_EFFECT_PRIMITIVE_LIBRARY_V0_1.md`
+41. `../contracts/source/mythic2_v0_1/contract-manifest.json` and `../contracts/source/mythic2_v0_1/README.md` as the language-neutral contract authority index.
+42. `../contracts/source/mythic2_effects_v0_1/README.md` as the effect-catalog authority index.
 
 `08_FP03_WORLD_ONTOLOGY_DRAFT.md` remains design history; `09_...LOCKED.md` is authoritative.
 
@@ -95,14 +98,22 @@ These materially reduce development cost but do not eliminate runtime AI COGS or
 
 ## Contract state
 
-Mythic 2.0 contract schema v0.1 is validated using JSON Schema 2020-12. It currently defines stable identities, Ledger Time, knowledge basis, command/event/projection envelopes, ActionProposal, commit/action event contracts, canonical encounter state, player-safe tactical projection, economic/life/faction planning proposals, unique-item proposals, rumor provenance and model-activity budget/telemetry.
+Mythic 2.0 contract schema **v0.1.1** is validated using JSON Schema 2020-12. It defines stable identities, Ledger Time, entity references, fixed-point money, knowledge basis, command/event/projection envelopes, action commit/receipt/unknown-commit recovery, canonical encounter state, player-safe tactical projection, core persistent-world records, semantic grounding, tactical/actor/economic/life/faction planning proposals, unique-item/imprint proposals, rumor provenance, narration safety and model-activity budget/telemetry.
 
-The exploded validated schema package is retained in the Mythic 2.0 Library workspace. GitHub currently records the schema authority index/manifest and locked semantic decisions; the exploded files are to be mirrored before C# DTO generation begins.
+The exploded validated schema package is retained in the Mythic 2.0 Library workspace. GitHub records the contract authority index/manifest and locked semantic decisions; exploded files are to be mirrored before C# DTO generation begins.
+
+## Effect primitive state
+
+Effect Primitive Catalog **v0.1** is validated with 62 `fx_*` primitives across 12 families. Every primitive defines typed parameters, legal trigger/target/source contexts, Power Tier bounds, persistence class, provisional budget metadata, generated-item eligibility, drawback eligibility and anti-loop restrictions.
+
+The catalog passes its W5 exit gate with 6 sample weapons, 5 sample powers, 8 environmental Stunts, 50 valid generated unique-item compositions and 10 negative exploit/malformed fixtures rejected as expected.
+
+The full machine-readable effect package is retained in the Library at `/Mythic 2.0/Effect Primitive Catalog v0.1/` and must be mirrored before production code generation.
 
 ## Implementation state
 
-First-principles preproduction, W0 migration audit, W1–W12 **preimplementation blueprints**, and schema v0.1 are complete. Production code is still intentionally gated.
+First-principles preproduction, W0 migration audit, W1–W12 **preimplementation blueprints**, W1 schema v0.1.1 and Effect Primitive Catalog v0.1 are complete. Production code remains intentionally gated.
 
-The next dependency is **Effect Primitive Catalog v0.1**, followed by the remaining schema tranche, monster normalization, tactical content matrix, canonical Drowned Archive dataset, permanent benchmarks, AI routing policy and visual style bible.
+The next optimal mechanical tranche is **Condition Catalog v0.1 + Tactical Content Matrix v0.1**, followed by normalization of the existing 800+ monster assets against tactical roles and approved primitive IDs, then the canonical Drowned Archive dataset, permanent benchmark fixtures, AI routing policy and visual style bible.
 
 Once explicitly authorized, implementation should proceed from the locked blueprints in dependency order: contract/domain schemas -> headless deterministic tactical/economy kernels -> persistence/simulation -> grounded AI/reward/economic-agent integration -> Godot native presentation -> asset normalization/content -> vertical slice -> QA/economics.
