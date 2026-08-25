@@ -2,107 +2,125 @@
 
 These instructions apply to the entire repository.
 
+## Active project state
+
+**Mythic 2.0 is in first-principles preproduction. Implementation expansion is frozen.**
+
+The production target is now a native Steam/desktop 2D RPG in Godot with an authoritative persistent server-side world simulation. The existing Next.js/browser client is legacy/reference work and is not the production game client.
+
 ## Mandatory authority order
 
-Before changing code, read these files completely in order:
+Before changing project direction, architecture, gameplay contracts, or implementation, read these files completely in order:
 
-1. `docs/product/GAME_FIRST_REBASELINE.md`
-2. `docs/game-first-v2/00_SOURCE_OF_TRUTH.md`
-3. `docs/game-first-v2/01_TOOLCHAIN_ASSETS_AND_LICENSES.md`
-4. `docs/game-first-v2/02_EXECUTION_PLAN.md`
-5. `docs/game-first-v2/03_CODEX_HANDOFF_PROMPT.md`
-6. `docs/engineering/PLAYABLE_VERTICAL_SLICE_PLAN.md`
-7. `docs/implementation-handoff/v1.0/README_FIRST.md`
-8. `docs/implementation-handoff/v1.0/SOURCE_PRECEDENCE.md`
-9. `docs/implementation-handoff/v1.0/00_START_HERE/CODEX_EXECUTION_PROMPT.md`
-10. `docs/implementation-handoff/v1.0/01_GOVERNANCE/Mythic_Superhero_RPG_World_Constitution_v1.md`
-11. `docs/implementation-handoff/v1.0/01_GOVERNANCE/UX_UI_Foundation_v0.1A.md`
-12. `docs/implementation-handoff/v1.0/01_GOVERNANCE/Mythic_RPG_Product_Information_Architecture_v0.1A.md`
-13. The C1–C4 acceptance documents and packages under `02_CONTRACTS/`
-14. The UI-01–UI-04 acceptance documents and packages under `03_FINALIZED_UX_UI/`
-15. The controlled workbook under `04_CONTROL_AND_TRACEABILITY/`
-16. Every file under `05_READINESS_AND_RUNBOOK/`
+1. `docs/mythic-2.0/README.md`
+2. `docs/mythic-2.0/00_MASTER_REBASELINE.md`
+3. `docs/mythic-2.0/01_PRODUCT_THESIS_AND_NONNEGOTIABLES.md`
+4. `docs/mythic-2.0/02_PLAYER_LOOP_AND_GAME_MODES.md`
+5. `docs/mythic-2.0/03_WORLD_SIMULATION_FIRST_PRINCIPLES.md`
+6. `docs/mythic-2.0/04_TECHNICAL_ARCHITECTURE_AND_STACK.md`
+7. `docs/mythic-2.0/05_COST_RISK_AND_VIABILITY_BASELINE.md`
+8. `docs/mythic-2.0/06_PREPRODUCTION_EXECUTION_PLAN.md`
+9. `docs/implementation-handoff/v1.0/01_GOVERNANCE/Mythic_Superhero_RPG_World_Constitution_v1.md`
+10. Existing contracts/rules/event/knowledge packages as reference inputs to be audited for Mythic 2.0 compatibility.
+11. `docs/game-first-v2/` and older UX/UI packages only as historical evidence where they do not conflict with Mythic 2.0.
 
-### Current precedence clarification
+## Precedence
 
-The 2026-08-24 Game-First rebaseline and `docs/game-first-v2/` packet supersede older UX/UI and comic-production player-product decisions wherever they conflict.
+Mythic 2.0 supersedes browser-first, Phaser/hybrid-renderer, dashboard-like UI, chatbot-presentation, comic-product and previous player-client execution decisions wherever they conflict.
 
-The older UI-01–UI-04 packages remain valuable architecture/history, but they are **not binding for player-facing composition, terminology, comic scope, dashboard-like layouts, or other experience decisions that Game-First v2 explicitly replaces**.
+The World Constitution continues to govern canon unless explicitly amended. Ledger Time, deterministic mechanical authority, stable entity identity, viewpoint-safe knowledge, hidden-truth protection, persistent consequences, replay/idempotency principles and server-authoritative canonical state remain core design constraints but must be revalidated against the Mythic 2.0 ontology.
 
-The World Constitution continues to govern canon and player-visible truth. Approved contracts continue to govern authority and payloads. Deterministic rules authority, Ledger Time, viewpoint safety, hidden-truth boundaries, append-only events, replay, idempotency, recovery, accessibility and persistent consequences remain binding.
+## Implementation freeze
 
-## Handoff integrity
+Do **not** begin or continue production implementation from the older GN/GFR/EP execution packets merely because they exist.
 
-The handoff checksum ledger and embedded ZIPs may be inspected when diagnosing
-package integrity, but there is no pre-mutation validator or validation gate.
-Do not treat tooling portability issues as implementation blockers.
+The active sequence is `docs/mythic-2.0/06_PREPRODUCTION_EXECUTION_PLAN.md`, FP-00 through FP-12.
 
-## Explicit implementation gate
+Until FP-00 through FP-11 are locked, permitted work is:
 
-Read `05_READINESS_AND_RUNBOOK/implementation-authorization.json` before mutating implementation code.
+- repository inspection;
+- research;
+- architecture/planning documentation;
+- requirements reconciliation;
+- schema/ontology design documents;
+- asset inventory/provenance work;
+- prototypes explicitly labeled disposable technical spikes when authorized by the product owner;
+- cost/unit-economics analysis.
 
-If its decision is `AWAITING_EXPLICIT_USER_AUTHORIZATION`, require the user to say exactly:
+Production construction begins only from the final Mythic 2.0 FP-12 Codex handoff after explicit user authorization.
 
-> Authorize the clean-session Codex implementation run.
+## Binding product thesis
 
-Repository inspection, documentation preparation and non-mutating diagnostics are allowed before that phrase. Construction of the implementation is not.
+> **Attempt anything plausible. The world decides what happens. The world remembers.**
 
-After authorization, execute the active Game-First v2 plan continuously in dependency order. Do not solicit approval packet-by-packet unless a documented stop condition is reached.
+### Meaning
 
-## Binding product direction
+- Free-form intent remains a core input mode.
+- Players may attempt actions not represented by buttons.
+- Player intent must ground to actual known/visible world entities, capabilities, inventory, geography, relationships or other canonical state.
+- AI cannot retcon committed reality or invent convenient present-tense affordances.
+- AI may help create **future** reality through causally justified, server-validated actions such as settlement formation, business changes, marriages, migrations, construction, faction actions and other world evolution.
+- Deterministic systems resolve mechanics and canonical mutations.
+- Godot visualizes authoritative projections; it is not canonical authority.
+- The world survives the protagonist. Death, retirement, aging, heirs and new characters can continue in the same campaign world.
 
-- Mythic is a living-world RPG, not an AI chatbot, VTT utility, CRM, admin panel or lore dashboard.
-- Product thesis: **Attempt anything. The world decides what happens.**
-- Primary navigation is **Play**, **Hero**, **World**.
-- Play is context-sensitive across **World Map**, **Scene**, and **Encounter** modes.
-- Reference product/interaction inspiration is Battle Brothers + Vagrus: The Riven Realms, with familiar d20/5E game grammar where it improves adoption. Do not copy protected art/assets/trade dress.
-- The Adaptive Living World Stage remains the scene-first center of ordinary play.
-- Ledger Time is the only world-time model.
-- Desktop browser is the reference target; compact variants preserve capability.
-- Progressive disclosure introduces the world and mechanics through play without hiding legal choices.
-- Free-form intent remains permanently available; suggested actions are examples only.
-- Dice, XP, HP, equipment, conditions, progression and consequence should feel like game mechanics, while advanced engine detail remains optional.
-- Tutorial is a playable adventure, not a documentation dump.
-- Player-facing prose is concise, concrete and world-building; internal engine vocabulary stays hidden in normal play.
-- Comic generation, production, publication, reader/editor and comic onboarding are removed from player-product scope.
-- Figma is prohibited. Use code-native UI, semantic HTML/CSS/SVG, approved visual references, licensed/provenanced assets and asset fallbacks.
+## Product direction
 
-## Hybrid renderer direction
+- Steam/native desktop first.
+- Godot 4 production client.
+- Battle Brothers-level tactical ambition as a direction, not a clone.
+- Vagrus-style illustrated narrative/world presentation as a direction, not a clone.
+- Familiar d20/5E grammar where it reduces onboarding cost.
+- Concise, vivid player-facing prose.
+- Real RPG progression, combat, equipment, exploration, relationships and risk must be fun without AI novelty.
+- Persistent causal society/world simulation uses adaptive fidelity and causal-significance budgets rather than full-fidelity simulation of every citizen.
+- Large reusable semantic 2D asset libraries are part of the simulation architecture.
+- Comic generation/product scope is removed.
 
-React/Next.js remains the application shell, workflow coordinator and accessible player UI.
+## Current resource assumptions
 
-Interactive world-map and tactical canvas surfaces may use Phaser behind internal renderer ports after the documented spike passes. External renderers never own canonical game state or authoritative rules.
+Planning may assume the product owner already has or plans:
 
-Visual dice may animate predetermined authoritative results only. They never generate game truth.
+- 800+ internally created monster assets;
+- Supabase Pro;
+- GitHub Team;
+- high-capacity ChatGPT access;
+- Claude 5x access.
 
-## Authority and safety
+These reduce incremental cost but do not remove AI runtime cost, environmental/character/UI asset needs, QA, audio/VFX, or production-art requirements.
 
-- The browser is a viewpoint-safe projection renderer and workflow coordinator, never a second game engine.
-- Generate types and runtime validators from the approved contracts; do not handwrite duplicate network-domain models.
-- Keep caches separated by campaign, viewpoint, contract version, and state basis.
-- Keep drafts separate from authoritative projections.
-- Persist idempotency before sending a mutation.
-- Never show canonical mutation before authoritative receipts and ordered events.
-- Resolve unknown commit status before retry.
-- Pause mutation on ordered-event gaps and preserve recoverable drafts.
-- Never expose hidden truth, hidden encounter data, protected prompts, or private audit data to public client state, canvas data, logs, or analytics.
-- Third-party game assets must have provenance/license records before entering the public asset tree.
-- Preserve unrelated user work and follow any more-specific nested `AGENTS.md` files added later.
+## Legacy code
+
+Do not delete the existing web implementation during preproduction. Preserve Git history and classify code/assets as:
+
+- reuse;
+- server/reference reuse after audit;
+- archive/reference only;
+- retire.
+
+A future Mythic 2.0 repository restructuring may place the legacy web client under an archive/reference boundary while introducing `client/godot`, server, shared contract, content and tooling boundaries.
+
+## Safety and authority
+
+- Never expose hidden NPC/world truth to a player projection that should not know it.
+- Visual state is never canonical by itself.
+- Systemic interactable objects require stable authoritative identity.
+- Generated future world facts require provenance.
+- Death/failure are valid outcomes.
+- New world generation must respect geography, resources, time, ownership, social/economic constraints and world invariants.
+- Third-party assets require provenance/license records before production use.
+- Preserve unrelated user work.
 
 ## Delivery boundary
 
-The authorized target, once the explicit implementation phrase is provided, is a QA-ready protected-preview **Game-First v2 Drowned Archive vertical slice** with automated evidence and human playtest gates.
+The current deliverable is **complete Mythic 2.0 preproduction and a Codex-ready vertical-slice implementation handoff**, not a production release.
 
-Production deployment, public release, paid provider acquisition, destructive production mutation, art-rights/canon clearance, and failed-gate bypass require separate user authorization.
-
-Automated results cannot waive human assistive-technology, usability, rights/licensing, canon, or hidden-knowledge review.
+Production implementation, Steam release, paid provider acquisition beyond approved existing services, destructive production migration, and failed-gate bypass require separate authorization.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
-# This is NOT the Next.js you know
+# Legacy Next.js note
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+The existing browser client uses a modern Next.js version whose APIs may differ from training data. If legacy web code is inspected or maintained, read the relevant guide in `node_modules/next/dist/docs/` before modifying it. This requirement does not imply that Next.js remains the Mythic 2.0 production client.
 
 <!-- END:nextjs-agent-rules -->
