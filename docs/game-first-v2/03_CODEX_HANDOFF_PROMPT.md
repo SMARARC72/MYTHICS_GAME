@@ -6,21 +6,27 @@ Use this document as the clean-session execution prompt for the next implementat
 
 ## Mission
 
-Rebuild the existing Mythic Drowned Archive vertical slice into an unmistakable **desktop-browser RPG**, using the current deterministic/persistent engine architecture while replacing dashboard/chatbot presentation with game-first Play, Hero and World experiences.
+Rebuild Mythic as an unmistakable **native desktop / Steam-targeted 2D RPG in Godot**, while preserving the current authoritative server-side campaign, deterministic rules, event ledger, persistence, AI interpretation, Ledger Time, autonomous actors, and viewpoint-safe knowledge architecture.
 
 The target experience combines:
 
-- Battle Brothers-style game-world/tactical readability;
+- Battle Brothers-style tactical depth and readable 2D battlefields;
 - Vagrus-style illustrated narrative/world presentation;
 - familiar d20/5E mechanical grammar where useful;
 - unrestricted natural-language action attempts;
-- Mythic's authoritative persistent simulation, Ledger Time, viewpoint-safe knowledge and autonomous consequences.
+- Mythic's authoritative persistent simulation and systemic world-object interaction.
 
 The product thesis is:
 
-> **Attempt anything. The world decides what happens.**
+> **Attempt anything plausible. The world decides what happens.**
 
-Do not turn this into a generic VTT, AI chatbot, CRM/dashboard, or a direct clone of any reference game.
+The second invariant is equally binding:
+
+> **Freedom does not permit invention.**
+
+A player may creatively interact with world objects, actors, terrain, items and capabilities that actually exist in authoritative state. The language model may interpret intent and map it to those objects and mechanics, but may never fabricate an object, fact, participant, capability or affordance merely to satisfy the declaration.
+
+Do not turn this into a generic VTT, chatbot, web dashboard, or direct clone of any reference game.
 
 ## Mandatory read order
 
@@ -29,16 +35,17 @@ Before writing code, read completely:
 1. `AGENTS.md`
 2. `docs/product/GAME_FIRST_REBASELINE.md`
 3. `docs/game-first-v2/00_SOURCE_OF_TRUTH.md`
-4. `docs/game-first-v2/01_TOOLCHAIN_ASSETS_AND_LICENSES.md`
-5. `docs/game-first-v2/02_EXECUTION_PLAN.md`
-6. `docs/engineering/PLAYABLE_VERTICAL_SLICE_PLAN.md`
-7. `docs/implementation-handoff/v1.0/SOURCE_PRECEDENCE.md`
-8. World Constitution and C1–C4 contract acceptance packages referenced by `AGENTS.md`
-9. Existing UI-01–UI-04 packages only as historical implementation evidence where they do not conflict with Game-First v2
-10. current `package.json`, source tree, test tree and any nested `AGENTS.md`
-11. Next.js 16 documentation shipped in `node_modules/next/dist/docs/` before changing Next.js-specific implementation.
+4. `docs/game-first-v2/04_GODOT_NATIVE_ARCHITECTURE.md`
+5. `docs/game-first-v2/01_TOOLCHAIN_ASSETS_AND_LICENSES.md`
+6. `docs/game-first-v2/02_EXECUTION_PLAN.md`
+7. `docs/engineering/PLAYABLE_VERTICAL_SLICE_PLAN.md`
+8. `docs/implementation-handoff/v1.0/SOURCE_PRECEDENCE.md`
+9. World Constitution and C1–C4 contract acceptance packages referenced by `AGENTS.md`
+10. Existing UI-01–UI-04 packages only as historical product evidence where they do not conflict with Game-First v2 or the Godot native decision
+11. current source tree, tests and any nested `AGENTS.md`
+12. Current stable Godot 4 documentation relevant to any engine API being implemented.
 
-Where Game-First v2 conflicts with older UI/comic player-product requirements, Game-First v2 wins. Engine authority, contract safety, Ledger Time, hidden-truth protections, idempotency, replay, accessibility and recovery remain binding.
+Where Game-First v2 or `04_GODOT_NATIVE_ARCHITECTURE.md` conflicts with older web-player UI requirements, the Godot native architecture wins. Engine authority, contract safety, Ledger Time, hidden-truth protections, idempotency, replay, accessibility intent and recovery remain binding.
 
 ## Authorization boundary
 
@@ -46,247 +53,176 @@ Follow the repository implementation authorization gate exactly.
 
 Before the required exact authorization phrase is present, you may inspect, compare, plan, run non-mutating diagnostics and report conflicts. Do not begin construction.
 
-Once authorization is valid, execute the Game-First v2 work continuously in dependency order. Do not stop for approval between packets unless a documented blocking decision or safety/legal issue prevents a responsible default.
+Once authorization is valid, execute the native Game-First v2 work continuously in dependency order. Do not stop for approval between packets unless a documented blocking decision or safety/legal issue prevents a responsible default.
 
-## Primary implementation plan
+## Primary implementation objective
 
-Execute `docs/game-first-v2/02_EXECUTION_PLAN.md` GFR-00 through GFR-14.
+The first priority is **not feature breadth**. It is one polished, fun, authoritative Drowned Archive native vertical slice.
 
-The first priority is **not feature breadth**. It is one polished, fun, authoritative Drowned Archive slice.
-
-Do not begin generalized world generation, multiplayer, full campaign breadth, large content libraries or production release until the slice passes its game-feel acceptance gates.
+Do not begin generalized world generation, multiplayer, full campaign breadth, large content libraries or production Steam release until the slice passes its game-feel acceptance gates.
 
 ## Required architecture
 
-### Application shell
+### Native client
 
-Keep Next.js/React as the application shell and authoritative player UI.
+Godot 4 is the production game client.
 
-React owns:
+Godot owns:
 
-- routing and server-loaded projections;
-- scene HUD and narrative DOM;
-- Hero;
-- Journal/quests/factions/Codex;
-- free-intent input;
-- accessible dialogs/menus/settings;
-- workflow state, recovery and audit presentation.
+- native desktop presentation;
+- world/exploration maps;
+- tactical battle maps;
+- cameras, sprites, animation, VFX and audio;
+- Hero/inventory/journal/Codex game UI;
+- dialogue and free-intent player input;
+- deterministic-result dice animation;
+- keyboard/mouse/controller input;
+- local visual previews and reconciliation.
 
-### 2D game spaces
+Use current `TileMapLayer` / `TileSet` APIs, not deprecated `TileMap` architecture.
 
-Use Phaser 4 behind an internal renderer port for interactive map/encounter canvas surfaces if the GFR-03 spike passes.
+### Server authority
 
-Phaser must not:
+The existing server-side architecture remains canonical and must be preserved/refactored rather than replaced by Godot.
 
-- own canonical campaign state;
-- roll authoritative dice;
-- resolve movement/combat rules;
-- reconstruct hidden truth;
-- bypass generated contracts;
-- become required for semantic/accessibility information.
+The server alone owns:
 
-Use a client-only/dynamic boundary appropriate for Next.js. Destroy renderer instances correctly on unmount/navigation/HMR.
+- world and campaign truth;
+- existence and state of world objects;
+- player/NPC stats and inventory;
+- private NPC knowledge/motives;
+- deterministic dice/rules;
+- action legality;
+- XP and progression;
+- injuries/death;
+- Ledger Time;
+- factions/relationships;
+- autonomous simulation;
+- persistence, snapshots and replay;
+- ordered canonical events;
+- AI interpretation constraints.
 
-### Tactical hex geometry
+Godot must never become a second game authority.
 
-Use `honeycomb-grid` only if the hex encounter prototype is selected and passes the spike.
+## Grounded free-intent pipeline
 
-Server/domain code remains authoritative for legal movement, targeting, range and path cost. Client geometry may preview only.
+Every free-text attempt must execute through this order:
 
-### Dice
+1. resolve referenced nouns/actions against the player's current knowledge-safe projection;
+2. bind references to stable authoritative entity IDs;
+3. reject or clarify unresolved/materially ambiguous references;
+4. validate actor capabilities and world physics/rules;
+5. construct the mechanical action;
+6. disclose player-knowable stakes where appropriate;
+7. commit once;
+8. resolve deterministically server-side;
+9. append canonical events;
+10. project the result back to Godot;
+11. animate the committed result.
 
-Authoritative rules resolve first.
+Example:
 
-Visual dice receive predetermined outcomes and render theater only. Prefer the documented predetermined-result capability of `@3d-dice/dice-box-threejs` for the spike, behind `DiceTheaterPort`.
+> "I lift that stone table and use it as cover."
 
-Provide reduced-motion/skip path with identical result.
+This is legal to interpret only if a visible/known projected object matching the table exists. Its mass, material, tile, condition and interaction tags inform the action. The AI must not invent a table or rewrite its properties.
 
-### Audio
+## Spatial and object model
 
-Use Howler behind `GameAudioPort` only when GFR-10 begins. Audio may reinforce but never be the sole carrier of gameplay information.
+Interactive map art is not merely decorative.
 
-## Mechanics direction
+Every meaningful interactable object rendered in the world should correspond to a stable projected entity or authoritative terrain feature when practical.
 
-Do not blindly rewrite the engine into D&D.
+Objects may expose tags and properties such as:
 
-Create a deliberate **5E-familiar presentation/compatibility layer** first.
+- liftable / pushable / breakable;
+- cover;
+- flammable;
+- climbable;
+- container;
+- door/window/barrier;
+- hazard source;
+- weight/size/material;
+- durability/condition;
+- ownership/faction;
+- tile/transform.
 
-Prefer familiar concepts where they reduce learning cost:
+Do not expose hidden properties the viewpoint is not permitted to know.
 
-- d20 + modifier vs DC/defense;
-- ability checks;
-- saving throws;
-- HP;
-- AC/defense;
-- initiative;
-- advantage/disadvantage;
-- training/proficiency;
-- damage dice;
+## Tactical target
+
+Build toward Battle Brothers-level tactical significance while preserving Mythic free intent:
+
+- discrete positions;
+- movement costs;
+- terrain/elevation;
+- cover and line of sight;
+- engagement/zones of control;
+- environmental hazards;
+- manipulable/destructible objects;
+- ranged/melee distinction;
+- area effects;
 - conditions;
-- critical hits.
+- environmental Stunts;
+- persistent injuries and consequences.
 
-Preserve Mythic systems that differentiate the game, including Ledger Time, Fate, Mantles, morality/reputation, Stunts, mythic progression and persistent consequence.
+Traditional action controls should make common actions fast. Free text should allow creative use of real scene state that was not explicitly represented by a button.
 
-Any SRD-derived content must be recorded in the rules-source manifest and attributed under the current SRD license. Do not import non-SRD D&D setting/product identity.
+## Drowned Archive proof
 
-## Visual/game-feel requirements
+The native slice must demonstrate at minimum:
 
-### Play
+- a real 2D map/scene in Godot;
+- authoritative projected objects;
+- concise worldbuilding and dialogue;
+- a visible NPC interaction;
+- one exploratory check;
+- deterministic dice theater;
+- Hero/inventory presentation;
+- one tactical encounter;
+- movement/positioning;
+- one standard combat action;
+- one creative free-intent environmental action grounded to an actual map object;
+- one impossible or unavailable action correctly rejected without fabrication;
+- XP/reward/progression feedback;
+- a persistent visible world consequence;
+- save/resume against server authority.
 
-Play must be a game scene, not a dashboard containing a scene card.
+## Toolchain migration
 
-The player should move naturally among context-sensitive modes:
+Do not continue Phaser as the production game renderer. Remove or archive Phaser-specific implementation plans where they conflict with this decision.
 
-- World Map;
-- Scene;
-- Encounter.
+Retain Next.js/React only for existing backend/server capabilities, development/admin utilities or transitional tooling where useful. The production player experience is Godot-native.
 
-Scene/world art receives dominant visual weight. Status information is compact and contextual.
+Prefer GDScript unless a specific module has a documented engineering reason to use another supported Godot language. Keep authoritative domain/rules services outside the client.
 
-### Hero
+## Verification
 
-Must look like an RPG character screen at first glance.
+The slice is not complete merely because it launches.
 
-Minimum visible grammar:
+Verify:
 
-- portrait;
-- level and XP;
-- HP and AC/defense;
-- abilities/skills;
-- powers/actions;
-- equipment/inventory;
-- conditions;
-- Fate/Mythic resource;
-- progression.
-
-### World
-
-Must feel spatial and alive.
-
-The map should visibly represent player-knowable state and at least one consequence in the vertical slice. Journal, quests/leads, factions and Codex are supporting world views rather than SaaS modules.
-
-### Encounter
-
-Build one small tactical proof encounter, not a complete combat platform.
-
-It must support:
-
-- movement/position;
-- initiative;
-- standard attack/action;
-- damage/condition feedback;
-- one power;
-- one environmental object/hazard;
-- one free-form creative action that changes real encounter state.
-
-### Dice
-
-Expose enough mechanics to create excitement.
-
-Routine rolls: compact.  
-High-stakes rolls/criticals: theatrical.  
-Advanced engine detail: optional disclosure/audit.
-
-## Content requirements
-
-Rewrite Drowned Archive player-facing content using `00_SOURCE_OF_TRUTH.md`.
-
-Do not preserve verbose copy merely because it is already in fixtures.
-
-Target:
-
-- short concrete narration;
-- characterful dialogue;
-- visible pressure;
-- environmental worldbuilding;
-- optional Codex depth;
-- little or no implementation terminology;
-- no lore dump before the player has reason to care.
-
-The first minute should establish place, person, pressure and agency.
-
-## Tutorial requirements
-
-Teach by play.
-
-No manual-like modal sequence.
-
-Tutorial should progressively demonstrate:
-
-- inspect;
-- first d20 check;
-- optional modifier explanation;
-- Hero screen;
-- unrestricted conversation;
-- persistent consequence;
-- map interaction;
-- tactical encounter;
-- creative free-form action;
-- XP/loot/progression;
-- changed world state.
-
-Guidance fades as the player demonstrates competence.
-
-## Asset requirements
-
-Before importing third-party assets:
-
-- create/activate `content/assets/asset-manifest.json` from the example;
-- record source URL, author, license, status and local root;
-- keep prototype assets separate from production assets;
-- do not ingest random untracked web images;
-- prefer CC0 prototype packs for the first slice;
-- use Game-icons only with per-item attribution metadata unless explicitly CC0.
-
-Prototype asset candidates and licensing are listed in `01_TOOLCHAIN_ASSETS_AND_LICENSES.md`.
-
-Do not allow prototype pixel art to silently become the final art direction. Use it to prove layout/gameplay, then replace/art-direct intentionally.
-
-## Testing requirements
-
-Preserve all existing authoritative tests and add the GFR-14 gates.
-
-Critical proof journeys:
-
-1. new player starts Drowned Archive and acts within 90 seconds;
-2. player submits free intent not present in suggestions;
-3. visible deterministic d20 result matches authoritative resolution;
-4. Hero reflects real stats/equipment/condition state;
-5. player navigates/inspects map;
-6. player completes tactical encounter;
-7. player performs creative free-form tactical action;
-8. player gains explicit reward/progression feedback;
-9. world/NPC consequence becomes visible;
-10. refresh/reconnect preserves state;
-11. reduced-motion and keyboard paths remain playable;
-12. missing art does not make the game unusable;
-13. no hidden truth leaks into public projections or canvas data.
+- server remains authoritative;
+- no client-side canonical mutation;
+- deterministic replay parity;
+- entity grounding for free intent;
+- no hallucinated world-object creation;
+- hidden-truth isolation;
+- movement/range/LOS revalidated server-side;
+- reconnect/save/resume consistency;
+- keyboard/mouse usability;
+- controller viability for primary gameplay;
+- native desktop packaging;
+- representative performance on the target desktop profile;
+- visual acceptance: without branding, the product is immediately perceived as a native 2D RPG.
 
 ## Stop conditions
 
-Stop and report instead of guessing only if:
+Stop and surface a blocking issue only when:
 
-- implementing a requested rule would require unlicensed/proprietary content outside approved sources;
-- a contract/Constitution invariant truly conflicts with the new game-first product direction and cannot be satisfied by presentation/adapters;
-- a dependency cannot meet deterministic/accessibility/security boundaries;
-- a required migration would destroy unrelated user work;
-- a production/public-release authorization would be required.
+- a required contract cannot represent the native client/game-object model without a product decision;
+- a third-party dependency has incompatible licensing;
+- a Godot limitation materially blocks the native target;
+- preserving authority would require client-side canon ownership;
+- a required user decision cannot responsibly be inferred from the approved direction.
 
-Otherwise choose the most conservative implementation consistent with this packet and continue.
-
-## Completion report
-
-At the end, provide:
-
-- commits/branch and changed-file summary;
-- dependencies added with exact versions/licenses;
-- asset packs/items imported with manifest status;
-- before/after route/surface summary;
-- implemented 5E-familiar mappings vs unchanged Mythic mechanics;
-- test results;
-- screenshots/evidence for Play, Hero, World Map, Encounter and dice theater;
-- unresolved human art/usability/canon/licensing gates;
-- explicit statement whether the slice passes the unbranded **"looks like an RPG"** test;
-- remaining work intentionally deferred until after playtest.
-
-Do not claim production readiness merely because automated tests pass.
+Otherwise make the best implementation choice, record it, test it, and continue.
